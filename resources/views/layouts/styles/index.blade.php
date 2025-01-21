@@ -1,0 +1,4 @@
+@include('layouts.styles.general')
+@include('layouts.styles.fonts')
+@include('layouts.styles.colors')
+@include('layouts.styles.buttons')

@@ -1,0 +1,5 @@
+@include('home.scripts.steps')
+@include('home.scripts.extras')
+@include('home.scripts.products-infinite')
+@include('home.scripts.testimonials')
+@include('home.scripts.clients')

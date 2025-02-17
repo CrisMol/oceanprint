@@ -1,15 +1,27 @@
 <style>
+    .row-subheading {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .row-subheading .description {
+        max-width: 600px;
+        text-align: end;
+    }
+
     .content.categories {
         padding: 5rem 0;
         position: relative;
-        display: flex;
-        justify-content: center;
-        align-content: center;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
     }
 
     .content.categories .glass {
         position: relative;
-        width: 250px;
+        max-width: 250px;
         height: 300px;
         background: radial-gradient(
             circle, 
@@ -27,11 +39,6 @@
         margin: 0 5px;
         transform: rotate(calc(var(--r) * 1deg));
         overflow: hidden;
-    }
-
-    .content.categories .glass:hover {
-        width: 450px;
-        height: 350px;
     }
 
     .content.categories:hover .glass {
@@ -71,19 +78,21 @@
         background: rgba(255,255,255,0.05);
         display: flex;
         justify-content: center;
-        align-content: center;
+        text-align: center;
         color: var(--soft-pink);
         transition: 0.5s;
     }
 
     .content.categories .glass:hover::before {
+        height: 100%;
         top: 20px;
-        font-size: 1.85rem;
+        font-size: clamp(1.3rem, 1.5vw, 1.85rem);
         text-transform: uppercase;
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(100deg, #eb9191, #5a5ae1 34%, #e66464 69%, #c8eb87);
         -webkit-background-clip: text;
         background-clip: text;
+        text-align: center;
     }
 
     .content.categories .contentGlass {
@@ -95,40 +104,79 @@
         transition: 0.3s;
     }
 
+    .content.categories:hover .contentGlass {
+        padding: 1rem;
+    }
+
     .content.categories .container-image {
-        position: absolute;
+        position: relative;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         transition: 0.5s;
-    }
-
-    .content.categories .glass:hover .container-image {
-        left: 100px;
+        text-align: center;
     }
 
     .content.categories .contentGlass .container-image img {
-        transition: 0.5s;
+        height: auto;
+        aspect-radio: 1/1;
         filter: invert(60%) sepia(40%) saturate(5000%) hue-rotate(310deg) brightness(94%) contrast(95%);
+        opacity: 1;
+        transition: 0.5s;
     }
 
     .content.categories .glass:hover .container-image img {
+        width: 100px;
+        opacity: 0;
         filter: invert(50%) sepia(30%) saturate(4500%) hue-rotate(210deg) brightness(90%) contrast(105%);
     }
 
     .content.categories .contentGlass .container-text {
-        position: absolute;
-        right: 20px;
-        bottom: -100%;
+        position: relative;
+        opacity: 0;
         transition: 0.5s;
-        text-align: end;
+        text-align: center;
     }
 
     .content.categories .contentGlass .container-text ul li {
-        padding: 0.335rem 0;
+        padding: 0.18rem 0;
     }
 
     .content.categories .glass:hover .container-text {
-        bottom: 105px;
+        opacity: 1;
+        top: -10px;
+    }
+
+    .content.categories .glass .container-button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -100px;
+        transition: 0.5s;
+    }
+
+    .content.categories .glass:hover .container-button {
+        bottom: 20px;
+    }
+
+    @media (max-width: 1280px) {
+        .content.categories {
+            grid-template-columns: repeat(3, 1fr); 
+            grid-auto-rows: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .content.categories {
+            grid-template-columns: repeat(1, 1fr);
+            padding: 2rem 0;
+        }
+
+        .content.categories .glass {
+            transform: rotate(0deg);
+            max-width: 300px;
+            min-width: 300px;
+            margin: auto;
+        }
     }
 </style>

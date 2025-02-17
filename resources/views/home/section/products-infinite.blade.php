@@ -2,7 +2,7 @@
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -22,16 +22,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/carnet-veterinario-nilos-pet-OceanPrint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -51,16 +49,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -80,16 +76,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/carnet-veterinario-nilos-pet-OceanPrint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -109,16 +103,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -138,16 +130,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/carnet-veterinario-nilos-pet-OceanPrint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -167,16 +157,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -196,9 +184,7 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
@@ -206,7 +192,7 @@
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -226,16 +212,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/carnet-veterinario-nilos-pet-OceanPrint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -255,16 +239,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -284,16 +266,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/carnet-veterinario-nilos-pet-OceanPrint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -313,16 +293,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -342,16 +320,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/carnet-veterinario-nilos-pet-OceanPrint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -371,16 +347,14 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 
     <div class="products__item">
         <div class="products__image-container">
             <img
-                src="http://localhost/oceanprint.ec/wp-content/uploads/2024/07/agenda-personalizada-con-marca-meri-color-morado-Oceanprint.jpg"
+                src="{{ asset('images/products/fundas-plasticas.png') }}"
                 alt=""
                 class="products__image"
             />
@@ -400,9 +374,7 @@
                     Grafado y doblado
                 </p>
             </div>
-            <div class="products__price">
-                <span class="price">$0,25 ctv c/u</span>
-            </div>
+            
         </div>
     </div>
 </div>

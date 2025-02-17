@@ -12,7 +12,7 @@
         display: flex;
         width: calc(
         var(--width) * var(--imageQuantity) * 2
-        ); /* Double the width for seamless looping */
+        ); 
         height: var(--height);
         gap: calc(var(--width) / 8);
         animation: autoScroll 20s linear infinite;
@@ -29,12 +29,9 @@
         display: flex;
         flex-direction: column;
         cursor: pointer;
-            background-color: #FFFFFF;
-    }
-
-    .products__image-container {
-        width: var(--width);
-        height: 300px;
+        background-color: var(--random-color);
+        border-radius: var(--border-radius);
+        padding: 1rem;
     }
     
     .products__item img {
@@ -54,10 +51,13 @@
     
     .products:hover .products__item img {
         filter: grayscale(1);
+        transform: translateY(0) rotate(0deg);
+        transition: 0.5s;
     }
     
     .products .products__item:hover img {
         filter: grayscale(0);
+        transform: translateY(-25px) rotate(-10deg);
     }
 
     .products__content {
@@ -66,29 +66,31 @@
         justify-content: space-around;
         padding: 0.55rem;
         height: 100%;
+        color: #fff;
     }
 
     .products__content .products__title h4 {
         position: relative;
         text-transform: uppercase;
         white-space: 2px;
-        font-size: 13px;
-            margin: 0;
-            transition: 0.5s;
+        font-size: clamp(12px, 1vw, 16px);
+        margin: 0;
+        transition: 0.5s;
     }
 
     .products__content .products__description {
-        color: rgba(0,0,0,0.5);
+        color: rgb(255, 255, 255);
     }
 
     .products__content .products__description p {
         margin: 0;
         transition: 0.5s;
+        color: #fff;
     }
 
-  .products__content .products__price .price {
-    font-weight: 900;
-    font-size: 16px;
-		transition: 0.5s;
-  }
+    .products__content .products__price .price {
+        font-weight: 900;
+        font-size: 16px;
+            transition: 0.5s;
+    }
 </style>

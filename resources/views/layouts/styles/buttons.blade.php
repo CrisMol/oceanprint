@@ -17,11 +17,6 @@
         z-index: 1;
     }
 
-    .button-circle-arrow-right .button-text {
-        position: relative;
-        z-index: 2;
-    }
-
     .button-circle-arrow-right .button-icon {
         display: inline-flex;
         align-items: center;
@@ -46,7 +41,25 @@
         transition: border-color 0.3s ease;
     }
 
-    /* El cuadrado inicial */
+    .button-circle-arrow-right.soft-pink {
+        color: #fff;
+        background-color: var(--soft-pink);
+    }
+
+    .button-circle-arrow-right .button-text {
+        position: relative;
+        z-index: 2;
+    }
+
+    .button-circle-arrow-right .button-icon.soft-pink {
+        background-color: var(--energetic-pink);
+    }
+
+    .button-circle-arrow-right .button-icon.soft-pink::after {
+        border-right: 2px solid #fff;
+        border-top: 2px solid #fff;
+    }
+
     .button-circle-arrow-right::before {
         content: '';
         position: absolute;
@@ -59,6 +72,10 @@
         z-index: 1;
         transition: all 0.5s ease;
         transform: scale(0);
+    }
+
+    .button-circle-arrow-right.soft-pink::before {
+        background-color: var(--energetic-pink);
     }
 
     .button-circle-arrow-right:hover::before {
@@ -74,7 +91,29 @@
         background-color: var(--black-blue);
     }
 
+    .button-circle-arrow-right.soft-pink:hover .button-icon {
+        background-color: var(--black-energetic-pink);
+    }
+
     .button-circle-arrow-right:hover .button-icon::after {
         border-color: #fff;
+    }
+
+    .button-primary {
+        background-color: transparent;
+        padding: 1em 3em;
+        border: 1px solid #fff;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.45rem;
+        cursor: pointer;
+        transition: 0.3s all;
+    }
+
+    .button-primary.blue-light:hover {
+        background: var(--bright-blue);
+        color: #fff;
+        border: none;
+        border: 1px solid var(--bright-blue);
     }
 </style>

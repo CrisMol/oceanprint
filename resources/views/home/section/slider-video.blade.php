@@ -14,5 +14,8 @@
         <p class="color-white text-center">
             La única imprenta que hace realidad tus sueños
         </p>
+        <button type="button" class="button-primary blue-light">
+            <span class="button-text">Cotizar</span>
+        </button>
     </div>
 </div>

@@ -47,6 +47,11 @@
         -webkit-text-stroke: 1px #fff;
     }
 
+    .container-slider-video .content button {
+        margin: 2em auto;
+        display: block;
+    }
+
     .container-slider-video .content .title-container .title-ocean-2 {
         color: #05AFF2;
         animation: animate 10s ease-in-out infinite;

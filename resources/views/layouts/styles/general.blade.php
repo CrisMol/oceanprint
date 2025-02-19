@@ -3,7 +3,7 @@
         --bright-blue: #05AFF2; /* Azul Brillante */
         --bright-pastel-blue: #def6ff; /* Azul Brillante */
         --bright-crem-blue: #6EC1E4;
-        --black-blue: #0688bb; /* Azul Brillante */
+        --black-blue: #0688bb; /* Azul Brillante Oscuro */
         --deep-black: #0D0D0D; /* Negro Profundo */
         --warm-black: #262626; /*Negro cálido*/
         --neutral-gray: #414141; /*Gris neutro*/
@@ -34,7 +34,7 @@
     }
 
     p {
-        color: var(--neutral-gray);
+        color: var(--warm-gray);
         line-height: 1.5em;
     }
 
@@ -116,6 +116,22 @@
     .scroll-reveal-text p span {
         animation-range-start: cover 15vh;
         animation-range-end: cover 77vh;
+    }
+
+    /**
+    * Gradientes
+    **/
+    .text-gradient {
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient.energetic-pink {
+        background-image: linear-gradient(100deg, var(--black-energetic-pink), var(--energetic-pink) 34%, var(--energetic-pink) 69%, var(--black-energetic-pink));
+    }
+
+    .text-gradient.soft-pink {
+        background-image: linear-gradient(100deg, #f859b1, var(--soft-pink) 34%, var(--soft-pink) 69%, #f859b1);
     }
 
     @keyframes scroll-reveal {

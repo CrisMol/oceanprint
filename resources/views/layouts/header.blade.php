@@ -212,7 +212,7 @@
                 <a href="/">Inicio</a>
             </li>
             <li>
-                <a href="/nosotros">Nosotros</a>
+                <a href="{{ route('about-us') }}">Nosotros</a>
             </li>
             <li>
                 <a href="/servicios">Servicios</a>

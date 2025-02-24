@@ -6,11 +6,11 @@
 
 @section('content')
     <main class="">
-        <section>
+        <section id="presentation" data-menu-navigation="Leyenda">
             @include('home.section.slider-video')
         </section>
 
-        <section class="container container-categories">
+        <section class="container container-categories" id="services" data-menu-navigation="Servicios">
             <x-sub-heading-row 
                 title="Principales" 
                 subtitle="Servicios" 
@@ -21,7 +21,7 @@
             @include('home.section.extras')
         </section>
 
-        <section class="container container-featured">
+        <section class="container container-featured" id="featured" data-menu-navigation="Destacados">
             <x-sub-heading-row 
                 title="Productos" 
                 subtitle="Destacados" 
@@ -33,7 +33,7 @@
             @include('home.section.products-infinite')
         </section>
 
-        <section class="container container-steps" id="steps">
+        <section class="container container-steps" id="steps" data-menu-navigation="Proceso">
             <div class="row-subheading-center text-center">
                 <h2>
                     Nuestro proceso
@@ -42,11 +42,11 @@
             @include('home.section.steps')
         </section>
 
-        <section class="container container-brands" id="brands">
+        <section class="container container-brands" id="brands" data-menu-navigation="Marcas">
             @include('home.section.brands')
         </section>
 
-        <section class="container container-kits" id="kits">
+        <section class="container container-kits" id="kits" data-menu-navigation="Kits">
             <x-sub-heading-row 
                 title="Kits" 
                 subtitle="Profesionales" 
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <section class="container container-testimonials" id="testimonials">
+        <section class="container container-testimonials" id="testimonials" data-menu-navigation="¿Porqué Nosotros?">
             @include('home.section.testimonials')
         </section>
     </main>

@@ -2,7 +2,7 @@
     .row-subheading {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
 

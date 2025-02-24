@@ -6,7 +6,7 @@
 
 @section('content')
     <main class="">
-        <section class="container container-presentation">
+        <section class="container container-presentation" id="presentation" data-menu-navigation="Leyenda">
             <div class="containerPresentationText">
                 <h1 class="text-center text-gradient energetic-pink">
                     Nosotros
@@ -26,7 +26,7 @@
             </div>
         </section>
 
-        <section class="container container-advantages">
+        <section class="container container-advantages" id="advantages" data-menu-navigation="Ofrecemos">
             <div class="containerAdvantagesColumns">
                 <div class="column">
                     <div class="containerTitleAdvantages">
@@ -55,6 +55,61 @@
                             <li>Impresiones de máxima calidad</li>
                             <li>Envíos a todo el Ecuador</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container container-numbers" id="container-numbers" data-menu-navigation="Nuestros números">
+            <div class="containerTitle text-center">
+                <h3>
+                    Los mejores <span class="text-gradient bright-light">precios y servicios</span>
+                </h3>
+            </div>
+            <div class="containerNumbersCards">
+                <div class="cardNumber">
+                    <div class="number">
+                        <span>
+                            +
+                        </span>
+                        <span class="digit">
+                            1500
+                        </span>
+                    </div>
+                    <div class="text">
+                        <p>
+                            Ayúdamos a mas de 1500 negocios en todo el Ecuador
+                        </p>
+                    </div>
+                </div>
+                <div class="cardNumber">
+                    <div class="number">
+                        <span>
+                            +
+                        </span>
+                        <span class="digit">
+                            2600
+                        </span>
+                    </div>
+                    <div class="text">
+                        <p>
+                            Más de 2600 proyectos completados
+                        </p>
+                    </div>
+                </div>
+                <div class="cardNumber">
+                    <div class="number">
+                        <span class="digit">
+                            95
+                        </span>
+                        <span>
+                            %
+                        </span>
+                    </div>
+                    <div class="text">
+                        <p>
+                            Cobertura en más de 95% del territorio Ecuatoriano
+                        </p>
                     </div>
                 </div>
             </div>

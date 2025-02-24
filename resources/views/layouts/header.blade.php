@@ -1,7 +1,7 @@
 <style>
     /* Estilos generales para el header */
     header {
-        position: fixed;
+        position: absolute;
         width: 100%;
         top: 0;
         transition: 0.3s all;
@@ -227,7 +227,7 @@
                 <a href="/productos">Productos</a>
             </li>
             <li>
-                <a href="/contacto">Contacto</a>
+                <a href="{{ route('contact') }}">Contacto</a>
             </li>
             <li>
                 <a class="icon-header" href="/buscar" aria-label="Buscar">

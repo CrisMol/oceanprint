@@ -97,6 +97,79 @@
         font-size: 1.2rem;
     }
 
+    /**
+    * Menu seccion
+    */
+    .containerNavigationPage {
+        position: fixed;
+        bottom: 30px;
+        right: 18px;
+        z-index: 5;
+        padding: 0.28rem 0.57rem;
+        border-radius: var(--border-radius);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #f403d1, #64b5f6);
+    }
+
+    .containerNavigationPage .menuNavigationPage {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 60px;
+        left: 0;
+        padding: 0.65rem;
+        border-radius: var(--border-radius);
+        background: linear-gradient(135deg, #f403d1, #64b5f6);
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: 0.5s;
+    }
+
+    .menuNavigationPage.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .containerNavigationPage .navigationPageIcon.navigationHome img {
+        position: relative;
+        width: 30px;
+        height: 29px;
+        cursor: pointer;
+    }
+
+    .containerNavigationPage .navigationPageIcon.navigationPage svg {
+        position: relative;
+        width: 21px;
+        height: 21px;
+        cursor: pointer;
+    }
+
+    .containerNavigationPage .navigationPageIcon.whatsapp img {
+        position: relative;
+        width: 38px;
+        height: 38px;
+        cursor: pointer;
+    }
+
+    .containerNavigationPage .menuNavigationPage ul li {
+        padding: 0.189rem 0;
+    }
+
+    .containerNavigationPage .menuNavigationPage ul li a {
+        font-size: 0.768rem;
+        text-transform: uppercase;
+        transition: 0.3s;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .containerNavigationPage .menuNavigationPage ul li a:hover {
+        color: var(--energetic-pink);
+    }
+
     /* Diseño responsivo para móviles */
     @media (max-width: 768px) {
         .container-form-columns {
@@ -134,6 +207,47 @@
         }
     }
 </style>
+
+<div class="containerNavigationPage">
+    <div class="navigationPageIcon navigationHome">
+        <a href="{{ route('home') }}">
+            <img
+                class="icon-home" 
+                src="{{ asset('images/iconos/home.svg') }}" 
+                alt="Icono de Whatsapp"
+            >
+        </a>                         
+    </div>
+    <div class="navigationPageIcon navigationPage">
+        <svg width="38" height="38" viewBox="8 8 32 32" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cuerpo de la libreta -->
+            <rect x="12" y="10" width="24" height="30" rx="3" stroke="#fff" stroke-width="2" fill="none"/>
+            
+            <!-- Anillos de la libreta -->
+            <circle cx="12" cy="14" r="2" fill="#fff"/>
+            <circle cx="12" cy="22" r="2" fill="#fff"/>
+            <circle cx="12" cy="30" r="2" fill="#fff"/>
+            <circle cx="12" cy="38" r="2" fill="#fff"/>
+            
+            <!-- Líneas tipo menú dentro de la libreta -->
+            <line x1="18" y1="18" x2="30" y2="18" stroke="#fff" stroke-width="2"/>
+            <line x1="18" y1="24" x2="30" y2="24" stroke="#fff" stroke-width="2"/>
+            <line x1="18" y1="30" x2="30" y2="30" stroke="#fff" stroke-width="2"/>
+        </svg>             
+    </div>
+    <div class="navigationPageIcon whatsapp">
+        <img
+            class="icon-whatsapp" 
+            src="{{ asset('images/logo/whatsapp.png') }}" 
+            alt="Icono de Whatsapp"
+        >
+    </div>
+    <div class="menuNavigationPage">
+        <ul>
+            
+        </ul>
+    </div>  
+</div>
 
 <footer class="footer">
     <div class="container-logo-footer-animated">
@@ -214,7 +328,7 @@
 </footer>
 
 <script>
-    const textfooterAnimated = document.querySelector('.text p');
+    const textfooterAnimated = document.querySelector('.circle-logo-footer-animate .text p');
     textfooterAnimated.innerHTML = textfooterAnimated.innerText.split("").map(
             (char, i) => 
             `<span style="transform:rotate(${(i) * 8.2}deg)">${char}</span>`
@@ -229,5 +343,48 @@
                 parent.classList.toggle("active");
             });
         });
+
+        /**
+         * Submenu de secciones
+         * 
+        */
+        generarMenuDesdeSecciones();
+
+        const navigationIcon = document.querySelector(".navigationPage");
+        const menuNavigationPage = document.querySelector(".menuNavigationPage");
+
+        navigationIcon.addEventListener("click", function (event) {
+            menuNavigationPage.classList.toggle("active");
+            event.stopPropagation();
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!menuNavigationPage.contains(event.target)) {
+                menuNavigationPage.classList.remove("active");
+            }
+        });
     });
+
+    function generarMenuDesdeSecciones() {
+        const menuUl = document.querySelector(".menuNavigationPage ul");
+        if (!menuUl) return; // Evita errores si no existe el menú
+
+        // Seleccionar todas las secciones de la página
+        const sections = document.querySelectorAll("section");
+
+        sections.forEach(section => {
+            const sectionId = section.id; // ID de la sección
+            const menuText = section.getAttribute("data-menu-navigation"); // Texto del menú
+
+            // Verificar que tiene id y data-menu-navigation antes de agregarlo
+            if (sectionId && menuText) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = `#${sectionId}`;
+                a.textContent = menuText;
+                li.appendChild(a);
+                menuUl.appendChild(li);
+            }
+        });
+    }
 </script>

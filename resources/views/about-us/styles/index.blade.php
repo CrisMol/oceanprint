@@ -44,6 +44,7 @@
     }
 
     .container-advantages .containerImageAdvantages img {
+        width: 100%;
         height: auto;
         object-fit: cover;
         aspect-ratio: 16/9;
@@ -81,5 +82,53 @@
         left: 0;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    /**
+     * Números
+    */
+    .containerNumbersCards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        text-align: center;
+        padding: min(5vw, 5rem);
+    }
+
+    .cardNumber {
+        background: var(--bright-pastel-blue);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .cardNumber:hover {
+        transform: translateY(-5px);
+    }
+
+    .number span {
+        font-size: 3rem;
+        font-weight: bold;
+        color: var(--energetic-pink);
+    }
+
+    /* Responsividad */
+    @media (max-width: 1024px) {
+        .containerNumbersCards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .containerNumbersCards {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Animación del contador */
+    @keyframes countUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>

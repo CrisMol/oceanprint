@@ -47,6 +47,10 @@
         max-width: 100%;
     }
 
+    textarea {
+        resize: none;
+    }
+
     .container {
         padding: min(5rem, 5vw);
         position: relative;
@@ -124,6 +128,10 @@
     .text-gradient {
         -webkit-text-fill-color: transparent;
         background-clip: text;
+    }
+
+    .text-gradient.bright-light {
+        background-image: linear-gradient(100deg, var(--black-blue), var(--bright-blue) 34%, var(--bright-blue) 69%, var(--black-blue));
     }
 
     .text-gradient.energetic-pink {

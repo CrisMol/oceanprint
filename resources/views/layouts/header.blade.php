@@ -1,7 +1,7 @@
 <style>
     /* Estilos generales para el header */
     header {
-        position: absolute;
+        position: fixed;
         width: 100%;
         top: 0;
         transition: 0.3s all;
@@ -21,6 +21,10 @@
 
     header li a { 
         color: #fff;
+    }
+
+    header .submenu li a {
+        color: var(--neutral-gray);
     }
 
     .menu-navegation .menu-categories {
@@ -185,7 +189,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 1000;
+            z-index: -1;
         }
 
         .overlay.active {

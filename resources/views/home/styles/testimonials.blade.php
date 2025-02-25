@@ -7,7 +7,6 @@
         position: relative;
         width: 100%;
         height: 100vh;
-        overflow: hidden;
         display: flex;
         gap: 1rem;
         flex-direction: column;
@@ -64,9 +63,9 @@
 
     .image-testimonial.woman {
         position: absolute;
-        bottom: 0;
-        width: 150px;
-        height: 150px;
+        bottom: -20px;
+        width: 15vw;
+        height: 30vh;
         border-radius: var(--border-radius);
         overflow: hidden;
         transform: rotate(19deg);
@@ -91,5 +90,14 @@
             margin: 10px auto;
             transform: none;
         }
+
+        .card-testimonial:nth-child(2),
+        .card-testimonial:nth-child(3),
+        .image-testimonial.woman {
+            display: none;
+        }
+
+        .card-testimonial:nth-child(1) { top: 0; left: 5%; --rotate: -5deg; }
+        .card-testimonial:nth-child(4) { bottom: -20px; right: 5%; --rotate: 4deg; }
     }
 </style>

@@ -113,6 +113,17 @@
                 </div>
             </div>
         </section>
+
+        <section class="container container-faq" id="faq" data-menu-navigation="Preguntas frecuentes">
+            <div class="containerTitleFAQ text-center">
+                <h3>
+                    <span class="text-gradient energetic-pink">Preguntas</span> frecuentes
+                </h3>
+                <p>
+                    Confía en Oceanprint y haz que tus proyectos logren una impresión de calidad.
+                </p>
+            </div>
+        </section>
     </main>
 @endsection
 

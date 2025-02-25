@@ -206,4 +206,29 @@
         background-image: linear-gradient(100deg, #eb9191, #5a5ae1 34%, #e66464 69%, #c8eb87);
         -webkit-background-clip: text;
     }
+
+    @media (max-width: 768px) {
+        .container-presentation .containerPresentationText {
+            margin-top: 100px;
+        }
+
+        .container-form .containerFormContent,
+        .container-location .containerLocationContent {
+            grid-template-columns: 1fr;
+        }
+
+        .containerMap {
+            max-width: 100%;
+        }
+
+        .containerMap iframe {
+            width: 100%;
+        }
+
+        .containerTitleForm,
+        .containerTitle,
+        .contactInfo {
+            text-align: center;
+        }
+    }
 </style>

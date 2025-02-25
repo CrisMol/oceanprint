@@ -24,7 +24,7 @@
         left: 0;
         width: 220px;
         height: 220px;
-        background: url(http://localhost/oceanprint.ec/wp-content/uploads/2024/07/logo-oceanprint-500-x-500.png);
+        background: url({{ asset('images/logo/logo-oceanprint-500-x-500.png') }});
         background-size: contain;
         background-repeat: no-repeat;
         border-radius: 50%;
@@ -112,6 +112,14 @@
         align-items: center;
         gap: 8px;
         background: linear-gradient(135deg, #f403d1, #64b5f6);
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+
+    .containerNavigationPage.show {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .containerNavigationPage .menuNavigationPage {
@@ -167,7 +175,7 @@
     }
 
     .containerNavigationPage .menuNavigationPage ul li a:hover {
-        color: var(--energetic-pink);
+        color: var(--bright-crem-blue);
     }
 
     /* Diseño responsivo para móviles */
@@ -363,6 +371,18 @@
                 menuNavigationPage.classList.remove("active");
             }
         });
+
+        const navigation = document.querySelector(".containerNavigationPage");
+
+        function toggleNavigation() {
+            if (window.scrollY > 250) {
+                navigation.classList.add("show");
+            } else {
+                navigation.classList.remove("show");
+            }
+        }
+
+        window.addEventListener("scroll", toggleNavigation);
     });
 
     function generarMenuDesdeSecciones() {

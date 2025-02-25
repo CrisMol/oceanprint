@@ -124,6 +124,19 @@
         .containerNumbersCards {
             grid-template-columns: 1fr;
         }
+
+        .container-presentation .containerPresentationText {
+            margin-top: 100px;
+        }
+
+        .container-advantages .containerAdvantagesColumns {
+            grid-template-columns: 1fr;
+        }
+
+        .containerTitleAdvantages,
+        .containerTextAdvantages {
+            text-align: center;
+        }
     }
 
     /* Animación del contador */

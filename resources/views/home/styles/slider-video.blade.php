@@ -65,4 +65,10 @@
             clip-path: polygon(0 60%, 16% 65%, 35% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
         }
     }
+
+    @media (max-width: 600px) {
+        .container-slider-video .content {
+            top: 55%;
+        }
+    }
 </style>

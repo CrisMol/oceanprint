@@ -21,7 +21,7 @@
 
     .content.categories .glass {
         position: relative;
-        max-width: 250px;
+        max-width: 500px;
         height: 300px;
         background: radial-gradient(
             circle, 

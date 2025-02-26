@@ -207,6 +207,104 @@
         -webkit-background-clip: text;
     }
 
+    /**
+    * Preguntas frecuentes
+    */
+    .containerAccordionFAQ {
+        margin: 0 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        padding: 2rem 0;
+    }
+
+    .containerAccordionFAQ .tab {
+        position: relative;
+        padding: 0 0.85rem 0.85rem;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+    }
+
+    .containerAccordionFAQ .tab input {
+        appearance: none;
+    }
+
+    .containerAccordionFAQ .tab label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .containerAccordionFAQ .tab label::after {
+        content: '+';
+        position: absolute;
+        right: 20px;
+        font-size: 2em;
+        color: rgba(0, 0, 0, 0.1);
+        transition: transform 1s;
+    }
+
+    .containerAccordionFAQ .tab:hover label::after {
+        color: #333;
+    }
+
+    .containerAccordionFAQ .tab input:checked ~ label::after {
+        transform: rotate(135deg);
+    }
+
+    .containerAccordionFAQ .tab label h2 {
+        width: 40px;
+        height: 40px;
+        background: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 1.25em;
+        border-radius: var(--border-radius);
+        margin-right: 10px;
+    }
+
+    .containerAccordionFAQ .tab:nth-child(1) label h2 {
+        background: linear-gradient(135deg, #70f570, #49c628);
+    }
+
+    .containerAccordionFAQ .tab:nth-child(2) label h2 {
+        background: linear-gradient(135deg, #3c8ce7, #00eaff);
+    }
+
+    .containerAccordionFAQ .tab:nth-child(3) label h2 {
+        background: linear-gradient(135deg, #ff96f9, #c32bac);
+    }
+
+    .containerAccordionFAQ .tab:nth-child(4) label h2 {
+        background: linear-gradient(135deg, #fd6e6a, #ffc600);
+    }
+
+    .containerAccordionFAQ .tab label h3 {
+        position: relative;
+        font-weight: 500;
+        color: #333;
+        z-index: 10;
+    }
+
+    .containerAccordionFAQ .tab .contentFAQ {
+        max-height: 0;
+        transition: 1s;
+        overflow: hidden;
+    }
+
+    .containerAccordionFAQ .tab input:checked ~ .contentFAQ {
+        max-height: 100vh;
+    }
+
+    .containerAccordionFAQ .tab .contentFAQ p {
+        position: relative;
+        margin: 2rem 0;
+        z-index: 10;
+    }
+
     @media (max-width: 768px) {
         .container-presentation .containerPresentationText {
             margin-top: 100px;

@@ -123,6 +123,72 @@
                     Confía en Oceanprint y haz que tus proyectos logren una impresión de calidad.
                 </p>
             </div>
+            <div class="containerAccordionFAQ">
+                <div class="tab">
+                    <input type="radio" name="acc" id="acc1">
+                    <label for="acc1">
+                        <h2>
+                            01
+                        </h2>
+                        <h5>
+                            ¿Cómo hago un pedido?
+                        </h5>
+                    </label>
+                    <div class="contentFAQ">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                        </p>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="acc" id="acc2">
+                    <label for="acc2">
+                        <h2>
+                            02
+                        </h2>
+                        <h5>
+                            ¿Qué métodos de pago aceptan?
+                        </h5>
+                    </label>
+                    <div class="contentFAQ">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                        </p>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="acc" id="acc3">
+                    <label for="acc3">
+                        <h2>
+                            03
+                        </h2>
+                        <h5>
+                            ¿Cuál es su política de devolución?
+                        </h5>
+                    </label>
+                    <div class="contentFAQ">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                        </p>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="acc" id="acc4">
+                    <label for="acc4">
+                        <h2>
+                            04
+                        </h2>
+                        <h5>
+                            ¿Los diseños son personalizados?
+                        </h5>
+                    </label>
+                    <div class="contentFAQ">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 @endsection

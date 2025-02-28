@@ -26,7 +26,9 @@
 
     .card-testimonial {
         position: absolute;
-        width: 300px;
+        width: auto;
+        min-height: 100px;
+        max-height: 150px;
         padding: 15px;
         box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
         background: rgba(255, 255, 255, 0.1);
@@ -35,13 +37,18 @@
         transform: rotate(var(--rotate));
     }
 
-    .card-testimonial.large {
-        width: 400px;
-    }
-
     .text-testimonial p {
         margin: 0;
         color: rgba(0,0,0,1);
+        text-align: start;
+        font-size: 1.35rem;
+    }
+
+    .name-testimonial {
+        display: flex;
+        gap: 0.85rem;
+        align-items: center;
+        padding-top: 0.65rem;
     }
 
     .name-testimonial span {
@@ -50,9 +57,17 @@
 
     .name-testimonial span {
         display: block;
-        font-size: 0.8rem;
+        font-size: 1.15rem;
         font-weight: bold;
         margin-top: 8px;
+    }
+
+    .name-testimonial .containerImageTestimonial {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
     }
 
     .image-testimonial {

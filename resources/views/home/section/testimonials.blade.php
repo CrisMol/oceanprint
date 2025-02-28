@@ -4,6 +4,15 @@
             <p>Servicio confiable y rápido.</p>
         </div>
         <div class="name-testimonial">
+            <div class="containerImageTestimonial">
+                <img
+                    class="image-testimonial" 
+                    src="{{ asset('images/testimonios/mujer.jpg') }}" 
+                    alt="Mujer"
+                    width="50"
+                    height="50"
+                >
+            </div>
             <span>Ana y Pedro</span>
         </div>
     </div>
@@ -12,6 +21,15 @@
             <p>Calidad excepcional, muy recomendado.</p>
         </div>
         <div class="name-testimonial">
+            <div class="containerImageTestimonial">
+                <img
+                    class="image-testimonial" 
+                    src="{{ asset('images/testimonios/mujer.jpg') }}" 
+                    alt="Mujer"
+                    width="50"
+                    height="50"
+                >
+            </div>
             <span>María López</span>
         </div>
     </div>
@@ -20,6 +38,15 @@
             <p>Atención personalizada y eficiente.</p>
         </div>
         <div class="name-testimonial">
+            <div class="containerImageTestimonial">
+                <img
+                    class="image-testimonial" 
+                    src="{{ asset('images/testimonios/mujer.jpg') }}" 
+                    alt="Mujer"
+                    width="50"
+                    height="50"
+                >
+            </div>
             <span>Carlos Gutiérrez</span>
         </div>
     </div>
@@ -28,6 +55,15 @@
             <p>El mejor servicio que hemos recibido.</p>
         </div>
         <div class="name-testimonial">
+            <div class="containerImageTestimonial">
+                <img
+                    class="image-testimonial" 
+                    src="{{ asset('images/testimonios/mujer.jpg') }}" 
+                    alt="Mujer"
+                    width="50"
+                    height="50"
+                >
+            </div>
             <span>Familia Rodríguez</span>
         </div>
     </div>

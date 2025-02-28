@@ -35,7 +35,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        animation: rotateTextlogo-footer 10s linear infinite;
+        animation: rotateTextlogo-footer 20s linear infinite;
     }
 
     @keyframes rotateTextlogo-footer
@@ -48,6 +48,10 @@
         {
             transform: rotate(360deg);
         }
+    }
+
+    .circle-logo-footer-animate .logo-footer .text p {
+        font-size: 0.85rem;
     }
 
     .circle-logo-footer-animate .logo-footer .text span {

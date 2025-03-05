@@ -41,8 +41,8 @@
                 <div class="section-menu-left">
                     <div class="box-logo">
                         <a href="{{ route('admin.index') }}" id="site-logo-inner">
-                            <img class="" id="logo_header" alt="" src="images/logo/logo.png"
-                                data-light="images/logo/logo.png" data-dark="images/logo/logo.png">
+                            <img class="" id="logo_header" alt="" src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}"
+                                data-light="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" data-dark="{{ asset('images/logo/logo-oficial-oceanprint.png') }}">
                         </a>
                         <div class="button-show-hide">
                             <i class="icon-menu-left"></i>
@@ -55,7 +55,7 @@
                                 <li class="menu-item">
                                     <a href="{{ route('admin.index') }}" class="">
                                         <div class="icon"><i class="icon-grid"></i></div>
-                                        <div class="text">Dashboard</div>
+                                        <div class="text">Panel</div>
                                     </a>
                                 </li>
                             </ul>
@@ -65,17 +65,17 @@
                                 <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
                                         <div class="icon"><i class="icon-shopping-cart"></i></div>
-                                        <div class="text">Products</div>
+                                        <div class="text">Productos</div>
                                     </a>
                                     <ul class="sub-menu">
                                         <li class="sub-menu-item">
-                                            <a href="add-product.html" class="">
-                                                <div class="text">Add Product</div>
+                                            <a href="{{ route('admin.product.add') }}" class="">
+                                                <div class="text">Agregar producto</div>
                                             </a>
                                         </li>
                                         <li class="sub-menu-item">
-                                            <a href="products.html" class="">
-                                                <div class="text">Products</div>
+                                            <a href="{{ route('admin.products') }}" class="">
+                                                <div class="text">Productos</div>
                                             </a>
                                         </li>
                                     </ul>
@@ -83,17 +83,17 @@
                                 <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
                                         <div class="icon"><i class="icon-layers"></i></div>
-                                        <div class="text">Brand</div>
+                                        <div class="text">Marca</div>
                                     </a>
                                     <ul class="sub-menu">
                                         <li class="sub-menu-item">
-                                            <a href="add-brand.html" class="">
-                                                <div class="text">New Brand</div>
+                                            <a href="{{ route('admin.brand.add') }}" class="">
+                                                <div class="text">Nueva marca</div>
                                             </a>
                                         </li>
                                         <li class="sub-menu-item">
-                                            <a href="brands.html" class="">
-                                                <div class="text">Brands</div>
+                                            <a href="{{ route('admin.brands') }}" class="">
+                                                <div class="text">Marcas</div>
                                             </a>
                                         </li>
                                     </ul>
@@ -101,17 +101,17 @@
                                 <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
                                         <div class="icon"><i class="icon-layers"></i></div>
-                                        <div class="text">Category</div>
+                                        <div class="text">Categoria</div>
                                     </a>
                                     <ul class="sub-menu">
                                         <li class="sub-menu-item">
-                                            <a href="add-category.html" class="">
-                                                <div class="text">New Category</div>
+                                            <a href="{{ route('admin.category.add') }}" class="">
+                                                <div class="text">Nueva Categoria</div>
                                             </a>
                                         </li>
                                         <li class="sub-menu-item">
-                                            <a href="categories.html" class="">
-                                                <div class="text">Categories</div>
+                                            <a href="{{ route('admin.categories') }}" class="">
+                                                <div class="text">Categorias</div>
                                             </a>
                                         </li>
                                     </ul>
@@ -181,9 +181,9 @@
                             <div class="header-left">
                                 <a href="index-2.html">
                                     <img class="" id="logo_header_mobile" alt=""
-                                        src="images/logo/logo.png" data-light="images/logo/logo.png"
-                                        data-dark="images/logo/logo.png" data-width="154px" data-height="52px"
-                                        data-retina="images/logo/logo.png">
+                                        src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" data-light="{{ asset('images/logo/logo-oficial-oceanprint.png') }}"
+                                        data-dark="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" data-width="154px" data-height="52px"
+                                        data-retina="{{ asset('images/logo/logo-oficial-oceanprint.png') }}">
                                 </a>
                                 <div class="button-show-hide">
                                     <i class="icon-menu-left"></i>

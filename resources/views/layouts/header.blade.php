@@ -266,6 +266,15 @@
                     </svg>
                 </a>
             </li>
+            @if(Auth::check())
+                <li>
+                    <a class="icon-header" href="{{ Auth::user()->utype === 'ADM' ? route('admin.index') : route('user.index') }}" aria-label="Perfil">
+                        <svg class="icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 24 24">
+                            <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.333 0-10 1.667-10 5v3h20v-3c0-3.333-6.667-5-10-5z"/>
+                        </svg>
+                    </a>
+                </li>
+            @endif  
         </ul>
     </nav>
 </header>

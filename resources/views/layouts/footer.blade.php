@@ -106,13 +106,14 @@
     */
     .containerNavigationPage {
         position: fixed;
+        width: 130px;
         bottom: 30px;
         right: 18px;
         z-index: 5;
         padding: 0.28rem 0.57rem;
         border-radius: var(--border-radius);
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         gap: 8px;
         background: linear-gradient(135deg, #f403d1, #64b5f6);
@@ -221,15 +222,6 @@
 </style>
 
 <div class="containerNavigationPage">
-    <div class="navigationPageIcon navigationHome">
-        <a href="{{ route('home') }}">
-            <img
-                class="icon-home" 
-                src="{{ asset('images/iconos/home.svg') }}" 
-                alt="Icono de Whatsapp"
-            >
-        </a>                         
-    </div>
     <div class="navigationPageIcon navigationPage">
         <svg width="38" height="38" viewBox="8 8 32 32" xmlns="http://www.w3.org/2000/svg">
             <!-- Cuerpo de la libreta -->

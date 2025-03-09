@@ -2,3 +2,4 @@
 @include('layouts.styles.fonts')
 @include('layouts.styles.colors')
 @include('layouts.styles.buttons')
+@include('layouts.styles.header')

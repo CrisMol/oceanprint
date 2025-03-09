@@ -45,6 +45,24 @@
                         </span>
                     @enderror
                     <fieldset class="name">
+                        <div class="body-title">Categoría padre</div>
+                        <select class="" name="parent">
+                            <option value="">
+                                Principal
+                            </option>
+                            @foreach ($categories as $categoryDB)
+                                <option value="{{ $categoryDB->id }}" {{ $categoryDB->id == $category->parent ? "selected" : "" }}>
+                                    {{ $categoryDB->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </fieldset>
+                    @error('parent')
+                        <span class="alert alert-danger text-center">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                    <fieldset class="name">
                         <div class="body-title">Slug de la categoría <span class="tf-color-1">*</span></div>
                         <input class="flex-grow" type="text" placeholder="Slug de categoría" name="slug"
                             tabindex="0" value="{{ $category->slug }}" aria-required="true" required="">

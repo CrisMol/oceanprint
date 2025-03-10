@@ -18,13 +18,9 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Admin User',
             'email' => 'molinacuario_97@hotmail.com',
+            'mobile' => '0963639728',
             'password' => bcrypt('admin12345'), // Asegúrate de cifrar la contraseña
             'utype' => 'ADM', // Columna utype con valor 'ADM'
-        ]);
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -218,8 +219,9 @@ class AdminController extends Controller
     {
         $categories = Category::select('id', 'name')->orderBy('name')->get();
         $brands = Brand::select('id', 'name')->orderBy('name')->get();
+        $tags = Tag::orderBy('name')->get();
 
-        return view('admin.product-add', compact('categories', 'brands'));
+        return view('admin.product-add', compact('categories', 'brands', 'tags'));
     }
 
     public function product_store(Request $request)
@@ -284,9 +286,43 @@ class AdminController extends Controller
         }
 
         $product->images = $gallery_images;
+
         $product->save();
 
+        if ($request->tags) {
+            $this->processTagsProducts($request->tags, $product);
+        }
+
         return redirect()->route('admin.products')->with('status', 'Producto agregado exitosamente!');
+    }
+
+    private function processTagsProducts($tags, $product)
+    {
+        $tagIds = [];
+
+        foreach ($tags as $tag) {
+            // Si el tag es numérico, es un ID existente
+            if (is_numeric($tag)) {
+                // Verifica si el ID existe
+                $tagExists = Tag::find($tag);
+                if ($tagExists) {
+                    // Si el tag existe, lo agregamos al array de IDs
+                    $tagIds[] = $tag;
+                }
+            } else {
+                // Si no es numérico, es un nombre de etiqueta
+                // Crear o buscar la etiqueta por nombre
+                $tagCreated = Tag::firstOrCreate(
+                    ['name' => $tag], 
+                    ['slug' => Str::slug($tag)]
+                );
+                // Agregar el ID de la etiqueta creada o encontrada
+                $tagIds[] = $tagCreated->id;
+            }
+        }
+
+        // Sincronizar las etiquetas al producto
+        $product->tags()->sync($tagIds);
     }
 
     public function GenerateProductThumbailImage($image, $imageName)
@@ -307,12 +343,13 @@ class AdminController extends Controller
 
     public function product_edit($id)
     {
-        $product = Product::find($id);
+        $product = Product::with('tags')->find($id);
 
         $categories = Category::select('id', 'name')->orderBy('name')->get();
         $brands = Brand::select('id', 'name')->orderBy('name')->get();
+        $tags = Tag::orderBy('name', 'ASC')->get();
 
-        return view('admin.product-edit', compact('product', 'categories', 'brands'));
+        return view('admin.product-edit', compact('product', 'categories', 'brands', 'tags'));
     }
 
     public function product_update(Request $request)
@@ -394,6 +431,10 @@ class AdminController extends Controller
             }
             $gallery_images = implode(',', $gallery_arr);
             $product->images = $gallery_images;
+        }
+
+        if ($request->tags) {
+            $this->processTagsProducts($request->tags, $product);
         }
 
         $product->save();

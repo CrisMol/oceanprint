@@ -10,7 +10,10 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+        $products = Product::with(['tags' => function($query) {
+            $query->take(5); // Limitar a las primeras 5 etiquetas
+        }])->orderBy('created_at', 'DESC')->paginate(12);
+        
         $categories = Category::whereNull('parent_id')
                         ->with('subcategories')
                         ->orderBy('name', 'ASC')

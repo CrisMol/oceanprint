@@ -48,8 +48,43 @@
                             />
                         </div>
                     </div>
-                    <div class="productsGrid">
-
+                    <div class="productsGrid" id="products-grid">
+                        @foreach ($products as $product)
+                            <div class="productCard">
+                                <div class="productInfo">
+                                    <div class="image">
+                                        <img 
+                                            src="{{ asset('uploads/products') }}/{{ $product->image }}" 
+                                            alt=""
+                                            width="150"
+                                            height="175"
+                                        >
+                                    </div>
+                                    <div class="title">
+                                        <span class="productName">
+                                            {{ $product->name }}
+                                        </span>
+                                    </div>
+                                    <div class="tags">
+                                        @foreach ($product->tags as $tag)
+                                            <span class="tag">{{ $tag->name }}</span>
+                                        @endforeach
+                                    </div>
+                                    <div class="price">
+                                        @if ($product->sale_price)
+                                            <s>{{ $product->regular_price }}</s> ${{ $product->sale_price }}
+                                        @else
+                                            ${{ $product->regular_price }}
+                                        @endif
+                                    </div>
+                                    <div class="link">
+                                        <a href="#">
+                                            Ver detalles
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

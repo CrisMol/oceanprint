@@ -23,6 +23,35 @@
     <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
+    <!-- CSS de Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        .select2-container--default .select2-selection--multiple {
+            border: 1px solid #ddd;
+            min-height: 40px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .select2-results__option.select2-results__option--highlighted {
+            font-size: 1.5rem;
+        }
+
+        .select2-dropdown.select2-dropdown--below {
+            left: 10%;
+        }
+    </style>
+
 
     @stack('styles')
 </head>
@@ -476,6 +505,8 @@
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('js/apexcharts/apexcharts.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <!-- JS de Select2 -->  
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script>
         (function($) {
 

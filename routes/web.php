@@ -8,6 +8,8 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthAdmin;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
@@ -16,6 +18,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/contacto', [ContactController::class, 'index'])->name('contact');
 Route::get('/tienda', [ShopController::class, 'index'])->name('shop');
+
+Route::get('/tags/search', function (Request $request) {
+    $tags = Tag::where('name', 'LIKE', "%{$request->term}%")
+        ->get(['id', 'name as text']); // Select2 usa `text` en vez de `name`
+    
+    return response()->json($tags);
+})->name('tags.search');
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/account-dashboard', [UserController::class, 'index'])->name('user.index');

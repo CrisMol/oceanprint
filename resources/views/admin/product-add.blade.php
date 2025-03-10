@@ -92,6 +92,15 @@
                     @enderror
                 </div>
 
+                <fieldset class="tags">
+                    <div class="body-title mb-10">Etiquetas</div>
+                    <select id="tags" name="tags[]" class="form-control" multiple="multiple"></select>
+                </fieldset>
+                
+                @error('tags')
+                    <span class="alert alert-danger text-center">{{ $message }}</span>
+                @enderror
+
                 <fieldset class="shortdescription">
                     <div class="body-title mb-10">Descripción corta <span class="tf-color-1">*</span></div>
                     <textarea class="mb-10 ht-150" name="short_description"
@@ -262,6 +271,27 @@
 @push('scripts')
     <script>
         $(function(){
+            $('#tags').select2({
+                tags: true,  // Permite crear nuevas etiquetas
+                tokenSeparators: [','],
+                placeholder: "Escribe una etiqueta...",
+                ajax: {
+                    url: "{{ route('tags.search') }}", // Ruta para buscar etiquetas existentes
+                    dataType: 'json',
+                    delay: 250,
+                    data: function(params) {
+                        return {
+                            term: params.term // El texto que el usuario está escribiendo
+                        };
+                    },
+                    processResults: function(data) {
+                        return {
+                            results: data
+                        };
+                    }
+                }
+            });
+
             $('#myFile').on('change',function(e) {
                const photoInp =  $('#myFile');
                const [file] = this.files;
@@ -282,6 +312,8 @@
             $("input[name='name']").on('change', function(e) {
                 $("input[name='slug']").val(StringToSlug($(this).val()));
             });
+
+            
         });
 
         function StringToSlug(Text) {

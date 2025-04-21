@@ -94,7 +94,7 @@
                     @enderror
                 </div>
 
-                <fieldset class="tags">
+                <fieldset class="tags">z
                     <div class="body-title mb-10">Etiquetas</div>
                     <select id="tags" name="tags[]" class="form-control select2 w-100" multiple="multiple">
                         @foreach ($tags as $tag) <!-- Muestra todas las etiquetas disponibles -->
@@ -192,6 +192,30 @@
 
                 <div class="cols gap22">
                     <fieldset class="name">
+                        <div class="body-title mb-10">Tipo de producto <span class="tf-color-1">*</span></div>
+                        <div class="select">
+                            <select name="type_product">
+                                <option value="simple" 
+                                    {{ (isset($product) && $product->tieredPrices->isNotEmpty()) ? '' : 'selected' }}>
+                                    Producto Simple
+                                </option>
+                                <option value="variacion" 
+                                    {{ (isset($product) && $product->tieredPrices->isNotEmpty()) ? 'selected' : '' }}>
+                                    Producto Variable
+                                </option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                @error('type_product')
+                    <span class="alert alert-danger text-center">
+                        {{ $message }}
+                    </span>
+                @enderror                
+
+                <div class="cols gap22" id="containerPricesSimple">
+                    <fieldset class="name" data-type-product="simple">
                         <div class="body-title mb-10">Precio regular <span
                                 class="tf-color-1">*</span></div>
                         <input class="mb-10" type="text" placeholder="Ingresa precio regular"
@@ -203,7 +227,7 @@
                                 {{ $message }}
                         </span>
                     @enderror
-                    <fieldset class="name">
+                    <fieldset class="name" data-type-product="simple">
                         <div class="body-title mb-10">Precio de venta <span
                                 class="tf-color-1">*</span></div>
                         <input class="mb-10" type="text" placeholder="Ingresa precio de venta"
@@ -217,6 +241,127 @@
                     @enderror
                 </div>
 
+                <div class="row" id="rowAddMorePrice">
+                    <div class="col-12">
+                        <!-- Botón para agregar más filas -->
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-success" id="addPriceRow">Agregar Precio</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="" id="pricingContainer">
+                    @if($product->tieredPrices->isNotEmpty())
+                        @foreach($product->tieredPrices as $key => $tieredPrice)
+                            <div class="pricing-row d-flex gap-2 align-items-center mb-2 w-100">
+                                <input type="hidden" name="variation_product_id[]" value="{{ $tieredPrice->id }}">
+                                <!-- Variaciones -->
+                                <fieldset class="name w-20" data-type-product="variacion">
+                                    <div class="body-title mb-10">Variaciones <span class="tf-color-1">*</span></div>
+                                    <select name="variation_id[]" class="selectpicker variation-select mb-10" data-width="100%" data-none-selected-text="Seleccionar variación" data-live-search="true">
+                                    <option value="">Seleccionar variación</option>
+                                    @foreach($variationsProduct as $variation)
+                                        <option value="{{ $variation->id }}" 
+                                            @selected(isset($tieredPrice) && $tieredPrice['variation_id'] == $variation->id)>
+                                            {{ $variation->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                </fieldset>
+                
+                                <!-- Cantidades -->
+                                <fieldset class="name w-20" data-type-product="cantidad">
+                                    <div class="body-title mb-10">Cantidades <span class="tf-color-1">*</span></div>
+                                    <select name="quantity_id[]" class="selectpicker quantity-select mb-10" data-width="100%" data-none-selected-text="Seleccionar cantidad" data-live-search="true">
+                                    <option value="">Seleccionar cantidad</option>
+                                    @foreach($quantitiesProduct as $quantity)
+                                        <option value="{{ $quantity->id }}" 
+                                            @selected(isset($tieredPrice) && $tieredPrice['quantity_id'] == $quantity->id)>
+                                            {{ $quantity->quantity }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                </fieldset>
+                
+                                <!-- Precio Regular -->
+                                <fieldset class="name w-20">
+                                    <div class="body-title mb-10">Precio Regular <span class="tf-color-1">*</span></div>
+                                    <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio Regular"
+                                           name="regular_price_variation[]"
+                                           value="{{ $tieredPrice->regular_price }}">
+                                </fieldset>
+                
+                                <!-- Precio de Venta -->
+                                <fieldset class="name w-20">
+                                    <div class="body-title mb-10">Precio de Venta</div>
+                                    <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio de Venta"
+                                           name="sale_price_variation[]"
+                                           value="{{ $tieredPrice->sale_price }}">
+                                </fieldset>
+
+                                <!-- Es Popular -->
+                                <fieldset class="name d-flex gap-3 justify-content-center" style="align-self: flex-start;">
+                                    <!-- Campo oculto para cuando el checkbox no está marcado -->
+                                    <input type="hidden" name="is_popular[{{ $key }}]" value="0">
+                                    
+                                    <input class="mb-10" type="checkbox" name="is_popular[{{ $key }}]" value="1" 
+                                        {{ $tieredPrice->is_popular == 1 ? 'checked' : '' }}>
+                                    <div class="body-title mb-10">Popular</div>
+                                </fieldset>                                                            
+
+                                <button type="button" class="btn btn-danger remove-row w-20 d-flex justify-content-center" style="align-self: flex-start;">X</button>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="pricing-row d-flex gap-2 align-items-center mb-2 w-100">
+                            <!-- Variaciones -->
+                            <fieldset class="name w-20" data-type-product="variacion">
+                                <div class="body-title mb-10">Variaciones <span class="tf-color-1">*</span></div>
+                                <select name="variation_id[]" class="selectpicker variation-select mb-10"
+                                        data-width="100%" data-none-selected-text="Seleccionar variación"
+                                        data-live-search="true">
+                                    <option value="">Seleccionar variación</option>
+                                    @foreach($variationsProduct as $variation)
+                                        <option value="{{ $variation->id }}">{{ $variation->name }}</option>
+                                    @endforeach
+                                </select>
+                            </fieldset>
+                
+                            <!-- Cantidades -->
+                            <fieldset class="name w-20" data-type-product="cantidad">
+                                <div class="body-title mb-10">Cantidades <span class="tf-color-1">*</span></div>
+                                <select name="quantity_id[]" class="selectpicker quantity-select mb-10"
+                                        data-width="100%" data-none-selected-text="Seleccionar cantidad"
+                                        data-live-search="true">
+                                    <option value="">Seleccionar cantidad</option>
+                                    @foreach($quantitiesProduct as $quantity)
+                                        <option value="{{ $quantity->id }}">{{ $quantity->quantity }}</option>
+                                    @endforeach
+                                </select>
+                            </fieldset>
+                
+                            <!-- Precio Regular -->
+                            <fieldset class="name w-20">
+                                <div class="body-title mb-10">Precio Regular <span class="tf-color-1">*</span></div>
+                                <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio Regular"
+                                       name="regular_price_variation[]" value="0">
+                            </fieldset>
+                
+                            <!-- Precio de Venta -->
+                            <fieldset class="name w-20">
+                                <div class="body-title mb-10">Precio de Venta</div>
+                                <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio de Venta"
+                                       name="sale_price_variation[]" value="0">
+                            </fieldset>
+                            <!-- Es Popular -->
+                            <fieldset class="name d-flex gap-3 justify-content-center" style="align-self: flex-start;">
+                                <input class="mb-10" type="checkbox" name="is_popular[]">
+                                <div class="body-title mb-10">Popular</div>
+                            </fieldset>
+                            <button type="button" class="btn btn-danger remove-row d-flex justify-content-center" style="align-self: flex-start; opacity: 0;">X</button>
+                        </div>
+                    @endif
+                </div>                
 
                 <div class="cols gap22">
                     <fieldset class="name">
@@ -334,4 +479,5 @@
             .replace(/ +/g,"-");
         }
     </script>
+    @include('admin.scripts.product-js')
 @endpush

@@ -60,12 +60,14 @@
                         </div>
                         <div class="select">
                             <select class="" name="category_id">
-                                <option>Escoger categoría</option>
+                                <option value="">Escoger categoría</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div>                        
                     </fieldset>
                     @error('category_id')
                         <span class="alert alert-danger text-center">
@@ -80,7 +82,7 @@
                             <select class="" name="brand_id">
                                 <option>Escoger Marca</option>
                                 @foreach ($brands as $brand)
-                                    <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                    <option value="{{ $brand->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}z>{{ $brand->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -178,23 +180,39 @@
 
                 <div class="cols gap22">
                     <fieldset class="name">
+                        <div class="body-title mb-10">Tipo de producto <span class="tf-color-1">*</span>
+                        </div>
+                        <div class="select">
+                            <select class="" name="type_product">
+                                <option value="simple">Producto Simple</option>
+                                <option value="variacion">Producto Variable</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                @error('type_product')
+                    <span class="alert alert-danger text-center">
+                            {{ $message }}
+                    </span>
+                @enderror
+
+                <div class="cols gap22" id="containerPricesSimple">
+                    <fieldset class="name" data-type-product="simple">
                         <div class="body-title mb-10">Precio regular <span
                                 class="tf-color-1">*</span></div>
                         <input class="mb-10" type="text" placeholder="Ingresa precio regular"
-                            name="regular_price" tabindex="0" value="{{ old('regular_price') }}" aria-required="true"
-                            required="">
+                            name="regular_price" tabindex="0" value="{{ old('regular_price') }}" aria-required="true">
                     </fieldset>
                     @error('regular_price')
                         <span class="alert alert-danger text-center">
                                 {{ $message }}
                         </span>
                     @enderror
-                    <fieldset class="name">
+                    <fieldset class="name" data-type-product="simple">
                         <div class="body-title mb-10">Precio de venta <span
                                 class="tf-color-1">*</span></div>
                         <input class="mb-10" type="text" placeholder="Ingresa precio de venta"
-                            name="sale_price" tabindex="0" value="{{ old('sale_price') }}" aria-required="true"
-                            required="">
+                            name="sale_price" tabindex="0" value="{{ old('sale_price') }}" aria-required="true">
                     </fieldset>
                     @error('sale_price')
                         <span class="alert alert-danger text-center">
@@ -203,6 +221,68 @@
                     @enderror
                 </div>
 
+                <div class="row" id="rowAddMorePrice">
+                    <div class="col-12">
+                        <!-- Botón para agregar más filas -->
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-success" id="addPriceRow">Agregar Precio</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="" id="pricingContainer">
+                    <div class="pricing-row d-flex gap-2 align-items-center mb-2 w-100">
+                        <!-- Variaciones -->
+                        <fieldset class="name w-20" data-type-product="variacion">
+                            <div class="body-title mb-10">Variaciones <span class="tf-color-1">*</span></div>
+                            <select name="variation_id[]" class="selectpicker variation-select mb-10"
+                                    data-width="100%" data-none-selected-text="Seleccionar variación"
+                                    data-live-search="true">
+                                <option value="">Seleccionar variación</option>
+                                @foreach($variationsProduct as $variation)
+                                    <option value="{{ $variation->id }}">{{ $variation->name }}</option>
+                                @endforeach
+                            </select>
+                        </fieldset>
+            
+                        <!-- Cantidades -->
+                        <fieldset class="name w-20" data-type-product="cantidad">
+                            <div class="body-title mb-10">Cantidades <span class="tf-color-1">*</span></div>
+                            <select name="quantity_id[]" class="selectpicker quantity-select mb-10"
+                                    data-width="100%" data-none-selected-text="Seleccionar cantidad"
+                                    data-live-search="true">
+                                <option value="">Seleccionar cantidad</option>
+                                @foreach($quantitiesProduct as $quantity)
+                                    <option value="{{ $quantity->id }}">{{ $quantity->quantity }}</option>
+                                @endforeach
+                            </select>
+                        </fieldset>
+            
+                        <!-- Precio Regular -->
+                        <fieldset class="name w-20">
+                            <div class="body-title mb-10">Precio Regular <span class="tf-color-1">*</span></div>
+                            <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio Regular"
+                                   name="regular_price_variation[]">
+                        </fieldset>
+            
+                        <!-- Precio de Venta -->
+                        <fieldset class="name w-20">
+                            <div class="body-title mb-10">Precio de Venta</div>
+                            <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio de Venta"
+                                   name="sale_price_variation[]">
+                        </fieldset>
+
+                        <!-- Es Popular -->
+                        <fieldset class="name d-flex gap-3 justify-content-center" style="align-self: flex-start;">
+                            <!-- Campo oculto para cuando el checkbox no está marcado -->
+                            <input type="hidden" name="is_popular[0]" value="0">
+                            <input class="mb-10" type="checkbox" name="is_popular[0]">
+                            <div class="body-title mb-10">Popular</div>
+                        </fieldset>
+
+                        <button type="button" class="btn btn-danger remove-row d-flex justify-content-center" style="align-self: flex-start; opacity: 0;">X</button>
+                    </div>
+                </div>              
 
                 <div class="cols gap22">
                     <fieldset class="name">
@@ -312,8 +392,6 @@
             $("input[name='name']").on('change', function(e) {
                 $("input[name='slug']").val(StringToSlug($(this).val()));
             });
-
-            
         });
 
         function StringToSlug(Text) {
@@ -322,4 +400,5 @@
             .replace(/ +/g,"-");
         }
     </script>
+    @include('admin.scripts.product-js')
 @endpush

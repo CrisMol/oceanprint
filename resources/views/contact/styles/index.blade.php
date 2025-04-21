@@ -3,7 +3,6 @@
         position: relative;
         height: 580px;
         background: linear-gradient(to bottom, var(--bright-blue) 0%, var(--bright-blue) 40%, rgba(5, 175, 242, 0.5) 65%, rgba(255, 255, 255, 0.8) 75%, #FFFFFF 100%);
-
     }
 
     .container-presentation::after {
@@ -27,8 +26,9 @@
 
     .container-presentation .containerPresentationText {
         position: relative;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 2;
-        margin-top: calc(130px - 5rem);
     }
 
     .container-presentation .containerPresentationText p {
@@ -167,7 +167,6 @@
         background: white;
         padding: 1rem 0;
         border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .info-item .containerSvg {

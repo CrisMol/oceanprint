@@ -2,7 +2,7 @@
     <div class="logo">
         <a href="{{ route('home') }}" aria-label="Inicio">
             <img class="logo" 
-                src="{{ Route::is('shop') ? asset('images/logo/logo-oficial-oceanprint.png') : asset('images/logo/logo-blanco.png') }}" 
+                src="{{ request()->is('shop') || request()->is('tienda/*') || request()->is('tienda') || request()->is('cart') ? asset('images/logo/logo-oficial-oceanprint.png') : asset('images/logo/logo-blanco.png') }}" 
                 alt="Logo" 
                 width="115" 
             >
@@ -19,12 +19,12 @@
                 <a href="{{ route('about-us') }}">Nosotros</a>
             </li>
             <li>
-                <a href="/servicios">Servicios</a>
+                <a href="{{ route('services') }}">Servicios</a>
                 <ul class="submenu">
-                    <li><a href="/servicios/impresion-offset">Impresión Offset</a></li>
-                    <li><a href="/servicios/publicidad">Publicidad</a></li>
-                    <li><a href="/servicios/personalizado">Personalizado</a></li>
-                    <li><a href="/servicios/diseno-grafico">Diseño Gráfico</a></li>
+                    <li><a href="{{ route('services') }}#offset">Impresión Offset</a></li>
+                    <li><a href="{{ route('services') }}#publicity">Publicidad</a></li>
+                    <li><a href="{{ route('services') }}#personalized">Personalizado</a></li>
+                    <li><a href="{{ route('services') }}#design">Diseño Gráfico</a></li>
                 </ul>
             </li>
             <li>
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li>
-                <a class="icon-header" href="/carrito" aria-label="Carrito de compras">
+                <a class="icon-header" href="{{ route('cart.index') }}" aria-label="Carrito de compras">
                     <svg class="icon-svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="20" height="20" viewBox="0 0 17 17" id="svg50" sodipodi:docname="shopping-cart-2.svg" inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)">
                         <metadata id="metadata56">
                           <rdf:rdf>
@@ -64,6 +64,9 @@
                         <g id="g46" transform="matrix(-1,0,0,1,16.926,0)"></g>
                         <path d="m 14.176,12.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z m -8.5,-2.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z M 3.555,2 3.857,4 H 17 l -1.118,8.036 H 3.969 L 2.931,4.573 2.695,3 H -0.074 V 2 Z M 4,5 4.139,6 H 15.713 L 15.852,5 Z M 15.012,11.036 15.573,7 H 4.278 l 0.561,4.036 z" id="path48"></path>
                     </svg>
+                    @if(Cart::instance('cart')->content()->count()>0)
+                        <span class="cart-amount">{{ Cart::instance('cart')->content()->count() }}</span>
+                    @endif
                 </a>
             </li>
             @if(Auth::check())

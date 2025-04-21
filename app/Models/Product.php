@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Tag::class, 'product_tag');
     }
+
+    public function tieredPrices()
+    {
+        return $this->hasMany(ProductTieredPrice::class, 'product_id');
+    }
 }

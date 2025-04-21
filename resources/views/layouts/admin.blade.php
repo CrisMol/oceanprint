@@ -13,7 +13,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Cristian Molina" />
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
 
     <!-- Animate.css -->
     <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
@@ -57,6 +57,19 @@
         .select2-dropdown.select2-dropdown--below {
             left: 10%;
         }
+
+        .dropdown-toggle.bs-placeholder.btn-light {
+            font-size: 1.5rem;
+            padding: 14px;
+        }
+
+        .btn {
+            font-size: 1.25rem !important;
+        }
+
+        .select2-container {
+            width: 100% !important;
+        }
     </style>
 
 
@@ -67,13 +80,6 @@
     <div id="wrapper">
         <div id="page" class="">
             <div class="layout-wrap">
-
-                <!-- <div id="preload" class="preload-container">
-    <div class="preloading">
-        <span></span>
-    </div>
-</div> -->
-
                 <div class="section-menu-left">
                     <div class="box-logo">
                         <a href="{{ route('admin.index') }}" id="site-logo-inner">
@@ -495,12 +501,58 @@
                     </div>
                     <div class="main-content">
                         @yield('content')
-
-                        <div class="bottom-page">
-                            <div class="body-text">Copyright © 2024 SurfsideMedia</div>
-                        </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="createVariationProductModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createVariationProductModalTitle">Nueva Variación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="agregarVariacionProducto">
+                        <!-- Formulario para agregar variación -->
+                        <form id="createVariationProductForm" method="POST" class="form-group needs-validation" novalidate>
+                            <div class="form-group row">
+                                <div class="col-lg-12 has-validation">
+                                    <input id="nameVariationProduct" class="mb-10 form-control" type="text" placeholder="Ingresa el nombre de la variación" name="name_variation" tabindex="0" value="{{ old('name_variation') }}" aria-required="true" required>
+                                    <div class="invalid-feedback">Por favor, ingresa un nombre para la variación.</div>
+                                </div>
+                            </div>
+                            <div class="form-group text-end">
+                                <button type="button" class="btn btn-primary" id="buttonCreateVariationProduct" onclick="createVariationProduct();">Crear</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="createQuantityProductModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createQuantityProductModalTitle">Nueva Cantidad</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="agregarVariacionProducto">
+                        <!-- Formulario para agregar variación -->
+                        <form id="createQuantityVariationProductForm" method="POST" class="form-group needs-validation" novalidate>
+                            <div class="form-group row">
+                                <div class="col-lg-12 has-validation">
+                                    <input id="quantityProductVariation" class="mb-10 form-control" type="number" placeholder="Ingresa el nombre de la variación" name="quantity_product_variation" tabindex="0" value="{{ old('quantity_product_variation') }}" aria-required="true" required>
+                                    <div class="invalid-feedback">Por favor, ingresa una cantidad válida para la variación.</div>
+                                </div>
+                            </div>
+                            <div class="form-group text-end">
+                                <button type="button" class="btn btn-primary" id="buttonCreateQuantityVariationProduct" onclick="createQuantityVariationProduct();">Crear</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

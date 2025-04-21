@@ -42,6 +42,11 @@
                             {{ Session::get('status') }}
                         </p>
                     @endif
+                    @if(Session::has('error'))
+                        <p class="alert alert-danger">
+                            {{ Session::get('error') }}
+                        </p>
+                    @endif
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>

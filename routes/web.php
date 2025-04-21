@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthAdmin;
@@ -16,8 +18,15 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('about-us');
+Route::get('/servicios', [ServiceController::class, 'index'])->name('services');
 Route::get('/contacto', [ContactController::class, 'index'])->name('contact');
 Route::get('/tienda', [ShopController::class, 'index'])->name('shop');
+Route::get('/tienda/{product_slug}', [ShopController::class, 'product_details'])->name('shop.product.details');
+Route::delete('/carrito/eliminar/{rowId}', [CartController::class, 'remove_item'])->name('cart.item.remove');
+Route::delete('/carrito/limpiar', [CartController::class, 'empty_cart'])->name('cart.empty');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add_to_cart'])->name('cart.add');
 
 Route::get('/tags/search', function (Request $request) {
     $tags = Tag::where('name', 'LIKE', "%{$request->term}%")
@@ -52,4 +61,6 @@ Route::middleware(['auth', AuthAdmin::class])->group(function() {
     Route::get('/admin/product/{id}/edit', [AdminController::class, 'product_edit'])->name('admin.product.edit');
     Route::put('/admin/product/update/{id}', [AdminController::class, 'product_update'])->name('admin.product.update');
     Route::delete('/admin/product/{id}/delete', [AdminController::class, 'product_delete'])->name('admin.product.delete');
+    Route::post('/admin/product/variation/store', [AdminController::class, 'product_variation_store'])->name('admin.product.variation.store');
+    Route::post('/admin/product/quantity/variation/store', [AdminController::class, 'product_quantity_variation_store'])->name('admin.product.quantity.variation.store');
 });

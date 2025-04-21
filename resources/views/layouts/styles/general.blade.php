@@ -12,7 +12,7 @@
         --calm-turquoise: #03A6A6; /* Turquesa Calmante */
         --vibrant-yellow: #F2CB05; /* Amarillo Vibrante */
         --soft-pink: #F177BA; /* Rosa Suave */
-        --soft-crem-pink: #ffbce1;
+        --soft-crem-pink: #facde6;
         --fresh-lime-green: #32CD32;
 
         --border-radius: 20px;

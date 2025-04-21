@@ -116,4 +116,10 @@
         border: none;
         border: 1px solid var(--bright-blue);
     }
+
+    .button-square {
+        position: relative;
+        padding: 1em 3em;
+        border: 1px solid var(--neutral-gray);
+    }
 </style>

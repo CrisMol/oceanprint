@@ -122,7 +122,6 @@
         display: flex;
         justify-content: space-between;
         transition: 0.5s;
-        cursor: pointer;
     }
 
     .container-shop .productsGrid .productCard .productInfo .image {
@@ -169,6 +168,18 @@
     .container-shop .productsGrid .productCard .productInfo .link {
         text-align: center;
         margin: 1.35rem 0;
+    }
+
+    .container-shop .productsGrid .productCard .productInfo .link a {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        justify-content: center;
+        transition: 0.5s;
+    }
+
+    .container-shop .productsGrid .productCard .productInfo .link:hover a {
+        opacity: 0.55;
     }
 
     .container-shop .productsGrid .productCard .productInfo .price {

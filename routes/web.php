@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::view('/', 'comming-soon.index')->name('home');
+Route::get('/demo', [HomeController::class, 'index'])->name('demo');
+
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/servicios', [ServiceController::class, 'index'])->name('services');
+
 Route::get('/contacto', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
 Route::get('/tienda', [ShopController::class, 'index'])->name('shop');
 Route::get('/tienda/{product_slug}', [ShopController::class, 'product_details'])->name('shop.product.details');
 Route::delete('/carrito/eliminar/{rowId}', [CartController::class, 'remove_item'])->name('cart.item.remove');

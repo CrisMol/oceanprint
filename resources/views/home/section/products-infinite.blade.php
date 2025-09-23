@@ -1,380 +1,43 @@
-<div class="products__highlights">
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 data-text="Carnet veterinario A4" class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
+@php
+$products = [
+    [
+        'title' => 'Carnet veterinario A4',
+        'image' => 'images/products/fundas-plasticas.png',
+        'features' => [
+            'Diseño de acuerdo a tu necesidad',
+            'Impresión en couche 200gr',
+            'Grafado y doblado',
+        ]
+    ],
+];
+@endphp
 
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 data-text="Carnet veterinario A4" class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <!--Content duplicate-->
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 data-text="Carnet veterinario A4" class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 data-text="Carnet veterinario A4" class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="products__item">
-        <div class="products__image-container">
-            <img
-                src="{{ asset('images/products/fundas-plasticas.png') }}"
-                alt=""
-                class="products__image"
-            />
-        </div>
-        <div class="products__content">
-            <div class="products__title">
-                <h4 class="title">Carnet veterinario A4</h4>
-            </div>
-            <div class="products__description">
-                <p class="description__item">
-                    Diseño de acuerdo a tu necesidad
-                </p>
-                <p class="description__item">
-                    Impresión en couche 200gr
-                </p>
-                <p class="description__item">
-                    Grafado y doblado
-                </p>
-            </div>
-            
-        </div>
+<div class="swiper swiper-products">
+    <div class="swiper-wrapper">
+        @foreach(range(1, 10) as $i)
+            @foreach($products as $product)
+                <div class="swiper-slide">
+                    <div class="products__item">
+                        <div class="products__image-container">
+                            <img
+                                src="{{ asset($product['image']) }}"
+                                alt="{{ $product['title'] }}"
+                                class="products__image"
+                            />
+                        </div>
+                        <div class="products__content">
+                            <div class="products__title">
+                                <h4 class="title">{{ $product['title'] }}</h4>
+                            </div>
+                            <div class="products__description">
+                                @foreach($product['features'] as $feature)
+                                    <p class="description__item">{{ $feature }}</p>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endforeach
     </div>
 </div>

@@ -7,7 +7,7 @@
                 <img src="{{ asset('images/extras/imprenta-3.jpeg') }}" alt="imprenta" width="600" height="600">
             </div>
             <div class="contents-description">
-                <h3>Kits personalizados</h3>
+                <span>Soluciones integrales</span>
             </div>
         </div>
     </div>

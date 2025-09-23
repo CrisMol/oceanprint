@@ -17,8 +17,12 @@ class CartController extends Controller
 
     public function add_to_cart(Request $request)
     {
+        if ($request->price <= 0) {
+            return redirect()->back()->with('error', 'Por favor seleccione un producto válido o alguna de las opciones disponibles antes de continuar.');
+        }
+
         Cart::instance('cart')->add($request->id, $request->name, $request->quantity, $request->price)->associate('App\Models\Product');
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Producto agregado correctamente');
     }
 
     public function remove_item($rowId)

@@ -1,9 +1,10 @@
 <div class="content brands">
-    <div class="brands-description scroll-reveal-text">
-        <h2>
-            Nuestras marcas
+    <div class="brands-description">
+        <h2 class="animated-title white">
+            <span class="word first">Nuestras</span>
+            <span class="word second">Marcas</span>
         </h2>
-        <p>
+        <p class="text-white">
             <span>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae pariatur at, est, provident officia veniam tempore sed asperiores, molestias voluptas hic assumenda in debitis voluptate porro numquam aut suscipit quod.
             </span>

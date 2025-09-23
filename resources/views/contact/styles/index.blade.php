@@ -103,33 +103,67 @@
         gap: 1rem;
     }
 
+    .container-form .containerFormContent .column {
+        display: flex;
+        align-items: center;
+    }
+
     .container-form .containerForm {
         padding: 0 min(5vw, 3rem);
         width: 100%;
     }
 
-    .container-form .containerForm form {
+    .containerImage {
+        position: relative;
+        width: 100%;
+        height: 500px;
+    }
+
+    .containerImage img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+    }
+
+    .containerForm form {
         position: relative;
         width: 100%;
         height: 100%;
     }
 
-    .container-form .containerForm input,
-    .container-form .containerForm textarea {
+    .errorForm {
+        display: inline-block;
+        padding: 5px 0;
+        color: #dc3545;
+    }
+
+    .successForm {
+        padding: 20px 10px;
+        background: #198754;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        margin: 10px 0;
+        border-radius: 10px;
+    }
+
+    .containerForm input,
+    .containerForm textarea {
         width: 100%;
         padding: 10px;
-        margin-bottom: 1rem;
         border: 1px solid rgba(0, 0, 0, 0.35);
         border-radius: 5px;
         font-size: 1rem;
     }
 
-    .container-form .containerForm input::placeholder,
-    .container-form .containerForm textarea::placeholder {
+    .containerForm input::placeholder,
+    .containerForm textarea::placeholder {
         color: #aaa;
     }
 
-    .container-form .containerForm button {
+    .containerForm button {
         width: 100%;
         padding: 10px;
         background-color: var(--soft-pink);
@@ -141,55 +175,8 @@
         transition: background 0.3s ease;
     }
 
-    .container-form .containerForm button:hover {
+    .containerForm button:hover {
         background-color: var(--energetic-pink);
-    }
-
-    /**
-     * Ubicacion
-    **/
-    .container-location .containerLocationContent {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .info-item {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        background: white;
-        padding: 1rem 0;
-        border-radius: 10px;
-    }
-
-    .info-item .containerSvg {
-        position: relative;
-        width: 28px;
-        height: 28px;
-        background-color: var(--bright-crem-blue);
-        border-radius: 50%;
-        padding: 0.95rem;
-    }
-
-    .info-item svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 24px;
-        height: 24px;
-        fill: white;
-    }
-
-    .info-text {
-        font-size: 1rem;
     }
 
     /**
@@ -304,6 +291,21 @@
         z-index: 10;
     }
 
+    .containerTitleForm {
+        text-align: center;
+    }
+
+    .column.center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    iframe {
+        width: 100%;
+        height: 500px;
+    }
+
     @media (max-width: 768px) {
         .container-presentation .containerPresentationText {
             margin-top: 100px;
@@ -322,7 +324,6 @@
             width: 100%;
         }
 
-        .containerTitleForm,
         .containerTitle,
         .contactInfo {
             text-align: center;

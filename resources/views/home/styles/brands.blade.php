@@ -1,7 +1,6 @@
 <style>
     .container-brands {
         padding-top: 0;
-        padding-right: 0;
     }
 
     .content.brands {
@@ -21,5 +20,15 @@
 
     .content.brands .grid-brands .column-brand {
         text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .content.brands {
+            grid-template-columns: 1fr;
+        }
+
+        .content.brands .brands-description {
+            text-align: center;
+        }
     }
 </style>

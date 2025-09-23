@@ -2,9 +2,11 @@
     footer {
         position: relative;
         width: 100%;
+        height: 100%;
         text-align: center;
-        background-color: var(--bright-crem-blue);
+        background-color: var(--deep-black);
         padding: 2rem 0 0 0;
+        color: #fff;
     }
 
     .circle-logo-footer-animate {
@@ -24,7 +26,7 @@
         left: 0;
         width: 220px;
         height: 220px;
-        background: url({{ asset('images/logo/logo-oceanprint-500-x-500.png') }});
+        background: url({{ asset('images/logo/logo-blanco.png') }});
         background-size: contain;
         background-repeat: no-repeat;
         border-radius: 50%;
@@ -95,6 +97,13 @@
     .container-form-columns ul li {
         padding: 0.58rem 0;
         cursor: pointer;
+        color: #fff;
+        opacity: 0.52;
+        transition: 0.5s;
+    }
+
+    .container-form-columns ul li:hover {
+        opacity: 1;
     }
 
     .container-form-columns .information h6 {
@@ -106,17 +115,10 @@
     */
     .containerNavigationPage {
         position: fixed;
-        width: 130px;
-        bottom: 30px;
+        bottom: 10px;
         right: 18px;
         z-index: 5;
-        padding: 0.28rem 0.57rem;
         border-radius: var(--border-radius);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        background: linear-gradient(135deg, #f403d1, #64b5f6);
         opacity: 0;
         transform: translateY(50px);
         transition: opacity 0.3s ease-out, transform 0.3s ease-out;
@@ -127,60 +129,24 @@
         transform: translateY(0);
     }
 
-    .containerNavigationPage .menuNavigationPage {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        bottom: 60px;
-        left: 0;
-        padding: 0.65rem;
-        border-radius: var(--border-radius);
-        background: linear-gradient(135deg, #f403d1, #64b5f6);
-        opacity: 0;
-        transform: translateY(-100%);
-        transition: 0.5s;
-    }
-
-    .menuNavigationPage.active {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .containerNavigationPage .navigationPageIcon.navigationHome img {
-        position: relative;
-        width: 30px;
-        height: 29px;
-        cursor: pointer;
-    }
-
-    .containerNavigationPage .navigationPageIcon.navigationPage svg {
-        position: relative;
-        width: 21px;
-        height: 21px;
-        cursor: pointer;
-    }
-
     .containerNavigationPage .navigationPageIcon.whatsapp img {
         position: relative;
-        width: 38px;
-        height: 38px;
+        width: 50px;
+        height: 50px;
         cursor: pointer;
     }
 
-    .containerNavigationPage .menuNavigationPage ul li {
-        padding: 0.189rem 0;
+    footer ul {
+        list-style: none;
+        padding: 0;
     }
 
-    .containerNavigationPage .menuNavigationPage ul li a {
-        font-size: 0.768rem;
-        text-transform: uppercase;
-        transition: 0.3s;
-        font-weight: bold;
-        color: #fff;
-    }
-
-    .containerNavigationPage .menuNavigationPage ul li a:hover {
-        color: var(--bright-crem-blue);
+    footer ul li {
+        margin-bottom: 8px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     /* Diseño responsivo para móviles */
@@ -222,23 +188,6 @@
 </style>
 
 <div class="containerNavigationPage">
-    <div class="navigationPageIcon navigationPage">
-        <svg width="38" height="38" viewBox="8 8 32 32" xmlns="http://www.w3.org/2000/svg">
-            <!-- Cuerpo de la libreta -->
-            <rect x="12" y="10" width="24" height="30" rx="3" stroke="#fff" stroke-width="2" fill="none"/>
-            
-            <!-- Anillos de la libreta -->
-            <circle cx="12" cy="14" r="2" fill="#fff"/>
-            <circle cx="12" cy="22" r="2" fill="#fff"/>
-            <circle cx="12" cy="30" r="2" fill="#fff"/>
-            <circle cx="12" cy="38" r="2" fill="#fff"/>
-            
-            <!-- Líneas tipo menú dentro de la libreta -->
-            <line x1="18" y1="18" x2="30" y2="18" stroke="#fff" stroke-width="2"/>
-            <line x1="18" y1="24" x2="30" y2="24" stroke="#fff" stroke-width="2"/>
-            <line x1="18" y1="30" x2="30" y2="30" stroke="#fff" stroke-width="2"/>
-        </svg>             
-    </div>
     <div class="navigationPageIcon whatsapp">
         <img
             class="icon-whatsapp" 
@@ -246,23 +195,9 @@
             alt="Icono de Whatsapp"
         >
     </div>
-    <div class="menuNavigationPage">
-        <ul>
-            
-        </ul>
-    </div>  
 </div>
 
 <footer class="footer">
-    <div class="container-logo-footer-animated">
-        <div class="circle-logo-footer-animate">
-            <div class="logo-footer">
-                <div class="text">
-                  <p>No vivas poco, vive un océano de impresión! </p>
-                </div>
-            </div>  
-        </div>
-    </div>
     <div class="container-form-columns container">
         <div class="container-form">
             <form class="formSubs" action="" method="POST">
@@ -288,13 +223,16 @@
             </h6>
             <ul>
                 <li>
+                    <i class="fa-solid fa-location-dot"></i>
                     OE5 MEXICO N15-46 Y BUENOS AIRE, Quito, Ecuador, 170402
                 </li>
                 <li>
+                    <i class="fa-solid fa-clock"></i>
                     Horarios: Lunes a Viernes de 08:00 AM a 18:00 PM
                 </li>
                 <li>
-                    0963639728
+                    <i class="fa-solid fa-phone"></i>
+                    0962330296 / (02) 518-4188
                 </li>
             </ul>
         </div>
@@ -315,10 +253,10 @@
             </h6>
             <ul>
                 <li>
-                    Nosotros
+                    <a href="{{ route('about-us') }}">Nosotros</a>
                 </li>
                 <li>
-                    Contacto
+                    <a href="{{ route('contact') }}">Contacto</a>
                 </li>
                 <li>
                     Política de privacidad
@@ -332,12 +270,6 @@
 </footer>
 
 <script>
-    const textfooterAnimated = document.querySelector('.circle-logo-footer-animate .text p');
-    textfooterAnimated.innerHTML = textfooterAnimated.innerText.split("").map(
-            (char, i) => 
-            `<span style="transform:rotate(${(i) * 8.2}deg)">${char}</span>`
-        ).join("");
-
     document.addEventListener("DOMContentLoaded", function () {
         const headings = document.querySelectorAll(".information h6");
 
@@ -346,26 +278,6 @@
                 const parent = this.parentElement;
                 parent.classList.toggle("active");
             });
-        });
-
-        /**
-         * Submenu de secciones
-         * 
-        */
-        generarMenuDesdeSecciones();
-
-        const navigationIcon = document.querySelector(".navigationPage");
-        const menuNavigationPage = document.querySelector(".menuNavigationPage");
-
-        navigationIcon.addEventListener("click", function (event) {
-            menuNavigationPage.classList.toggle("active");
-            event.stopPropagation();
-        });
-
-        document.addEventListener("click", function (event) {
-            if (!menuNavigationPage.contains(event.target)) {
-                menuNavigationPage.classList.remove("active");
-            }
         });
 
         const navigation = document.querySelector(".containerNavigationPage");
@@ -379,6 +291,77 @@
         }
 
         window.addEventListener("scroll", toggleNavigation);
+
+        const whatsappIcon = document.querySelector('.icon-whatsapp');
+        if (whatsappIcon) {
+            whatsappIcon.addEventListener('click', function(event) {
+                event.preventDefault();
+                abrirWhatsapp('Quiero comunicarme con un asesor de Oceanprint'); 
+            });
+        }
+
+        setTimeout(() => {
+            const msg = document.getElementById('flash-message');
+            if (msg) {
+                msg.style.opacity = '0';
+                setTimeout(() => msg.remove(), 500);
+            }
+        }, 3000);
+
+        /**
+         * Animaciones
+        */
+        const sections = document.querySelectorAll('.scroll-section'); // secciones que actúan como trigger
+
+        sections.forEach(section => {
+            const elements = section.querySelectorAll('.scroll-animate'); // elementos a animar
+
+            if(elements.length === 0) return; // si no hay elementos, saltar
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        elements.forEach((el, index) => {
+                            setTimeout(() => {
+                                el.classList.add('visible');
+                            }, index * 300); // cascada entre elementos
+                        });
+                        observer.unobserve(entry.target); // animar solo una vez
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(section);
+        });
+
+        const titles = document.querySelectorAll(".animated-title");
+
+        // Función para comprobar si está en pantalla
+        const isInViewport = (el) => {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight &&
+                rect.bottom >= 0
+            );
+        };
+
+        // Si ya está en pantalla al cargar → mostrarlo
+        titles.forEach(title => {
+            if (isInViewport(title)) {
+                title.classList.add("show");
+            } else {
+                // Si no está, observamos para mostrarlo al entrar
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                            observer.unobserve(entry.target); // Solo una vez
+                        }
+                    });
+                }, { threshold: 0 });
+                observer.observe(title);
+            }
+        });
     });
 
     function generarMenuDesdeSecciones() {
@@ -402,5 +385,12 @@
                 menuUl.appendChild(li);
             }
         });
+    }
+
+    function abrirWhatsapp(messageText) {
+        const phoneNumber = '593962330296';
+        const encodedMessage = encodeURIComponent(messageText);
+        const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappLink, '_blank');
     }
 </script>

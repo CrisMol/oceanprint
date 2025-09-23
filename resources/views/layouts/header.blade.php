@@ -21,10 +21,10 @@
             <li>
                 <a href="{{ route('services') }}">Servicios</a>
                 <ul class="submenu">
-                    <li><a href="{{ route('services') }}#offset">Impresión Offset</a></li>
-                    <li><a href="{{ route('services') }}#publicity">Publicidad</a></li>
-                    <li><a href="{{ route('services') }}#personalized">Personalizado</a></li>
-                    <li><a href="{{ route('services') }}#design">Diseño Gráfico</a></li>
+                    <li><a href="{{ route('services') }}#offset">Papelería</a></li>
+                    <li><a href="{{ route('services') }}#publicity">Personalizados</a></li>
+                    <li><a href="{{ route('services') }}#personalized">Publicidad </a></li>
+                    <li><a href="{{ route('services') }}#design">Corporativos</a></li>
                 </ul>
             </li>
             <li>
@@ -37,13 +37,6 @@
                 <a class="icon-header" href="/buscar" aria-label="Buscar">
                     <svg class="icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 17 17"><g></g>
                         <path d="M16.604 15.868l-5.173-5.173c0.975-1.137 1.569-2.611 1.569-4.223 0-3.584-2.916-6.5-6.5-6.5-1.736 0-3.369 0.676-4.598 1.903-1.227 1.228-1.903 2.861-1.902 4.597 0 3.584 2.916 6.5 6.5 6.5 1.612 0 3.087-0.594 4.224-1.569l5.173 5.173 0.707-0.708zM6.5 11.972c-3.032 0-5.5-2.467-5.5-5.5-0.001-1.47 0.571-2.851 1.61-3.889 1.038-1.039 2.42-1.611 3.89-1.611 3.032 0 5.5 2.467 5.5 5.5 0 3.032-2.468 5.5-5.5 5.5z"></path>
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a class="icon-header" href="/favoritos" aria-label="Favoritos">
-                    <svg class="icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 17 17"><g></g>
-                        <path d="M12.5 0.658c-1.739 0-3.251 0.992-4 2.439-0.749-1.447-2.261-2.439-4-2.439-2.481 0-4.5 2.019-4.5 4.5 0 0.343 0.048 0.699 0.154 1.118l0.109 0.351c1.432 4.354 7.659 9.393 7.924 9.604l0.313 0.252 0.313-0.252c0.282-0.227 6.926-5.598 7.927-9.614l0.112-0.368c0.101-0.402 0.148-0.749 0.148-1.091 0-2.481-2.019-4.5-4.5-4.5zM15.889 5.98l-0.113 0.37c-0.809 3.246-5.946 7.727-7.276 8.843-1.282-1.083-6.122-5.337-7.285-8.872l-0.1-0.316c-0.077-0.311-0.115-0.588-0.115-0.847 0-1.93 1.57-3.5 3.5-3.5s3.5 1.571 3.5 3.5v0.252h1v-0.252c0-1.93 1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 0.258-0.038 0.527-0.111 0.822z"></path>
                     </svg>
                 </a>
             </li>

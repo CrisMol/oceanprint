@@ -1,5 +1,5 @@
 <div class="content categories">
-    <div class="glass" style="--r:-3;" data-text="Impresión offset">
+    <div class="glass" style="--r:-3;" data-text="Papelería corporativa y oficina">
         <div class="circle"></div>
         <div class="contentGlass category">
             <div class="container-image">
@@ -7,21 +7,21 @@
             </div>
             <div class="container-text">
                 <ul>
-                    <li>Revistas</li>
-                    <li>Catálogos</li>
-                    <li>Folletos</li>
-                    <li>Empaques</li>
+                    <li>Tarjetas</li>
+                    <li>Carpetas</li>
+                    <li>Libretas</li>
+                    <li>Credenciales y más...</li>
                 </ul>
             </div>
             <div class="container-button">
-                <button type="button" class="button-circle-arrow-right">
+                <button type="button" class="button-circle-arrow-right" onclick="abrirWhatsapp('Hola, me gustaría solicitar el servicio de papelería corporativa y oficina.')">
                     <span class="button-text">Solicitar</span>
                     <span class="button-icon"></span>
                 </button>
             </div>
         </div>
     </div>
-    <div class="glass" style="--r:3;" data-text="Impresión digital">
+    <div class="glass" style="--r:3;" data-text="Promocionales personalizados">
         <div class="circle"></div>
         <div class="contentGlass category">
             <div class="container-image">
@@ -29,21 +29,21 @@
             </div>
             <div class="container-text">
                 <ul>
-                    <li>Tarjetas de presentación</li>
-                    <li>Etiquetas adhesivas</li>
-                    <li>Invitaciones</li>
-                    <li>Brochures</li>
+                    <li>Volantes</li>
+                    <li>Esferos</li>
+                    <li>Tomatos</li>
+                    <li>Fundas y más...</li>
                 </ul>
             </div>
             <div class="container-button">
-                <button type="button" class="button-circle-arrow-right">
+                <button type="button" class="button-circle-arrow-right" onclick="abrirWhatsapp('Hola, me gustaría solicitar el servicio de promocionales personalizados.')">
                     <span class="button-text">Solicitar</span>
                     <span class="button-icon"></span>
                 </button>
             </div>
         </div>
     </div>
-    <div class="glass" style="--r:-3;" data-text="Diseño gráfico y Publicidad">
+    <div class="glass" style="--r:-3;" data-text="Publicidad visual y gran formato">
         <div class="circle"></div>
         <div class="contentGlass category">
             <div class="container-image">
@@ -51,21 +51,21 @@
             </div>
             <div class="container-text">
                 <ul>
-                    <li>Logotipos</li>
-                    <li>Papelería Corporativa</li>
-                    <li>Banners Publicitarios</li>
-                    <li>Flyers</li>
+                    <li>Rótulos</li>
+                    <li>Acrílico</li>
+                    <li>Rotulación vehicular</li>
+                    <li>MDF y más...</li>
                 </ul>
             </div>
             <div class="container-button">
-                <button type="button" class="button-circle-arrow-right">
+                <button type="button" class="button-circle-arrow-right" onclick="abrirWhatsapp('Hola, me gustaría solicitar el servicio de publicidad visual y gran formato.')">
                     <span class="button-text">Solicitar</span>
                     <span class="button-icon"></span>
                 </button>
             </div>
         </div>
     </div>
-    <div class="glass" style="--r:-3;" data-text="Impresión a Gran Escala y Personalizados">
+    <div class="glass" style="--r:-3;" data-text="Soluciones corporativos">
         <div class="circle"></div>
         <div class="contentGlass category">
             <div class="container-image">
@@ -73,14 +73,14 @@
             </div>
             <div class="container-text">
                 <ul>
-                    <li>Gigantografías</li>
-                    <li>Lonas publicitarias</li>
-                    <li>Vinilos Adhesivos</li>
-                    <li>Señalética</li>
+                    <li>Restaurantes</li>
+                    <li>Veterinarias</li>
+                    <li>Etiquetas de ropa</li>
+                    <li>Sublimación y más...</li>
                 </ul>
             </div>
             <div class="container-button">
-                <button type="button" class="button-circle-arrow-right">
+                <button type="button" class="button-circle-arrow-right" onclick="abrirWhatsapp('Hola, me gustaría solicitar el servicio de soluciones corporativos.')">
                     <span class="button-text">Solicitar</span>
                     <span class="button-icon"></span>
                 </button>

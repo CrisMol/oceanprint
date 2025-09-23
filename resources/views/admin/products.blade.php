@@ -126,17 +126,19 @@
             $('.delete').on('click', function(e){
                 e.preventDefault();
                 var form = $(this).closest('form');
-                swal({
-                    title: 'Estas seguro?',
+                Swal.fire({
+                    title: '¿Estás seguro?',
                     text: 'Una vez eliminado, no podrás recuperar este registro!',
-                    type: 'warning',
-                    buttons: ['No', 'Si'],
-                    confirmButtonColor: '#dc3545',
-                }).then(function(result){
-                    if (result) {
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí',
+                    cancelButtonText: 'No',
+                    confirmButtonColor: '#dc3545'
+                }).then((result) => {
+                    if (result.isConfirmed) {
                         form.submit();
                     }
-                })
+                });
             })
         })
     </script>

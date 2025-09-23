@@ -218,9 +218,9 @@
                     <fieldset class="name" data-type-product="simple">
                         <div class="body-title mb-10">Precio regular <span
                                 class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Ingresa precio regular"
+                        <input class="mb-10 form-control" type="text" placeholder="Ingresa precio regular"
                             name="regular_price" tabindex="0" value="{{ $product->regular_price }}" aria-required="true"
-                            required="">
+                            required>
                     </fieldset>
                     @error('regular_price')
                         <span class="alert alert-danger text-center">
@@ -344,14 +344,14 @@
                             <fieldset class="name w-20">
                                 <div class="body-title mb-10">Precio Regular <span class="tf-color-1">*</span></div>
                                 <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio Regular"
-                                       name="regular_price_variation[]" value="0">
+                                       name="regular_price_variation[]" value="{{ $product->regular_price }}">
                             </fieldset>
                 
                             <!-- Precio de Venta -->
                             <fieldset class="name w-20">
                                 <div class="body-title mb-10">Precio de Venta</div>
                                 <input type="number" step="0.01" class="mb-10 form-control" placeholder="Precio de Venta"
-                                       name="sale_price_variation[]" value="0">
+                                       name="sale_price_variation[]" value="{{ $product->sale_price }}">
                             </fieldset>
                             <!-- Es Popular -->
                             <fieldset class="name d-flex gap-3 justify-content-center" style="align-self: flex-start;">

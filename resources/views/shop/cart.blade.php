@@ -123,7 +123,7 @@
                     </div>
                     <div class="mobile_fixed-btn_wrapper">
                         <div class="button-wrapper">
-                            <a href="#" class="btn btn-primary btn-checkout button-square">REALIZAR EL PEDIDO</a>
+                            <a href="#" class="btn btn-primary btn-checkout button-square">REALIZAR PEDIDO</a>
                         </div>
                     </div>
                 </div>

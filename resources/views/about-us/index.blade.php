@@ -8,21 +8,29 @@
     <main class="">
         <section class="container container-presentation" id="presentation" data-menu-navigation="Leyenda">
             <div class="containerPresentationText">
-                <h1 class="text-center text-gradient energetic-pink">
+                <h1 class="text-center color-white">
                     Nosotros
                 </h1>
-                <p class="text-center">
+                <p class="text-center color-white">
                     <strong>Oceanprint</strong> se ha ganado el reconocimiento de todos sus clientes, no solo por su excelente trabajo, calidad excepcional y entregas puntuales, si no por la pasión de aceptar y mejorar ideas para crear soluciones de impresión que realmente reflejen su visión y resuenen con su audiencia.
                 </p>
             </div>
             <div class="containerPresentationImage">
-                <img 
-                    class="image-presentation"
-                    src="{{ asset('images/nosotros/presentacion.jpg') }}" 
-                    alt="Nosotros OceanPrint"
-                    width="1920"
-                    height="600"
-                >
+                <picture>
+                    <source 
+                        media="(max-width: 767px)" 
+                        srcset="{{ asset('images/nosotros/equipo-de-trabajo-oceanprint-800.webp') }}"
+                    >
+                    
+                    <img 
+                        class="image-presentation"
+                        src="{{ asset('images/nosotros/equipo-de-trabajo-oceanprint-1920.webp') }}" 
+                        alt="Nuestro equipo de trabajo en OceanPrint"
+                        width="1920"
+                        height="1281"
+                        fetchpriority="high"
+                    >
+                </picture>
             </div>
         </section>
 
@@ -30,19 +38,28 @@
             <div class="containerAdvantagesColumns">
                 <div class="column">
                     <div class="containerTitleAdvantages">
-                        <h3>
-                            <span class="text-gradient soft-pink">Impulsando Empresas</span> con Calidad y Confianza
+                        <h3 class="animated-title">
+                            <span class="text-gradient soft-pink word first">Impulsando Empresas</span> <span class="word second">
+                                con Calidad y Confianza
+                            </span>
                         </h3>
                     </div>
                     <div class="containerImageAdvantages">
-                        <img 
-                            class="image-presentation"
-                            src="{{ asset('images/nosotros/empleada.jpg') }}" 
-                            alt="Diseñadora Oceanprint"
-                            width="600"
-                            height="500"
-                            loading="lazy"
-                        >
+                        <picture>
+                            <source 
+                                media="(max-width: 767px)" 
+                                srcset="{{ asset('images/nosotros/emprendedora-de-negocio-750.webp') }}"
+                            >
+                            
+                            <img 
+                                class="image-presentation"
+                                src="{{ asset('images/nosotros/emprendedora-de-negocio-960.webp') }}" 
+                                alt="Emprendedora de negocio, jefa"
+                                width="960"
+                                height="640"
+                                loading="lazy"
+                            >
+                        </picture>
                     </div>
                 </div>
                 <div class="column">
@@ -61,8 +78,8 @@
         </section>
 
         <section class="container container-numbers" id="container-numbers" data-menu-navigation="Nuestros números">
-            <div class="containerTitle text-center">
-                <h3>
+            <div class="containerTitle text-center scroll-section">
+                <h3 class="scroll-animate">
                     Los mejores <span class="text-gradient bright-light">precios y servicios</span>
                 </h3>
             </div>

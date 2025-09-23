@@ -237,12 +237,14 @@ class AdminController extends Controller
 
     public function product_store(Request $request)
     {
+        Log::info('Datos recibidos en product_store:', $request->all());
+
         $request->validate([
             'name' => 'required|string|max:100',
             'slug' => 'required|unique:products,slug',
             'short_description' => 'nullable|string|max:500',
             'description' => 'required|string',
-            'regular_price' => 'required|numeric',
+            'regular_price' => 'nullable|numeric',
             'sale_price' => 'nullable|numeric',
             'SKU' => 'required',
             'stock_status' => 'required',
@@ -251,9 +253,21 @@ class AdminController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $rules = [];
+
+        if($request->type_product === 'variacion'){
+            $rules['variation_id.*'] = 'required|exists:product_variations,id';
+            $rules['quantity_id.*'] = 'required|exists:product_quantities,id';
+            $rules['regular_price_variation.*'] = 'required|numeric|min:0.01';
+            $rules['sale_price_variation.*'] = 'nullable|numeric|min:0';
+        }
+
+        $request->validate($rules);
+
         //dd($request->all());
 
         DB::beginTransaction(); // Iniciar la transacción
+        Log::info('Iniciando transacción');
 
         try {
             $product = new Product();
@@ -261,8 +275,8 @@ class AdminController extends Controller
             $product->slug = Str::slug($request->name);
             $product->short_description = $request->short_description;
             $product->description = $request->description;
-            $product->regular_price = $request->regular_price;
-            $product->sale_price = $request->sale_price;
+            $product->regular_price = $request->input('regular_price') ?? 0;
+            $product->sale_price = $request->input('sale_price') ?? 0;
             $product->SKU = $request->SKU;
             $product->stock_status = $request->stock_status;
             $product->featured = $request->featured ?? false;
@@ -273,6 +287,7 @@ class AdminController extends Controller
             $current_timestamp = Carbon::now()->timestamp;
 
             if ($request->hasFile('image')) {
+                Log::info('Procesando imagen principal');
                 $image = $request->file('image');
                 $imageName = $current_timestamp . '.' . $image->extension();
                 $this->GenerateProductThumbailImage($image, $imageName);
@@ -284,6 +299,7 @@ class AdminController extends Controller
             $counter = 1;
 
             if ($request->hasFile('images')) {
+                Log::info('Procesando galería de imágenes');
                 $allowedFileExtension = ['jpg', 'jpeg', 'png'];
                 $files = $request->file('images');
                 foreach ($files as $file) {
@@ -300,6 +316,7 @@ class AdminController extends Controller
 
             $product->images = $gallery_images;
             $product->save();
+            Log::info('Producto guardado');
 
             // Procesar y almacenar las variaciones
             $this->processVariations($request->all(), $product->id);
@@ -445,7 +462,7 @@ class AdminController extends Controller
         $product->tags()->sync($tagIds);
     }
 
-    public function GenerateProductThumbailImage($image, $imageName)
+    /*public function GenerateProductThumbailImage($image, $imageName)
     {
         $destinationPathThumbnail = public_path('uploads/products/thumbnails');
         $destinationPath = public_path('uploads/products');
@@ -459,6 +476,24 @@ class AdminController extends Controller
         $img->resize(104,104,function($constraint){
             $constraint->aspectRatio();
         })->save($destinationPathThumbnail.'/'.$imageName);
+    }*/
+    public function GenerateProductThumbailImage($image, $imageName)
+    {
+        $destinationPathThumbnail = public_path('uploads/products/thumbnails');
+        $destinationPath = public_path('uploads/products');
+        $img = Image::read($image->path());
+
+        // Imagen principal (600x600)
+        $img->resize(600, 600, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        })->save($destinationPath . '/' . $imageName);
+
+        // Miniatura (104x104)
+        $img->resize(104, 104, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        })->save($destinationPathThumbnail . '/' . $imageName);
     }
 
     public function product_edit($id)
@@ -494,6 +529,8 @@ class AdminController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
         ]);
+
+        //dd($request->all());
 
         $product = Product::find($request->id);
         $product->name = $request->name;
@@ -607,7 +644,7 @@ class AdminController extends Controller
             $quantityId = $request->quantity_id[$index] ?? null;
             $regularPrice = $request->regular_price_variation[$index] ?? null;
             $salePrice = $request->sale_price_variation[$index] ?? null;
-            $isPopular = $request->is_popular[$index] ?? false;
+            $isPopular = !empty($request->is_popular[$index]) ? 1 : 0;
         
             /*Log::info("Procesando variación", [
                 'index' => $index,

@@ -68,21 +68,21 @@
 
     .contents-description {
         position: absolute;
-        top: 0;
+        top: 50%;
+        transform: translateY(-50%);
         right: 0;
-        height: 100%;
         color: #fff;
         z-index: 3;
         padding: 0.85rem;
     }
 
-    .contents-description h3 {
+    .contents-description span {
         text-transform: uppercase;
         text-orientation: upright;
         text-align: start;
         writing-mode: vertical-lr;
         margin: 0px auto;
-        font-size: clamp(1.6rem, 1.85rem + 0.5vw, 2rem);
+        font-size: clamp(1.5rem, 1rem + 0.5vw, 2rem);
     }
     
     .content-column {

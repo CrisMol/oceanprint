@@ -49,9 +49,11 @@
                                 Principal
                             </option>
                             @foreach ($categories as $categoryDB)
-                                <option value="{{ $categoryDB->id }}">
-                                    {{ $categoryDB->name }}
-                                </option>
+                                @if ($categoryDB->parent_id == null)
+                                    <option value="{{ $categoryDB->id }}">
+                                        {{ $categoryDB->name }}
+                                    </option>
+                                @endif
                             @endforeach
                         </select>
                     </fieldset>

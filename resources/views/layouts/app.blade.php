@@ -11,11 +11,13 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Cristian Molina" />
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/logo/logo-sin-texto.png') }}">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,700&family=Sora:wght@100..800&family=Comfortaa:wght@300;400;700&family=Cormorant:wght@400;500;600&family=Spectral:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Cormorant:wght@400;500;600&family=Spectral:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     @include('layouts.styles.index')
 
@@ -32,6 +34,24 @@
         @yield('content')
 
         @include('layouts.footer')
+
+        <!--Redes sociales-->
+        <div class="social-floating" id="socialBar" aria-hidden="false">
+            <a href="https://www.facebook.com/yourpage" class="social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                <span class="sr-only">Facebook</span>
+            </a>
+
+            <a href="https://www.instagram.com/yourprofile" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                <span class="sr-only">Instagram</span>
+            </a>
+
+            <a href="https://www.tiktok.com/@yourprofile" class="social-tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <i class="fab fa-tiktok" aria-hidden="true"></i>
+                <span class="sr-only">TikTok</span>
+            </a>
+        </div>
     </div>
 
     <script>
@@ -80,6 +100,10 @@
                 menuToggle.classList.remove("active");
                 overlay.classList.remove("active");
             }
+
+            setTimeout(() => {
+                document.getElementById("socialBar").classList.add("show");
+            }, 2000);
         });
     </script>
     @stack('scripts')

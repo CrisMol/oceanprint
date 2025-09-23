@@ -23,11 +23,10 @@
         position: relative;
         max-width: 500px;
         height: 300px;
-        background: radial-gradient(
-            circle, 
-            rgba(255, 182, 193, 0.35) 0%, 
-            rgba(255, 160, 176, 0.35) 50%, 
-            rgba(255, 140, 162, 0.35) 100%
+        background: linear-gradient(
+            135deg,
+            rgba(5, 175, 242, 0.3),
+            rgba(241, 119, 186, 0.1)
         );
         box-shadow: 0 5px 5px rgba(255, 182, 193, 0.35);
         backdrop-filter: blur(10px);
@@ -37,13 +36,12 @@
         transition: 0.5s;
         border-radius: 10px;
         margin: 0 5px;
-        transform: rotate(calc(var(--r) * 1deg));
+        /*transform: rotate(calc(var(--r) * 1deg));*/
         overflow: hidden;
     }
 
     .content.categories:hover .glass {
         transform: rotate(0deg);
-        margin: 0 10px;
     }
 
     .content.categories .glass .circle {
@@ -53,12 +51,6 @@
         width: 800px;
         height: 800px;
         background: #fff;
-        /*background: radial-gradient(
-            circle, 
-            rgba(5, 175, 242, 0.35) 0%, 
-            rgba(5, 160, 242, 0.35) 50%, 
-            rgba(5, 140, 242, 0.35) 100%
-        );*/
         border: 50px solid rgba(255, 140, 162, 0.35);
         transition: all 0.6s ease-in-out;
         border-radius: 50%;
@@ -79,7 +71,7 @@
         display: flex;
         justify-content: center;
         text-align: center;
-        color: var(--soft-pink);
+        color: var(--black-energetic-pink);
         transition: 0.5s;
     }
 
@@ -120,7 +112,7 @@
     .content.categories .contentGlass .container-image img {
         height: auto;
         aspect-radio: 1/1;
-        filter: invert(60%) sepia(40%) saturate(5000%) hue-rotate(310deg) brightness(94%) contrast(95%);
+        filter: invert(23%) sepia(91%) saturate(7121%) hue-rotate(316deg) brightness(90%) contrast(105%);
         opacity: 1;
         transition: 0.5s;
     }

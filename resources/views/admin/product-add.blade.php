@@ -26,13 +26,13 @@
                 </li>
             </ul>
         </div>
-        <form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data" action="{{ route('admin.product.store') }}">
+        <form class="tf-section-2 form-add-product needs-validation" novalidate method="POST" enctype="multipart/form-data" action="{{ route('admin.product.store') }}">
             @csrf
             <div class="wg-box">
                 <fieldset class="name">
                     <div class="body-title mb-10">Nombre de producto <span class="tf-color-1">*</span>
                     </div>
-                    <input class="mb-10" type="text" placeholder="Ingresa el nombre del producto"
+                    <input class="mb-10 form-control" type="text" placeholder="Ingresa el nombre del producto"
                         name="name" tabindex="0" value="{{ old('name') }}" aria-required="true" required="">
                     <div class="text-tiny">No exceda los 100 caracteres al ingresar el nombre del producto.</div>
                 </fieldset>
@@ -44,7 +44,7 @@
 
                 <fieldset class="name">
                     <div class="body-title mb-10">Slug <span class="tf-color-1">*</span></div>
-                    <input class="mb-10" type="text" placeholder="Ingresa el slug del producto"
+                    <input class="mb-10 form-control" type="text" placeholder="Ingresa el slug del producto"
                         name="slug" tabindex="0" value="{{ old('slug') }}" aria-required="true" required="">
                         <div class="text-tiny">No exceda los 100 caracteres al ingresar el nombre del producto.</div>
                 </fieldset>
@@ -59,7 +59,7 @@
                         <div class="body-title mb-10">Categoria <span class="tf-color-1">*</span>
                         </div>
                         <div class="select">
-                            <select class="" name="category_id">
+                            <select class="form-control select2" name="category_id" id="categoryId" required>
                                 <option value="">Escoger categoría</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
@@ -79,8 +79,8 @@
                         <div class="body-title mb-10">Brand <span class="tf-color-1">*</span>
                         </div>
                         <div class="select">
-                            <select class="" name="brand_id">
-                                <option>Escoger Marca</option>
+                            <select class="form-control select2" name="brand_id" id="brandId" required>
+                                <option value="">Escoger Marca</option>
                                 @foreach ($brands as $brand)
                                     <option value="{{ $brand->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}z>{{ $brand->name }}</option>
                                 @endforeach
@@ -96,7 +96,7 @@
 
                 <fieldset class="tags">
                     <div class="body-title mb-10">Etiquetas</div>
-                    <select id="tags" name="tags[]" class="form-control" multiple="multiple"></select>
+                    <select id="tags" name="tags[]" class="form-control select2" multiple="multiple"></select>
                 </fieldset>
                 
                 @error('tags')
@@ -105,7 +105,7 @@
 
                 <fieldset class="shortdescription">
                     <div class="body-title mb-10">Descripción corta <span class="tf-color-1">*</span></div>
-                    <textarea class="mb-10 ht-150" name="short_description"
+                    <textarea class="mb-10 ht-150 form-control" name="short_description"
                         placeholder="Descripción corta" tabindex="0" aria-required="true"
                         required="">{{ old('short_description') }}</textarea>
                         <div class="text-tiny">No exceda los 100 caracteres al ingresar el nombre del producto.</div>
@@ -119,7 +119,7 @@
                 <fieldset class="description">
                     <div class="body-title mb-10">Descripción <span class="tf-color-1">*</span>
                     </div>
-                    <textarea class="mb-10" name="description" placeholder="Descripción"
+                    <textarea class="mb-10 form-control" name="description" placeholder="Descripción"
                         tabindex="0" aria-required="true" required="">{{ old('description') }}</textarea>
                     <div class="text-tiny">No exceda los 100 caracteres al ingresar el nombre del producto.</div>
                 </fieldset>
@@ -183,7 +183,7 @@
                         <div class="body-title mb-10">Tipo de producto <span class="tf-color-1">*</span>
                         </div>
                         <div class="select">
-                            <select class="" name="type_product">
+                            <select class="form-control" name="type_product">
                                 <option value="simple">Producto Simple</option>
                                 <option value="variacion">Producto Variable</option>
                             </select>
@@ -200,7 +200,7 @@
                     <fieldset class="name" data-type-product="simple">
                         <div class="body-title mb-10">Precio regular <span
                                 class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Ingresa precio regular"
+                        <input class="mb-10 form-control" type="text" placeholder="Ingresa precio regular"
                             name="regular_price" tabindex="0" value="{{ old('regular_price') }}" aria-required="true">
                     </fieldset>
                     @error('regular_price')
@@ -211,7 +211,7 @@
                     <fieldset class="name" data-type-product="simple">
                         <div class="body-title mb-10">Precio de venta <span
                                 class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Ingresa precio de venta"
+                        <input class="mb-10 form-control" type="text" placeholder="Ingresa precio de venta"
                             name="sale_price" tabindex="0" value="{{ old('sale_price') }}" aria-required="true">
                     </fieldset>
                     @error('sale_price')
@@ -288,7 +288,7 @@
                     <fieldset class="name">
                         <div class="body-title mb-10">SKU <span class="tf-color-1">*</span>
                         </div>
-                        <input class="mb-10" type="text" placeholder="Ingresa SKU" name="SKU"
+                        <input class="mb-10 form-control" type="text" placeholder="Ingresa SKU" name="SKU"
                             tabindex="0" value="{{ old('SKU') }}" aria-required="true" required="">
                     </fieldset>
                     @error('SKU')
@@ -299,7 +299,7 @@
                     <fieldset class="name">
                         <div class="body-title mb-10">Cantidad <span class="tf-color-1">*</span>
                         </div>
-                        <input class="mb-10" type="text" placeholder="Ingresa cantidad"
+                        <input class="mb-10 form-control" type="text" placeholder="Ingresa cantidad"
                             name="quantity" tabindex="0" value="{{ old('quantity') }}" aria-required="true"
                             required="">
                     </fieldset>
@@ -314,7 +314,7 @@
                     <fieldset class="name">
                         <div class="body-title mb-10">Stock</div>
                         <div class="select mb-10">
-                            <select class="" name="stock_status">
+                            <select class="form-control" name="stock_status">
                                 <option value="instock">En stock</option>
                                 <option value="outofstock">Fuera de stock</option>
                             </select>
@@ -328,7 +328,7 @@
                     <fieldset class="name">
                         <div class="body-title mb-10">Destacado</div>
                         <div class="select mb-10">
-                            <select class="" name="featured">
+                            <select class="form-control" name="featured">
                                 <option value="0">No</option>
                                 <option value="1">Si</option>
                             </select>
@@ -355,6 +355,8 @@
                 tags: true,  // Permite crear nuevas etiquetas
                 tokenSeparators: [','],
                 placeholder: "Escribe una etiqueta...",
+                width: '100%',
+                dropdownParent: $('#tags').parent(),
                 ajax: {
                     url: "{{ route('tags.search') }}", // Ruta para buscar etiquetas existentes
                     dataType: 'json',
@@ -370,6 +372,18 @@
                         };
                     }
                 }
+            });
+
+            $('#categoryId').select2({
+                placeholder: "Buscar categoría...",
+                allowClear: true,
+                width: '100%' 
+            });
+
+            $('#brandId').select2({
+                placeholder: "Escoger marca...",
+                allowClear: true,
+                width: '100%' 
             });
 
             $('#myFile').on('change',function(e) {
@@ -392,6 +406,47 @@
             $("input[name='name']").on('change', function(e) {
                 $("input[name='slug']").val(StringToSlug($(this).val()));
             });
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation');
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        let typeProduct = form.querySelector('select[name="type_product"]').value;
+                        let valid = form.checkValidity(); // Validación nativa Bootstrap
+
+                        // Validación adicional para productos con variaciones
+                        if(typeProduct === 'variacion') {
+                            // Recorremos cada fila de variaciones
+                            form.querySelectorAll('.variation-select').forEach(function(select){
+                                if(select.value === "") valid = false;
+                            });
+                            form.querySelectorAll('.quantity-select').forEach(function(select){
+                                if(select.value === "") valid = false;
+                            });
+                            form.querySelectorAll('input[name="regular_price_variation[]"]').forEach(function(input){
+                                if(input.value === "" || parseFloat(input.value) <= 0) valid = false;
+                            });
+                        }
+
+                        if (!valid) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            //console.log('Faltan campos obligatorios');
+
+                            // Opcional: alerta con Swal
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Campos obligatorios',
+                                text: 'Por favor completa todas las variaciones, cantidades y precios.',
+                            });
+                        }
+
+                        form.classList.add('was-validated');
+                    }, false)
+                });
         });
 
         function StringToSlug(Text) {

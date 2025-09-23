@@ -89,14 +89,14 @@
                     $('#containerPricesSimple').show();
 
                     // Poner los valores en 0 para evitar errores de validación
-                    $('input[name="regular_price"], input[name="sale_price"]').val(0);
+                    //$('input[name="regular_price"], input[name="sale_price"]').val(0);
                 } else if (selectedType === 'variacion') {
                     // Ocultar los precios simples y mostrar los de variaciones
                     $('#containerPricesSimple').hide();
                     $('#rowAddMorePrice, #pricingContainer').show();
 
                     // Resetear los valores de los campos ocultos para que no se envíen como 0 si luego cambian de nuevo
-                    $('input[name="regular_price"], input[name="sale_price"]').val(0);
+                    //$('input[name="regular_price"], input[name="sale_price"]').val(0);
                 }
             });
 
@@ -127,10 +127,21 @@
                 },
                 success: function(response) {
                     if (response.success) {
-                        alert(`${response.message}`);
-                        addNewVariationProductSelect(response.variation.id, response.variation.name);
+                        Swal.fire({
+                            icon: 'success',
+                            title: '¡Éxito!',
+                            text: response.message,
+                            confirmButtonText: 'Aceptar'
+                        }).then(() => {
+                            addNewVariationProductSelect(response.variation.id, response.variation.name);
+                        });
                     } else {
-                        alert("Hubo un error al agregar la variación.");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Hubo un error al agregar la variación.',
+                            confirmButtonText: 'Intentar de nuevo'
+                        });
                     }
                 },
                 error: function(xhr) {

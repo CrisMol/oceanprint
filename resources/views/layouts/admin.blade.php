@@ -34,7 +34,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
     <style>
-        .select2-container--default .select2-selection--multiple {
+        /*.select2-container--default .select2-selection--multiple {
             border: 1px solid #ddd;
             min-height: 40px;
             padding: 5px;
@@ -56,7 +56,7 @@
 
         .select2-dropdown.select2-dropdown--below {
             left: 10%;
-        }
+        }*/
 
         .dropdown-toggle.bs-placeholder.btn-light {
             font-size: 1.5rem;
@@ -566,6 +566,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- JS de Select2 -->  
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         (function($) {
 

@@ -43,6 +43,7 @@
 
     .container-slider-video .content .title-container .title-ocean-1 {
         position: absolute;
+        left: 0;
         color: transparent;
         -webkit-text-stroke: 1px #fff;
     }
@@ -54,15 +55,37 @@
 
     .container-slider-video .content .title-container .title-ocean-2 {
         color: #05AFF2;
-        animation: animate 10s ease-in-out infinite;
+        animation: animate 5s ease-in-out infinite;
     }
 
     @keyframes animate {
         0%, 100% {
-            clip-path: polygon(0% 30%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+            clip-path: polygon(
+                0% 20%, 
+                10% 35%, 
+                25% 55%, 
+                40% 35%, 
+                55% 65%, 
+                70% 30%, 
+                85% 60%, 
+                100% 25%, 
+                100% 100%, 
+                0% 100%
+            );
         }
         50% {
-            clip-path: polygon(0 60%, 16% 65%, 35% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+            clip-path: polygon(
+                0% 70%, 
+                10% 45%, 
+                25% 30%, 
+                40% 55%, 
+                55% 25%, 
+                70% 60%, 
+                85% 40%, 
+                100% 65%, 
+                100% 100%, 
+                0% 100%
+            );
         }
     }
 

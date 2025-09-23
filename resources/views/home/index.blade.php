@@ -26,17 +26,19 @@
                 title="Productos" 
                 subtitle="Destacados" 
                 description="Mira una pequeña parte de nuestras principales creaciones, más solicitadas y personalizadas a cada cliente."
+                icon="destacado.png"
             />
         </section>
 
-        <section class="products" style="--width: 300px; --height: 500px; --imageQuantity: 4">
+        <section class="products">
             @include('home.section.products-infinite')
         </section>
 
         <section class="container container-steps" id="steps" data-menu-navigation="Proceso">
             <div class="row-subheading-center text-center">
-                <h2>
-                    Nuestro proceso
+                <h2 class="animated-title white">
+                    <span class="word first">Nuestro</span>
+                    <span class="word second">Proceso</span>
                 </h2>
             </div>
             @include('home.section.steps')
@@ -46,35 +48,144 @@
             @include('home.section.brands')
         </section>
 
-        <section class="container container-kits" id="kits" data-menu-navigation="Kits">
+        <section class="container container-business" id="business" data-menu-navigation="Soluciones empresariales">
             <x-sub-heading-row 
-                title="Kits" 
-                subtitle="Profesionales" 
-                description="Escoge o crea el kit que mejor se adapte a tu marca."
+                title="Soluciones" 
+                subtitle="Empresariales" 
+                description="Brindamos soluciones de impresión especializadas para negocios que desean proyectar una imagen profesional, organizada y de confianza."
+                icon="solucion.png"
             />
-            @include('home.section.kits')
+            <div class="row">
+                <div class="column">
+                    <div class="containerImageBusiness">
+                        <img src="{{ asset('images/negocios/veterinaria.jpg') }}" alt="" width="600" height="600">
+                        <div class="containerDescriptionBusiness">
+                            <h4 class="titleCTA">Veterinarias</h4>
+                            <a class="buttonCTA" href="#">
+                                Solicitar cotización
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="containerServicesBusiness">
+                        <div class="card">
+                            <div class="containerImageService">
+                                <img src="{{ asset('images/negocios/carnet-de-vacunas.jpg') }}" alt="" width="200" height="200">
+                            </div>
+                            <div class="titleService">
+                                <h6>Carnet de vacunas</h6>
+                                <p>
+                                    $1,99 c/u
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="containerImageService">
+                                <img src="{{ asset('images/negocios/kit-de-cedulacion-mascotas.jpg') }}" alt="" width="200" height="200">
+                            </div>
+                            <div class="titleService">
+                                <h6>Kit de identificación</h6>
+                                <p>
+                                    $5,50 c/u
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="containerServicesBusiness">
+                        <div class="card">
+                            <div class="containerImageService">
+                                <img src="{{ asset('images/negocios/impresion-de-libros.png') }}" alt="" width="200" height="200">
+                            </div>
+                            <div class="titleService">
+                                <h6>Impresión de libros</h6>
+                                <p>
+                                    Por tipo, calidad y diseño
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="containerImageService">
+                                <img src="{{ asset('images/negocios/credencial.png') }}" alt="" width="200" height="200">
+                            </div>
+                            <div class="titleService">
+                                <h6>Credenciales</h6>
+                                <p>
+                                    $2,49 c/u
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="containerImageBusiness">
+                        <img src="{{ asset('images/negocios/colegios.jpg') }}" alt="" width="600" height="600">
+                        <div class="containerDescriptionBusiness">
+                            <h4 class="titleCTA">Instituciones Educativas</h4>
+                            <a class="buttonCTA" href="#">
+                                Solicitar cotización
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <div class="logo-slider">
-            <h5 class="titleLogos">Aliados que llevan su imagen al siguiente nivel</h5>
-            <div class="logos-slide">
-                <div class="slide">
-                    <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" alt="">
-                </div>
-                <div class="slide">
-                    <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" alt="">
+        <div class="logo-slider" id="aliance">
+            <div class="swiper swiper-logo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/logo/logo-oficial-oceanprint.png') }}" 
+                            alt="Logo OceanPrint" 
+                            width="200" 
+                            loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>

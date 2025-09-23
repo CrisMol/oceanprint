@@ -7,15 +7,6 @@
         padding: 5rem 0;
     } 
 
-    #kits h2 {
-        opacity: 0;
-        transition: 0.5s all;
-    }
-
-    #kits h2.visible {
-        opacity: 1;
-    }
-
     .content.kits .card-kit {
         position: relative;
         height: 450px;
@@ -26,7 +17,7 @@
         align-items: center;
         gap: 2rem;
         padding: 1.85rem;
-        background-color: var(--bright-pastel-blue);
+        background-color: var(--calm-turquoise);
     }
 
     .content.kits .card-kit .kit-image {

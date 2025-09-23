@@ -30,4 +30,26 @@
             });
         });
     });
+
+    function mostrarCategoriasTienda() {
+        const contenedorCategorias = document.querySelector('.columnCategoriesShop');
+        if (contenedorCategorias) {
+            contenedorCategorias.classList.add('active');
+        }
+    }
+
+    // Escuchar clics fuera del contenedor
+    document.addEventListener('click', function(event) {
+        const contenedorCategorias = document.querySelector('.columnCategoriesShop');
+        const botonAbrir = document.querySelector('.buttonFilterMobile'); 
+
+        if (
+            contenedorCategorias &&
+            contenedorCategorias.classList.contains('active') && // Solo si está visible
+            !contenedorCategorias.contains(event.target) && // No clic dentro del contenedor
+            !botonAbrir.contains(event.target) // No clic en el botón
+        ) {
+            contenedorCategorias.classList.remove('active');
+        }
+    });
 </script>

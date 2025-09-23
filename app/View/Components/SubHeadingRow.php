@@ -12,17 +12,20 @@ class SubHeadingRow extends Component
     public string $subtitle;
     public string $companyName;
     public string $description;
+    public string $icon;
 
     public function __construct(
         string $title = 'Principales', 
         string $subtitle = 'Servicios',
         string $companyName = 'OceanPrint',
-        string $description = 'Somos una imprenta profesional que cuenta con una amplia gama de servicios de impresión para satisfacer tus necesidades.'
+        string $description = 'Somos una imprenta profesional que cuenta con una amplia gama de servicios de impresión para satisfacer tus necesidades.',
+        string $icon = ''
     ) {
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->companyName = $companyName;
         $this->description = $description;
+        $this->icon = $icon;
     }
 
     /**

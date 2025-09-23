@@ -58,20 +58,20 @@
          * Cambio de fondo de colores
         */
         const body = document.body;
-        const tituloKits = document.getElementById('kits');
-        const h2 = tituloKits.querySelector('h2'); 
+        const tituloAlianza = document.getElementById('business');
+        const h2 = tituloAlianza.querySelector('h2'); 
 
 
         if (isInViewport(stepsSection)) {
-            body.classList.add("background-bright-blue");
+            body.classList.add("background-deep-ocean-blue");
             body.classList.remove("background-primary");
             h2.classList.remove('visible');
         } else if (isInViewport(clientsSection)) {
-            body.classList.add("background-bright-blue");
+            body.classList.add("background-deep-ocean-blue");
             body.classList.remove("background-primary");
             h2.classList.remove('visible');
         } else {
-            body.classList.remove("background-bright-blue");
+            body.classList.remove("background-deep-ocean-blue");
             body.classList.add("background-primary");
             h2.classList.add('visible');
         }

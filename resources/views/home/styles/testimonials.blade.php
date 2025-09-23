@@ -1,6 +1,6 @@
 <style>
     #testimonials {
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(110, 193, 228, 1) 30%);
+        /*background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(13, 13, 13, 1) 100%);*/
     }
 
     .content.testimonials {

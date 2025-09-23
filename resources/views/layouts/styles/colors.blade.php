@@ -1,6 +1,6 @@
 <style>
     .color-white {
-        color: #fff;
+        color: #fff !important;
     }
 
     .color-bright-blue {
@@ -9,6 +9,14 @@
 
     .background-primary {
         background-color: #fff;
+    }
+
+    .background-deep-black {
+        background-color: var(--deep-black);
+    }
+
+    .background-deep-ocean-blue {
+        background-color: var(--deep-ocean-blue);
     }
 
     .background-bright-blue {

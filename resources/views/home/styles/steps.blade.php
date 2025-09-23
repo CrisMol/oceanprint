@@ -1,6 +1,7 @@
 <style>
     .container-steps {
         padding-bottom: 0;
+        padding-top: 3rem;
     }
 
     .container-steps .row-subheading-center h2 {

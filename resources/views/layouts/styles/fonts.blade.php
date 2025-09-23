@@ -1,4 +1,8 @@
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
     ul, li {
         font-family: 'Spectral', sans-serif;
         font-weight: 400;
@@ -6,7 +10,7 @@
 
     h1 {
         font-family: 'Comfortaa', sans-serif;
-        font-size: clamp(3rem, 8vw, 5rem); 
+        font-size: clamp(3rem, 6vw, 5rem); 
         margin: 15px 0;
         font-weight: 700;
         line-height: 1.3;
@@ -14,14 +18,16 @@
     }
 
     h2 {
-        font-family: 'Cormorant', serif;
+        /*font-family: 'Cormorant', serif;*/
+        font-family: 'Oswald', sans-serif;
         font-size: clamp(2.8rem, 6vw, 4rem); 
         text-transform: uppercase;
         white-space: normal;
     }
 
     h3 {
-        font-family: 'Cormorant', serif;
+        /*font-family: 'Cormorant', serif;*/
+        font-family: 'Oswald', sans-serif;
         font-size: clamp(2.2rem, 5vw, 3.2rem);
         white-space: normal;
     }
@@ -46,8 +52,9 @@
     }
 
     p {
-        font-family: 'Lato', serif;
+        /*font-family: 'Lato', serif;*/
+        font-family: 'Source Sans Pro', sans-serif;
         font-weight: 300;
-        font-size: 1.15rem;
+        font-size: 1.38rem;
     }
 </style>

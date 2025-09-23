@@ -73,7 +73,7 @@
 
     /* Estilos para los iconos */
     .icon-header .icon-svg {
-        fill: var(--soft-pink); 
+        fill: var(--bright-blue); 
         transition: fill 0.3s ease; 
     }
 
@@ -89,6 +89,11 @@
     @media screen and (max-width: 768px) {
         header {
             padding: 1rem;
+        }
+
+        header ul li a {
+            font-size: 1.5em;
+            color: #fff;
         }
 
         .menu-navegation {
@@ -156,7 +161,7 @@
             width: 30px;
             height: 3px;
             background: white;
-            margin: 5px 0;
+            margin: 3px 0;
             border-radius: 2px;
             transition: 0.3s;
         }

@@ -6,15 +6,14 @@
         <h1 class="title-ocean color-white text-center uppercase">
             No vivas poco, vive un 
             <div class="title-container">
-                <span class="title-ocean-1">Océano</span>
-                <span class="title-ocean-2">Océano</span> 
+                <span class="title-ocean-1">Océano de Impresión</span>
+                <span class="title-ocean-2">Océano de Impresión</span> 
             </div>
-            de Impresión
         </h1>
         <p class="color-white text-center">
             La única imprenta que hace realidad tus sueños
         </p>
-        <button type="button" class="button-primary blue-light">
+        <button type="button" class="button-primary blue-light" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de OceanPrint');">
             <span class="button-text">Cotizar</span>
         </button>
     </div>

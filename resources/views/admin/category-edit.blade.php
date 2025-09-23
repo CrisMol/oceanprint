@@ -51,9 +51,11 @@
                                 Principal
                             </option>
                             @foreach ($categories as $categoryDB)
-                                <option value="{{ $categoryDB->id }}" {{ $categoryDB->id == $category->parent ? "selected" : "" }}>
-                                    {{ $categoryDB->name }}
-                                </option>
+                                @if ($categoryDB->parent_id == null)
+                                    <option value="{{ $categoryDB->id }}" {{ ($category->parent && $categoryDB->id == $category->parent->id) ? "selected" : "" }}>
+                                        {{ $categoryDB->name }}
+                                    </option>
+                                @endif
                             @endforeach
                         </select>
                     </fieldset>

@@ -7,6 +7,7 @@
         --deep-black: #0D0D0D; /* Negro Profundo */
         --warm-black: #262626; /*Negro cálido*/
         --neutral-gray: #414141; /*Gris neutro*/
+        --neutral-gray-background: #f0efef;
         --energetic-pink: #F20587; /* Rosa Energético */
         --black-energetic-pink: #a8055f; /* Rosa Energético Oscuro*/
         --calm-turquoise: #03A6A6; /* Turquesa Calmante */
@@ -14,6 +15,8 @@
         --soft-pink: #F177BA; /* Rosa Suave */
         --soft-crem-pink: #facde6;
         --fresh-lime-green: #32CD32;
+
+        --deep-ocean-blue: #097099; /* Azul Océanico */
 
         --border-radius: 20px;
     }
@@ -50,11 +53,16 @@
 
     textarea {
         resize: none;
+        font-family: 'Source Sans Pro', sans-serif;
     }
 
     .container {
         padding: min(5rem, 5vw);
         position: relative;
+    }
+
+    .text-white {
+        color: #fff;
     }
 
     .container .text-container-main {
@@ -157,6 +165,167 @@
 
         .row-subheading .description p {
             text-align: center;
+        }
+    }
+
+    /**
+    * Animaciones 
+    */
+    .scroll-animate {
+        transform: translateY(50px);
+        opacity: 0;
+        transition: all 1s ease-out;
+    }
+
+    .scroll-animate.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /**
+    * Redes sociales
+    **/
+    .social-floating {
+        position: fixed;
+        left: 0;                      
+        top: 50%;
+        transform: translate(-120%, -50%);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;  
+        background-color: var(--deep-black);   
+        border-top-right-radius: var(--border-radius);    
+        border-bottom-right-radius: var(--border-radius);
+        overflow: hidden;  
+        opacity: 0;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .social-floating.show {
+        transform: translate(0, -50%);
+        opacity: 1;
+    }
+
+    /* Cada botón */
+    .social-floating a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .social-floating a i {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* hover: resaltar y hacer un pequeño desplazamiento a la derecha */
+    .social-floating a:hover {
+        background: rgba(255,255,255,0.12);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.28);
+    }
+
+    /* texto accesible oculto (screen readers) */
+    .sr-only {
+        position: absolute !important;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px; overflow: hidden;
+        clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .animated-title {
+        overflow: hidden;
+    }
+
+    .animated-title span {
+        background: linear-gradient(90deg, var(--bright-blue), #00a2b0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .animated-title.white span {
+        background: #fff;
+        -webkit-background-clip: text;
+    }
+
+    .description {
+        position: relative;
+        padding: 0.85rem;
+        border-radius: var(--border-radius);
+    }
+
+    .description .container-description {
+        position: relative;
+        padding: 1rem;
+        background: linear-gradient(
+            135deg,
+            rgba(5, 175, 242, 0.3),
+            rgba(241, 119, 186, 0.3)
+        );
+        -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        transition: 1s;
+    }
+
+    .description .container-description p {
+        position: relative;
+        z-index: 3;
+    }
+
+    .description .container-description .ripple {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(5, 175, 242, 0.5) 0%, transparent 70%);
+        animation: ripple 0.8s ease-out forwards;
+    }
+
+    .animated-title .word {
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .animated-title.show .first {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .animated-title.show .second {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.3s;
+    }
+
+    @keyframes ripple 
+    {
+        0% 
+        {
+            width: 0px;
+            height: 0px;
+            opacity: 1;
+        }
+        100%
+        {
+            width: 200px;
+            height: 200px;
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .social-floating {
+            display: none;
         }
     }
 </style>

@@ -111,6 +111,7 @@
         cursor: pointer;
         transition: 0.5s all;
         overflow: hidden;
+        z-index: 8;
     }
 
     .spanButtonColor {
@@ -136,12 +137,53 @@
         color: #fff;
     }
 
+    /**
+    * Texto circular animado
+    */
+    .circle-container {
+        position: absolute;
+        top: -300px;
+        left: -200px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.25;
+    }
+
+    .circle-container .text {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        text-transform: uppercase;
+        animation: anim 20s linear infinite;
+    }
+
+    @keyframes anim {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .circle-container .text span {
+        position: absolute;
+        left: 50%;
+        transform-origin: 0 250px; 
+        font-weight: 600;
+        font-size: 2.5em;
+    }
+
     /*
     * Servicios
     */
     .containerService {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
         align-items: center;
     }
@@ -149,7 +191,10 @@
     .containerService .column {
         display: flex;
         flex-direction: column;
-        align-items: center;
+    }
+
+    .containerService .column.end {
+        align-items: end;
     }
 
     .imageOffset {
@@ -162,8 +207,9 @@
 
     .container-services {
         margin-top: 150px;
-        background-color: var(--soft-crem-pink);
+        background-color: var(--deep-ocean-blue);
         margin-bottom: 3rem;
+        color: #fff;
     }
 
     .containerService:not(.first) {
@@ -191,7 +237,7 @@
 
     .container-packs .containerCards {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin: 3rem 0;
     }
@@ -215,7 +261,7 @@
         left: -15px;
         width: 50%;
         height: 50px;
-        background-color: var(--soft-crem-pink);
+        background-color: var(--bright-blue);
         border-radius: var(--border-radius);
         border-bottom-left-radius: 0;
         z-index: 3;
@@ -227,7 +273,7 @@
         top: 30px;
         width: 15px;
         height: 30px;
-        background-color: var(--soft-crem-pink);
+        background-color: var(--bright-blue);
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
         z-index: 2;
@@ -239,7 +285,7 @@
         top: 30px;
         width: 15px;
         height: 15px;
-        background-color: var(--soft-crem-pink);
+        background-color: var(--bright-blue);
     }
 
     .container-packs .containerCards .card i span {
@@ -248,6 +294,7 @@
         left: 10%;
         transform: translateY(-50%);
         font-size: clamp(1rem, 2.5vw, 1.5rem);
+        color: #fff;
     }
 
     .container-packs .containerCards .card .image {
@@ -304,9 +351,37 @@
             gap: 1.5rem;
         }
 
+        .containerMostRequested .column {
+            text-align: center;
+        }
+
         .imageMostRequestedServices {
             height: auto;
             max-width: 100%;
+        }
+
+        .mostRequestedServices ul li.active:before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /**
+        * Texto circular animado
+        */
+        .circle-container {
+            position: absolute;
+            top: -200px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .circle-container .text span {
+            position: absolute;
+            left: 50%;
+            transform-origin: 0 150px; 
+            font-weight: 600;
+            font-size: 1.5em;
         }
     }
 </style>

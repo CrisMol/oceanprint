@@ -1,7 +1,13 @@
 <style>
     .container-presentation {
-        background: linear-gradient(to bottom, var(--bright-blue) 0%, var(--bright-blue) 40%, rgba(5, 175, 242, 0.5) 65%, rgba(255, 255, 255, 0.8) 75%, #FFFFFF 100%);
-
+        background: linear-gradient(
+            to bottom,
+            #097099 0%,
+            #097099 40%,
+            rgba(9, 112, 153, 0.5) 65%,
+            rgba(255, 255, 255, 0.8) 75%,
+            #FFFFFF 100%
+        );
     }
 
     .container-presentation .containerPresentationText {
@@ -27,6 +33,8 @@
         top: 0;
         left: 0;
         object-fit: cover;
+        height: 100%;
+        width: 100%;
     }
 
     /**

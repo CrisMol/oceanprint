@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin12345'), // Asegúrate de cifrar la contraseña
             'utype' => 'ADM', // Columna utype con valor 'ADM'
         ]);
+
+        $this->call(CategoriesSeeder::class);
     }
 }

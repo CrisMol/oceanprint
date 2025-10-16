@@ -16,9 +16,10 @@ class ContactController extends Controller
     public function send(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:100',
-            'phone' => ['required', 'string', 'max:20', 'regex:/^[0-9+\-\s]+$/'],
+            'name'    => 'required|string|max:100',
+            'phone'   => ['required', 'string', 'max:20', 'regex:/^[0-9+\-\s]+$/'],
             'message' => 'required|string|max:1000',
+            'email'   => 'required|email',
         ]);
 
         Mail::to('infopublicidad@oceanprintec.com')

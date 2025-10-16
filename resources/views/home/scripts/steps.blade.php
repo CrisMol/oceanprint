@@ -28,6 +28,7 @@
 
     const stepsSection = document.getElementById("steps");
     const clientsSection = document.getElementById("brands");
+    const businessSection = document.getElementById("business");
 
     // Función para verificar si un elemento está en vista
     const isInViewport = (element) => {
@@ -66,14 +67,14 @@
             body.classList.add("background-deep-ocean-blue");
             body.classList.remove("background-primary");
             h2.classList.remove('visible');
-        } else if (isInViewport(clientsSection)) {
+        } else if (isInViewport(businessSection)) {
             body.classList.add("background-deep-ocean-blue");
             body.classList.remove("background-primary");
-            h2.classList.remove('visible');
+            h2.classList.add('visible');
         } else {
             body.classList.remove("background-deep-ocean-blue");
             body.classList.add("background-primary");
-            h2.classList.add('visible');
+            h2.classList.remove('visible');
         }
     });
 </script>

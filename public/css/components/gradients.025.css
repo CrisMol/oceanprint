@@ -1,0 +1,16 @@
+.text-gradient {
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient.bright-light {
+    background-image: linear-gradient(100deg, var(--black-blue), var(--bright-blue) 34%, var(--bright-blue) 69%, var(--black-blue));
+}
+
+.text-gradient.energetic-pink {
+    background-image: linear-gradient(100deg, var(--black-energetic-pink), var(--energetic-pink) 34%, var(--energetic-pink) 69%, var(--black-energetic-pink));
+}
+
+.text-gradient.soft-pink {
+    background-image: linear-gradient(100deg, #f859b1, var(--soft-pink) 34%, var(--soft-pink) 69%, #f859b1);
+}

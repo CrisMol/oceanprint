@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+    .row-subheading {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .row-subheading .description p {
+        text-align: center;
+    }
+}

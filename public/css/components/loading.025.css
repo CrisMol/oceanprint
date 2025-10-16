@@ -1,0 +1,74 @@
+.loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #000000, #1a1a1a, #333333);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.loading-page #svg {
+    height: 150px;
+    width: 150px;
+    stroke: #fff;
+    fill: white;
+    fill-opacity: 0;
+    stroke-width: 3px;
+    stroke-dasharray: 4500;
+    /*animation: draw 3s ease forwards, fillFade 3s ease forwards;*/
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 4500;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillFade {
+    0% {
+        fill-opacity: 0;
+    }
+
+    100% {
+        fill-opacity: 1;
+    }
+}
+
+.name-container {
+    height: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.logo-name {
+    height: 0;
+    overflow: hidden;
+    /*animation: growHeight 1s ease forwards;*/
+    /*animation-delay: 1s; */
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+@keyframes growHeight {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 30px;
+    }
+}

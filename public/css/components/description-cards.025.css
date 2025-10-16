@@ -1,0 +1,38 @@
+.description {
+    position: relative;
+    padding: 0.85rem;
+    border-radius: var(--border-radius);
+}
+
+.description .container-description {
+    position: relative;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(5, 175, 242, 0.3), rgba(241, 119, 186, 0.1));
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: 1s;
+}
+
+.description .container-description.white {
+    background: linear-gradient(135deg, rgb(239, 251, 255), rgb(162, 224, 253));
+}
+
+.description .container-description p {
+    position: relative;
+    z-index: 3;
+}
+
+.description .container-description .ripple {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(5, 175, 242, 0.5) 0%, transparent 70%);
+    animation: ripple 0.8s ease-out forwards;
+}
+
+@keyframes ripple {
+    0% { width: 0px; height: 0px; opacity: 1; }
+    100% { width: 200px; height: 200px; opacity: 0; }
+}

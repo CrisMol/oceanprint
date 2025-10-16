@@ -7,3 +7,4 @@
 @include('home.scripts.business')
 @include('home.scripts.logo-infinite')
 @include('home.scripts.descriptions')
+@include('home.scripts.categories')

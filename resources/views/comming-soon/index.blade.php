@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Oceanprint - Próximamente</title>
+    <title>Ocean print - Próximamente</title>
 
     <!-- Meta descripción para SEO -->
     <meta name="description" content="Oceanprint - Estamos renovando nuestro sitio web para ofrecerte mejores servicios e impresión de alta calidad. Muy pronto estaremos de vuelta.">

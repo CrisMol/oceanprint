@@ -1,0 +1,7 @@
+.line {
+    position: relative;
+    margin-top: 10px;
+    height: 1px;
+    background-color: var(--energetic-pink);
+    transform: translateY(-50%);
+}

@@ -1,0 +1,32 @@
+.animated-title {
+    overflow: hidden;
+}
+
+.animated-title span {
+    background: linear-gradient(90deg, var(--bright-blue), #00a2b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.animated-title.white span {
+    background: #fff;
+    -webkit-background-clip: text; 
+}
+
+.animated-title .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.animated-title.show .first {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animated-title.show .second {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}

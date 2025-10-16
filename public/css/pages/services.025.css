@@ -1,0 +1,426 @@
+.container-presentation {
+    position: relative;
+    height: 580px;
+    background: linear-gradient(to bottom, var(--bright-blue) 0%, var(--bright-blue) 40%, rgba(5, 175, 242, 0.5) 65%, rgba(255, 255, 255, 0.8) 75%, #FFFFFF 100%);
+}
+
+.container-presentation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.689);
+}
+
+.container-presentation img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container-presentation .containerPresentationText {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.container-presentation .containerPresentationText p {
+    color: #fff;
+}
+
+/***************
+Servicios más solicitados
+****************/
+.containerMostRequested {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+
+.mostRequestedServices ul li {
+    position: relative;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    cursor: pointer;
+    opacity: 0.56;
+    transition: 0.3s all;
+}
+
+.mostRequestedServices ul li:before {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    background: var(--neutral-gray);
+    height: 1px;
+    width: 0;
+    transition: 0.4s all;
+}
+
+.mostRequestedServices ul li:hover {
+    opacity: 0.89;
+}
+
+.mostRequestedServices ul li:hover:before {
+    width: 50%;
+}
+
+.mostRequestedServices ul li.active {
+    opacity: 1;
+}
+
+.mostRequestedServices ul li.active:before {
+    width: 50%;
+}
+
+.containerImage {
+    position: relative;
+    width: 100%;
+}
+
+.imageMostRequestedServices {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.containerDescription p {
+    font-size: 1.25rem;
+}
+
+.containerButton {
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+}
+
+.buttonShop {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    padding: 1em 2em;
+    border: 1px solid var(--soft-pink);
+    cursor: pointer;
+    transition: 0.5s all;
+    overflow: hidden;
+    z-index: 8;
+}
+
+.spanButtonColor {
+    position: absolute;
+    border-radius: 50%;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--soft-pink);
+    width: 0;
+    height: 0;
+    transition: 0.5s all;
+}
+
+.buttonShop:hover .spanButtonColor {
+    width: 150%;
+    height: 150%;
+}
+
+.buttonShop:hover .text {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+/***************
+Texto circular animado
+****************/
+.circle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.circle-container .text {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-transform: uppercase;
+    animation: anim 20s linear infinite;
+}
+
+@keyframes anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.circle-container .text span {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 50px;
+    font-weight: 600;
+}
+
+/***************
+Servicios
+****************/
+.containerService {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.containerService .column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.containerService .column.end {
+    align-items: end;
+}
+
+.imageOffset {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.container-services {
+    margin-top: 150px;
+    background-color: var(--deep-ocean-blue);
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.containerService:not(.first) {
+    padding-top: 3rem;
+}
+
+.wave {
+    position: absolute;
+    width: 100%;
+    top: -20vw;
+    left: 0;
+}
+
+.waveBottom {
+    position: absolute;
+    width: 100%;
+    bottom: -20vw;
+    left: 0;
+}
+
+.containerPacks .title {
+    text-align: center;
+    margin-top: 10vw;
+}
+
+.container-packs .containerCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.container-packs .containerCards .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-radius: var(--border-radius);
+    padding-bottom: 20px;
+}
+
+.container-packs .containerCards .card i {
+    position: absolute;
+    top: 20px;
+    left: -15px;
+    width: 50%;
+    height: 50px;
+    background-color: var(--bright-blue);
+    border-radius: var(--border-radius);
+    border-bottom-left-radius: 0;
+    z-index: 3;
+}
+
+.container-packs .containerCards .card i::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 15px;
+    height: 30px;
+    background-color: var(--bright-blue);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    z-index: 2;
+}
+
+.container-packs .containerCards .card i::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bright-blue);
+}
+
+.container-packs .containerCards .card i span {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: #fff;
+}
+
+.container-packs .containerCards .card .image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    cursor: pointer;
+    transition: 0.3s all;
+    overflow: hidden;
+}
+
+.container-packs .containerCards .card .image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.container-packs .containerCards .card .image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.container-packs .containerCards .card .details ul li {
+    position: relative;
+    padding: 0.589rem 0;
+    padding-left: 25px;
+}
+
+.container-packs .containerCards .card .details ul li::before {
+    content: "✔";
+    color: var(--black-blue);
+    position: absolute;
+    left: 0;
+    top: 0.50rem;
+}
+
+.containerService h3 {
+    text-transform: uppercase;
+}
+
+.containerService ul {
+    margin: 10px 0;
+}
+
+.containerService ul li {
+    line-height: 0.98;
+    position: relative;
+    padding: .35rem 0 .35rem 25px;
+    text-align: start;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 300;
+}
+
+.containerService ul li::before {
+    content: "\25A0";
+    background-color: var(--bright-blue);
+    width: 15px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.containerService .button-primary {
+    margin-top: 10px;
+    font-size: clamp(1rem, 1.8vw, 1rem);
+}
+
+/***************
+Iconos de fondo
+****************/
+.imageBack {
+    position: absolute;
+    opacity: 0.09;
+    filter: grayscale(50%) brightness(80%);
+}
+
+.imageBack.envelope {
+    top: -100px;
+    left: -12px;
+    transform: rotate(-12deg);
+}
+
+.imageBack.folder {
+    bottom: 10px;
+    right: 12px;
+    transform: rotate(10deg);
+    scale: 0.8;
+}
+
+.imageBack.shirt {
+    top: 10px;
+    right: 12px;
+    transform: rotate(-25deg);
+    scale: 1.75;
+}
+
+.imageBack.van {
+    top: -15px;
+    right: -10px;
+    transform: rotate(25deg);
+    scale: 1.58;
+}
+
+.imageBack.stats {
+    bottom: -50px;
+    right: 100px;
+    transform: rotate(-10deg);
+    scale: 1.58;
+}

@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .social-floating {
+        display: none;
+    }
+
+    .order-1 {
+        order: 1;
+    }
+
+    .order-2 {
+        order: 2;
+    }
+}

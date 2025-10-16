@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @push('styles')
-    @include('about-us.styles.index')
+    <link rel="stylesheet" href="{{ asset('css/pages/about.025.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive/about.025.min.css') }}">
 @endpush
 
 @section('content')
     <main class="">
         <section class="container container-presentation" id="presentation" data-menu-navigation="Leyenda">
             <div class="containerPresentationText">
-                <h1 class="text-center color-white">
+                <h1 class="text-center text-white">
                     Nosotros
                 </h1>
-                <p class="text-center color-white">
-                    <strong>Oceanprint</strong> se ha ganado el reconocimiento de todos sus clientes, no solo por su excelente trabajo, calidad excepcional y entregas puntuales, si no por la pasión de aceptar y mejorar ideas para crear soluciones de impresión que realmente reflejen su visión y resuenen con su audiencia.
+                <p class="text-center text-white">
+                    <strong>OCEAN PRINT</strong>, es una empresa que te ofrece gran variedad de productos que se encuentran destinados a distintos giros de negocios, además de soluciones eficientes e integrales con respecto a Impresión Digital, Offset y de Gran Formato, además que contamos con un acompañamiento íntegro en cada una de las etapas de tu compra consolidando nuestro compromiso y calidad en la entrega de tus productos. 
                 </p>
             </div>
             <div class="containerPresentationImage">
@@ -34,44 +35,85 @@
             </div>
         </section>
 
-        <section class="container container-advantages" id="advantages" data-menu-navigation="Ofrecemos">
-            <div class="containerAdvantagesColumns">
-                <div class="column">
-                    <div class="containerTitleAdvantages">
-                        <h3 class="animated-title">
-                            <span class="text-gradient soft-pink word first">Impulsando Empresas</span> <span class="word second">
-                                con Calidad y Confianza
-                            </span>
-                        </h3>
+        <section class="container container-about" id="about">
+            <div class="containerTitleAdvantages">
+                <h3 class="animated-title text-center">
+                    <span class="word first">Impulsando Empresas</span>
+                    <br> 
+                    <span class="word second">
+                        con Calidad y Confianza
+                    </span>
+                </h3>
+            </div>
+            <div class="container-cards">
+                <div class="cards scroll-section">
+                    <div class="icon">
+                        <img 
+                            class="scroll-animate"
+                            src="{{ asset('images/nosotros/mission.png') }}" 
+                            alt="Mision Ocean print"
+                            width="128"
+                            height="128"
+                            loading="lazy"
+                        >
                     </div>
-                    <div class="containerImageAdvantages">
-                        <picture>
-                            <source 
-                                media="(max-width: 767px)" 
-                                srcset="{{ asset('images/nosotros/emprendedora-de-negocio-750.webp') }}"
-                            >
-                            
-                            <img 
-                                class="image-presentation"
-                                src="{{ asset('images/nosotros/emprendedora-de-negocio-960.webp') }}" 
-                                alt="Emprendedora de negocio, jefa"
-                                width="960"
-                                height="640"
-                                loading="lazy"
-                            >
-                        </picture>
+                    <div class="content">
+                        <div class="text">
+                            <h2 class="scroll-animate">Misión</h2>
+                            <p class="scroll-animate">Ofrecer soluciones de impresión de la más alta calidad, combinando criterios profesionales de impresión y tecnología avanzada para garantizar productos nítidos, duraderos y visualmente impactantes. Nuestro compromiso con nuestros clientes es real, buscando satisfacer las necesidades y cumplir con excelencia cada proyecto.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="containerTextAdvantages">
-                        <p>
-                            Productos y servicios de calidad realizados con la más alta tecnología y adaptados a cada necesidad específica. Nos enfocamos en lograr los más altos estándares de impresión con materiales amigables al medio ambiente, seguros y con garantía.
-                        </p>
-                        <ul>
-                            <li>Asesoramiento profesional</li>
-                            <li>Impresiones de máxima calidad</li>
-                            <li>Envíos a todo el Ecuador</li>
-                        </ul>
+                <div class="cards scroll-section">
+                    <div class="icon">
+                        <img 
+                            class="scroll-animate"
+                            src="{{ asset('images/nosotros/vision.png') }}" 
+                            alt="Visión Ocean print"
+                            width="128"
+                            height="128"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="content">
+                        <div class="text">
+                            <h2 class="scroll-animate">Visión</h2>
+                            <p class="scroll-animate">Ser reconocidos a nivel nacional como la imprenta líder en calidad de impresión, innovando constantemente en tecnología y diseño, para convertirnos en los aliados confiables de empresas y emprendedores que buscan destacar con productos de gran impacto visual y una impresión impecable.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards scroll-section">
+                    <div class="icon">
+                        <img 
+                            class="scroll-animate"
+                            src="{{ asset('images/nosotros/values.png') }}" 
+                            alt="Valores Ocean print"
+                            width="128"
+                            height="128"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="content">
+                        <div class="text">
+                            <h2 class="scroll-animate">Valores</h2>
+                            <ol class="scroll-animate">
+                                <li>
+                                    Asesoramiento al cliente
+                                </li>
+                                <li>
+                                    Creatividad
+                                </li>
+                                <li>
+                                    Compromiso con el cliente
+                                </li>
+                                <li>
+                                    Calidad y cumplimiento
+                                </li>
+                                <li>
+                                    Integridad
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,12 +122,12 @@
         <section class="container container-numbers" id="container-numbers" data-menu-navigation="Nuestros números">
             <div class="containerTitle text-center scroll-section">
                 <h3 class="scroll-animate">
-                    Los mejores <span class="text-gradient bright-light">precios y servicios</span>
+                    Los mejores <span class="">precios y servicios</span>
                 </h3>
             </div>
             <div class="containerNumbersCards">
-                <div class="cardNumber">
-                    <div class="number">
+                <div class="cardNumber scroll-section">
+                    <div class="number scroll-animate">
                         <span>
                             +
                         </span>
@@ -93,14 +135,14 @@
                             1500
                         </span>
                     </div>
-                    <div class="text">
+                    <div class="text scroll-animate">
                         <p>
                             Ayúdamos a mas de 1500 negocios en todo el Ecuador
                         </p>
                     </div>
                 </div>
-                <div class="cardNumber">
-                    <div class="number">
+                <div class="cardNumber scroll-section">
+                    <div class="number scroll-animate">
                         <span>
                             +
                         </span>
@@ -108,14 +150,14 @@
                             2600
                         </span>
                     </div>
-                    <div class="text">
+                    <div class="text scroll-animate">
                         <p>
                             Más de 2600 proyectos completados
                         </p>
                     </div>
                 </div>
-                <div class="cardNumber">
-                    <div class="number">
+                <div class="cardNumber scroll-section">
+                    <div class="number scroll-animate">
                         <span class="digit">
                             95
                         </span>
@@ -123,7 +165,7 @@
                             %
                         </span>
                     </div>
-                    <div class="text">
+                    <div class="text scroll-animate">
                         <p>
                             Cobertura en más de 95% del territorio Ecuatoriano
                         </p>

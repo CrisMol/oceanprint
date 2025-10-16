@@ -18,15 +18,19 @@
             slidesPerView: 'auto',
             spaceBetween: 120,
             loop: true,
-            speed: 4000,
+            speed: 1000,      // Duración de transición en 1 segundo
             grabCursor: true,
             autoplay: {
-                delay: 1,
+                delay: 1000,  // Tiempo entre cada cambio (2 segundos)
                 disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-products',
+                prevEl: '.swiper-button-prev-products',
             },
             breakpoints: {
                 0: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 20
                 },
                 768: {

@@ -1,0 +1,17 @@
+.container .text-container-main {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.container .text-container-main .text-container-small {
+    color: var(--soft-pink);
+    font-size: 0.87rem;
+}
+
+.container .text-container-main .text-container-big {
+    position: relative;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+}

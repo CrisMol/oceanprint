@@ -1,0 +1,32 @@
+@media (max-width: 768px) {
+    .containerService .column {
+        text-align: center;
+    }
+
+    .containerMostRequested {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .containerMostRequested .column {
+        text-align: center;
+    }
+
+    .imageMostRequestedServices {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .mostRequestedServices ul li.active:before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .imageBack.shirt {
+        right: 50px;
+    }
+
+    .imageBack.van {
+        right: 50px;
+    }
+}

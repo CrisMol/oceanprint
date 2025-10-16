@@ -1,0 +1,35 @@
+.scroll-reveal-text span {
+    color: hsl(0 0% 100% / 0.2);
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-image: linear-gradient(90deg, white, white);
+    animation: scroll-reveal 5s linear forwards;
+    animation-timeline: view(y);
+}
+
+.scroll-reveal-text.dark span {
+    color: hsl(0deg 0.18% 47.31% / 20%);
+    background-image: linear-gradient(90deg, var(--neutral-gray), var(--neutral-gray));
+}
+
+.scroll-reveal-text p span {
+    animation-range-start: cover 15vh;
+    animation-range-end: cover 77vh;
+}
+
+/* Animación scroll */
+@keyframes scroll-reveal {
+    to { background-size: 100% 100%; }
+}
+
+.scroll-animate {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.scroll-animate.visible {
+    transform: translateY(0);
+    opacity: 1;
+}

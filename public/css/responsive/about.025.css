@@ -1,0 +1,36 @@
+@media (max-width: 1024px) {
+    .containerNumbersCards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .containerNumbersCards {
+        grid-template-columns: 1fr;
+    }
+
+    .container-presentation .containerPresentationText {
+        margin-top: 100px;
+    }
+
+    .container-advantages .containerAdvantagesColumns {
+        grid-template-columns: 1fr;
+    }
+
+    .containerTitleAdvantages,
+    .containerTextAdvantages {
+        text-align: center;
+    }
+
+    .card-inner {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /**
+    * Tarjetas
+    */
+    .container-cards .cards .content {
+        height: 100%;
+    }
+}

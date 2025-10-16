@@ -116,7 +116,6 @@
     .containerImage {
         position: relative;
         width: 100%;
-        height: 500px;
     }
 
     .containerImage img {
@@ -166,7 +165,7 @@
     .containerForm button {
         width: 100%;
         padding: 10px;
-        background-color: var(--soft-pink);
+        background-color: var(--energetic-pink);
         color: white;
         border: none;
         border-radius: 5px;
@@ -176,7 +175,7 @@
     }
 
     .containerForm button:hover {
-        background-color: var(--energetic-pink);
+        background-color: var(--soft-pink);
     }
 
     /**

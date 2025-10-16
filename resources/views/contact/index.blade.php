@@ -10,13 +10,13 @@
             <picture>
                 <source 
                     media="(max-width: 767px)" 
-                    srcset="{{ asset('images/contacto/paleta-de-colores-oceanprint-800.webp') }}"
+                    srcset="{{ asset('images/contacto/formas-de-contacto-800.webp') }}"
                 >
                             
                 <img 
                     class="image-background-contact"
-                    src="{{ asset('images/contacto/paleta-de-colores-oceanprint-1920.webp') }}" 
-                    alt="Paleta de colores como fondo"
+                    src="{{ asset('images/contacto/formas-de-contacto-1920.webp') }}" 
+                    alt="Formas de contacto"
                     width="1920"
                     height="1280"
                 >
@@ -26,7 +26,7 @@
                     Contáctanos
                 </h1>
                 <p class="text-center">
-                    Bienvenido a <strong>Oceanprint</strong>. Somos una imprenta profesional y confiable que ofrece una gama amplia de servicios de impresión.
+                    Bienvenido a <strong>Ocean print</strong>. Somos una imprenta profesional y confiable que ofrece una gama amplia de servicios de impresión.
                     <br>
                 </p>
                 <div class="containerContactCards">
@@ -157,7 +157,7 @@
                     <span class="text-gradient bright-light">Preguntas</span> frecuentes
                 </h3>
                 <p>
-                    Confía en Oceanprint y haz que tus proyectos logren una impresión de calidad.
+                    Confía en Ocean print y haz que tus proyectos logren una impresión de calidad.
                 </p>
             </div>
             <div class="containerAccordionFAQ">

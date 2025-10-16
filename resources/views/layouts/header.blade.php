@@ -16,6 +16,9 @@
     <nav class="menu-navegation">
         <ul class="menu-categories">
             <li>
+                <a href="{{ route('demo') }}">Inicio</a>
+            </li>
+            <li>
                 <a href="{{ route('about-us') }}">Nosotros</a>
             </li>
             <li>

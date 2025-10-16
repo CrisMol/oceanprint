@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @push('styles')
-    @include('services.styles.index')
+    <link rel="stylesheet" href="{{ asset('css/pages/services.025.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/gradients.025.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive/services.025.css') }}">
 @endpush
 
 @section('content')
@@ -95,15 +97,24 @@
 
         <section class="container container-services" id="services" data-menu-navigation="Principales servicios">
             <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#097099" fill-opacity="1" d="M0,128L80,144C160,160,320,192,480,192C640,192,800,160,960,154.7C1120,149,1280,171,1360,181.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-            <div class="circle-container" id="circle">
-                <div class="text">
-                    <p>
-                        Calidad que impacta y color que vende!
-                    </p>
-                </div>
-            </div>
             <div class="containerService first" id="offset">
                 <div class="column">
+                    <img
+                        class="imageBack envelope"
+                        src="{{ asset('images/servicios/envelope.svg') }}"
+                        width="75"
+                        height="75" 
+                        alt="Sobres"
+                        loading="lazy"
+                    >
+                    <img
+                        class="imageBack folder"
+                        src="{{ asset('images/servicios/folder.svg') }}"
+                        width="75"
+                        height="75" 
+                        alt="Sobres"
+                        loading="lazy"
+                    >
                     <div class="content scroll-section">
                         <h3 class="scroll-animate">
                             Papelería
@@ -111,6 +122,15 @@
                         <p class="scroll-animate">
                             Técnica de alta calidad ideal para grandes volúmenes, que ofrece colores precisos, acabados uniformes y excelente definición en todo tipo de papelería y material publicitario
                         </p>
+                        <ul>
+                            <li class="scroll-animate">Material de papelería personalizada: sobres, carpetas, hojas membretadas, tarjetas de presentación.</li>
+                            <li class="scroll-animate">Impresión de folletos y catálogos para promoción.</li>
+                            <li class="scroll-animate">Impresión de carteles y banners para publicidad.</li>
+                            <li class="scroll-animate">Materiales para eventos: invitaciones, programas, credenciales, señalización.</li>
+                        </ul>
+                        <button type="button" class="button-primary blue-light scroll-animate" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de Ocean Print');">
+                            <span class="button-text">Solicitar</span>
+                        </button>
                     </div>
                 </div>
                 <div class="column end">
@@ -125,7 +145,7 @@
                 </div>
             </div>
             <div class="containerService" id="publicity">
-                <div class="column">
+                <div class="column order-2">
                     <div class="content">
                         <img
                             class="imageOffset"
@@ -137,26 +157,60 @@
                         >
                     </div>
                 </div>
-                <div class="column end">
+                <div class="column end order-1">
+                    <img
+                        class="imageBack shirt"
+                        src="{{ asset('images/servicios/shirt.svg') }}"
+                        width="75"
+                        height="75" 
+                        alt="Sobres"
+                        loading="lazy"
+                    >
                     <div class="content scroll-section">
                         <h3 class="scroll-animate">
-                            Personalizados a tu estilo
+                            Personalizados
                         </h3>
                         <p class="scroll-animate">
                             Dale un toque único a tus productos con diseños personalizados. Desde tarjetas y camisetas hasta material corporativo, crea lo que imaginas con calidad profesional. ¡Haz que tu marca hable por ti!
                         </p>
+                        <ul>
+                            <li class="scroll-animate">Diseño y personalización de tarjetas y papelería corporativa.</li>
+                            <li class="scroll-animate">Impresión personalizada de camisetas y textiles.</li>
+                            <li class="scroll-animate">Material promocional adaptado a la identidad de tu marca.</li>
+                            <li class="scroll-animate">Productos personalizados para eventos y campañas especiales.</li>
+                        </ul>
+                        <button type="button" class="button-primary blue-light scroll-animate" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de Ocean Print');">
+                            <span class="button-text">Solicitar</span>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="containerService" id="personalized">
                 <div class="column">
+                    <img
+                        class="imageBack van"
+                        src="{{ asset('images/servicios/van.svg') }}"
+                        width="75"
+                        height="75" 
+                        alt="Sobres"
+                        loading="lazy"
+                    >
                     <div class="content scroll-section">
                         <h3 class="scroll-animate">
-                            Publicidad que impacta
+                            Publicidad
                         </h3>
                         <p class="scroll-animate">
                             Lleva tu marca más lejos con impresiones de calidad profesional. Carteles, folletos y material promocional que atraen clientes.
                         </p>
+                        <ul>
+                            <li class="scroll-animate">Diseño e impresión de flyers, volantes y folletos promocionales.</li>
+                            <li class="scroll-animate">Producción de carteles, banners y señalización para eventos.</li>
+                            <li class="scroll-animate">Publicidad en vehículos y rotulación comercial personalizada.</li>
+                            <li class="scroll-animate">Campañas publicitarias impresas y materiales para puntos de venta.</li>
+                        </ul>
+                        <button type="button" class="button-primary blue-light scroll-animate" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de Ocean Print');">
+                            <span class="button-text">Solicitar</span>
+                        </button>
                     </div>
                 </div>
                 <div class="column end">
@@ -171,7 +225,7 @@
                 </div>
             </div>
             <div class="containerService" id="design">
-                <div class="column">
+                <div class="column order-2">
                     <div class="content">
                         <img
                             class="imageOffset"
@@ -183,14 +237,31 @@
                         >
                     </div>
                 </div>
-                <div class="column">
+                <div class="column order-1">
+                    <img
+                        class="imageBack stats"
+                        src="{{ asset('images/servicios/stats.svg') }}"
+                        width="75"
+                        height="75" 
+                        alt="Sobres"
+                        loading="lazy"
+                    >
                     <div class="content scroll-section">
                         <h3 class="scroll-animate">
-                            Corporativo a medida
+                            Corporativo
                         </h3>
                         <p class="scroll-animate">
                             Ofrecemos paquetes exclusivos para empresas: materiales de alta calidad, impresiones profesionales, asesoría, materiales y soluciones personalizadas para cada negocio
                         </p>
+                        <ul>
+                            <li class="scroll-animate">Impresión de papelería corporativa: hojas membretadas, sobres y tarjetas de presentación.</li>
+                            <li class="scroll-animate">Diseño y producción de informes, manuales y memorandos empresariales.</li>
+                            <li class="scroll-animate">Materiales para reuniones y presentaciones: folders, carpetas y blocs de notas personalizados.</li>
+                            <li class="scroll-animate">Regalos corporativos con branding personalizado para clientes y empleados.</li>
+                        </ul>
+                        <button type="button" class="button-primary blue-light scroll-animate" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de Ocean Print');">
+                            <span class="button-text">Solicitar</span>
+                        </button>
                     </div>
                 </div>
             </div>

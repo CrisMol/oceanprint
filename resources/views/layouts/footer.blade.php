@@ -117,23 +117,125 @@
         position: fixed;
         bottom: 10px;
         right: 18px;
-        z-index: 5;
+        z-index: 10;
         border-radius: var(--border-radius);
-        opacity: 0;
-        transform: translateY(50px);
-        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }
 
-    .containerNavigationPage.show {
+    .navigationPageIcon.whatsapp img {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .chatMessage {
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+        width: calc(100vw - 20px * 2);
+        max-width: 400px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chatMessage.show {
         opacity: 1;
         transform: translateY(0);
     }
 
-    .containerNavigationPage .navigationPageIcon.whatsapp img {
-        position: relative;
-        width: 50px;
-        height: 50px;
+    .chatHeader {
+        background-color: #25d366; /* color WhatsApp */
+        color: white;
+        padding: 8px 12px;
+        border-radius: 12px 12px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chatFooter {
+        padding: 8px 12px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .chatHeader span {
+        font-weight: bold;
+    }
+
+    .closeChat {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        font-size: 30px;
         cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 50%;
+        line-height: 1;
+        transition: background 0.3s ease;
+    }
+
+    .closeChat:hover {
+        background: rgba(0, 0, 0, 0.38);
+    }
+
+    .chatBody {
+        position: relative;
+        min-height: 56px;
+        max-width: 250px;
+        min-width: 60px;
+        padding: 15px 20px;
+        margin: 16px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+        border-radius: var(--border-radius);
+        line-height: 1.388em;
+    }
+
+    .chatBody:before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 18px;
+        left: -15px;
+        width: 17px;
+        height: 25px;
+        background: inherit;
+        clip-path: inherit;
+    }
+
+    .chatBody span {
+        font-size: 0.952rem;
+        word-break: break-word;
+        font-weight: 200;
+    }
+
+    .sendButton {
+        background-color: #25d366;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+        width: 150px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sendButton:hover {
+        background-color: #1ebe57;
     }
 
     footer ul {
@@ -147,6 +249,30 @@
         display: flex;
         align-items: center;
         gap: 8px;
+    }
+
+    footer .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px min(5rem, 5vw);
+    }
+
+    footer .footer-row a {
+        color: var(--bright-blue);
+    }
+
+    footer .footer-row .payments-right {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 8px;
+    }
+
+    footer .footer-row .payments-right img {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 
     /* Diseño responsivo para móviles */
@@ -184,16 +310,59 @@
         .information.active h6::after {
             content: " ▲"; /* Flecha hacia arriba cuando está activo */
         }
+
+        footer .footer-row,
+        footer .footer-row .payments-right {
+            flex-direction: column;
+            gap: 10px;
+        }
     }
 </style>
 
 <div class="containerNavigationPage">
     <div class="navigationPageIcon whatsapp">
         <img
-            class="icon-whatsapp" 
-            src="{{ asset('images/logo/whatsapp.png') }}" 
-            alt="Icono de Whatsapp"
+        class="icon-whatsapp"
+        src="{{ asset('images/logo/whatsapp.png') }}"
+        alt="Icono de Whatsapp"
         >
+    </div>
+
+    <!-- Mensaje tipo chat -->
+    <div class="chatMessage">
+        <div class="chatHeader">
+            <span>
+                
+            </span>
+            <button 
+                class="closeChat" 
+                aria-label="Cerrar chat"
+            >
+                &times;
+            </button>
+        </div>
+        <div class="chatBody">
+            <span>
+                Hola
+            </span>
+            <br>
+            <span>
+                ¿en que te podemos ayudar?
+            </span>
+        </div>
+        <div class="chatFooter">
+            <a 
+                href="https://wa.me/1234567890" 
+                target="_blank" 
+                class="sendButton"
+            >
+                Abrir chat
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M22 2L11 13"></path>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -223,15 +392,21 @@
             </h6>
             <ul>
                 <li>
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i>
+                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="filter: invert(1);"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+                    </i>
                     OE5 MEXICO N15-46 Y BUENOS AIRE, Quito, Ecuador, 170402
                 </li>
                 <li>
-                    <i class="fa-solid fa-clock"></i>
+                    <i>
+                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="filter: invert(1);"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg>
+                    </i>
                     Horarios: Lunes a Viernes de 08:00 AM a 18:00 PM
                 </li>
                 <li>
-                    <i class="fa-solid fa-phone"></i>
+                    <i>
+                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="filter: invert(1);"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>
+                    </i>
                     0962330296 / (02) 518-4188
                 </li>
             </ul>
@@ -267,6 +442,20 @@
             </ul>
         </div>
     </div>
+    <hr>
+    <div class="footer-row">
+        <div class="copyright-left order-2">
+            &copy; Diseñado y desarrollado por <a href="https://www.linkedin.com/in/ingeniero-cristian-molina" target="_blank" rel="noopener noreferrer">Cristian Molina</a> 2025.
+        </div>
+        <div class="payments-right order-1">
+            <span>Aceptamos todos los métodos de pago:</span>
+            <div class="icons">
+                <img src="{{ asset('images/footer/visa.png') }}" width="50" height="30" alt="Visa" class="payment-icon">
+                <img src="{{ asset('images/footer/mastercard.png') }}" width="50" height="30" alt="Mastercard" class="payment-icon">
+                <img src="{{ asset('images/footer/american-express.png') }}" width="50" height="30" alt="American Express" class="payment-icon">
+                <img src="{{ asset('images/footer/diners.png') }}" width="50" height="30" alt="Diners Club" class="payment-icon">
+            </div>
+    </div>
 </footer>
 
 <script>
@@ -290,11 +479,26 @@
             }
         }
 
+        const whatsappIcon = document.querySelector('.icon-whatsapp');
+        const chatMessage = document.querySelector('.chatMessage');
+
+        whatsappIcon.addEventListener('click', () => {
+            chatMessage.classList.toggle('show');
+        });
+
+        setTimeout(() => {
+            chatMessage.classList.add('show');
+        }, 2000);
+
+        document.querySelector('.closeChat').addEventListener('click', () => {
+            chatMessage.classList.remove('show');
+        });
+
         window.addEventListener("scroll", toggleNavigation);
 
-        const whatsappIcon = document.querySelector('.icon-whatsapp');
-        if (whatsappIcon) {
-            whatsappIcon.addEventListener('click', function(event) {
+        const whatsappMessageButton = document.querySelector('.sendButton');
+        if (whatsappMessageButton) {
+            whatsappMessageButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 abrirWhatsapp('Quiero comunicarme con un asesor de Oceanprint'); 
             });
@@ -326,7 +530,8 @@
                                 el.classList.add('visible');
                             }, index * 300); // cascada entre elementos
                         });
-                        observer.unobserve(entry.target); // animar solo una vez
+                    } else {
+                        elements.forEach(el => el.classList.remove('visible'));
                     }
                 });
             }, { threshold: 0.2 });
@@ -336,31 +541,58 @@
 
         const titles = document.querySelectorAll(".animated-title");
 
-        // Función para comprobar si está en pantalla
-        const isInViewport = (el) => {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top < window.innerHeight &&
-                rect.bottom >= 0
-            );
-        };
+        const observerTitles = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    // 👇 se quita cuando sale del viewport
+                    entry.target.classList.remove("show");
+                }
+            });
+        }, { threshold: 0.2 });
 
-        // Si ya está en pantalla al cargar → mostrarlo
-        titles.forEach(title => {
-            if (isInViewport(title)) {
-                title.classList.add("show");
-            } else {
-                // Si no está, observamos para mostrarlo al entrar
-                const observer = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show");
-                            observer.unobserve(entry.target); // Solo una vez
-                        }
-                    });
-                }, { threshold: 0 });
-                observer.observe(title);
+        titles.forEach(title => observerTitles.observe(title));
+
+        // Pagina de carga
+        const loadingPage = document.querySelector('.loading-page');
+        const svg = document.getElementById('svg');
+        const logoName = document.querySelector('.logo-name');
+
+        // Escuchar cuando una animación termine en loadingPage o en sus hijos
+        /*loadingPage.addEventListener('animationend', (e) => {
+            // Verifica que es la última animación que quieres controlar (opcional)
+            if (e.target === loadingPage || e.target.matches('.logo-name, #svg')) {
+                // Aplicar transición para desvanecer
+                loadingPage.style.transition = 'opacity 1s ease';
+                loadingPage.style.opacity = 0;
+
+                // Opcional: luego ocultar el elemento para evitar que siga ocupando espacio
+                loadingPage.addEventListener('transitionend', () => {
+                    loadingPage.style.display = 'none';
+                }, { once: true });
             }
+        });*/
+
+        // Aplicar las animaciones al SVG y al nombre del logo
+        svg.style.animation = "draw 2s ease forwards, fillFade 2s ease forwards";
+        logoName.style.animation = "growHeight 1.2s ease forwards 1s";
+
+        window.addEventListener("load", () => {
+            // Escuchar cuando terminen las animaciones
+            let completed = 0;
+            [svg, logoName].forEach(el => {
+                el.addEventListener('animationend', () => {
+                    completed++;
+                    if (completed === 2) {
+                        loadingPage.style.transition = "opacity 1s ease";
+                        loadingPage.style.opacity = "0";
+                        setTimeout(() => {
+                            loadingPage.style.display = "none"; 
+                        }, 1000);
+                    }
+                });
+            });
         });
     });
 

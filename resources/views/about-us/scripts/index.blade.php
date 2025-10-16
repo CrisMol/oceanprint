@@ -18,11 +18,9 @@
                 if (entry.isIntersecting) {
                     document.querySelectorAll(".digit").forEach(numElement => {
                         const finalValue = parseInt(numElement.textContent.replace(/\D/g, ""), 10);
-                        if (numElement.dataset.animated !== "true") { // Evita que se repita la animación
-                            numElement.textContent = "0";
-                            animateCounter(numElement, 0, finalValue, 2000);
-                            numElement.dataset.animated = "true";
-                        }
+                        numElement.textContent = "0";
+                        animateCounter(numElement, 0, finalValue, 2000);
+                        numElement.dataset.animated = "true";
                     });
                 }
             });

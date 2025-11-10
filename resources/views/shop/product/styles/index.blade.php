@@ -30,12 +30,12 @@
         top: 0;
         display: grid;
         gap: 1.25rem;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .product-images img {
         transition: transform 0.3s ease;
         cursor: zoom-in;
+        width: 100%;
     }
 
     .product-images img.zoomed {
@@ -103,16 +103,17 @@
 
     .product-detail .container .product .product-content .product-info .information .product-tags {
         display: flex;
-        gap: 1rem;
+        flex-wrap: wrap;
     }
 
     .product-detail .container .product .product-content .product-info .information .product-tags .product-tag {
         padding: 0.35rem 0.58rem;
         border-radius: var(--border-radius);
-        min-width: 50px;
         text-align: center;
         background-color: var(--deep-ocean-blue);
         color: #fff;
+        margin: 10px;
+        min-width: 100px;
     }
 
     .product-detail .container .product .product-content .product-info .product-tiered-prices,
@@ -121,9 +122,14 @@
     }
 
     .product-detail .container .product .product-content .product-info .product-tiered-prices .tiered-prices {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         padding: 0.85rem 0;
         gap: 0.55rem;
+    }
+
+    .product-detail .container .product .product-content .product-info .product-tiered-prices .tiered-prices span {
+        text-align: center;
     }
 
     .product-detail .container .product .product-content .product-info .tiered-price,
@@ -327,7 +333,7 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: inherit;
         z-index: 2;
-        opacity: 0;
+        opacity: 1;
         transition: opacity 0.5s ease-in-out;
     }
 
@@ -352,7 +358,7 @@
         letter-spacing: 2px;
         /*transform: translateY(0);*/
         z-index: 3;
-        opacity: 0;
+        opacity: 1;
     }
 
     .interests-products .interests-products-content .slider .slide.active span {
@@ -932,6 +938,11 @@
 
         .product-detail .container .product .product-content .product-info .product-benefits .benefit p{
             bottom: 0;
+        }
+
+        .product-detail .container .product .product-content .product-info .product-tiered-prices .tiered-prices {
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
     }
 

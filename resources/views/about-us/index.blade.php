@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/pages/about.025.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive/about.025.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/about.026.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive/about.026.css') }}">
 @endpush
 
 @section('content')
@@ -115,6 +115,93 @@
                             </ol>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container container-difference" id="difference">
+            <div class="container-row">
+                <div class="column container-image">
+                    <img 
+                        class="image-presentation"
+                        src="{{ asset('images/nosotros/que-nos-diferencia-equipo-ocean-print.webp') }}" 
+                        alt="Que nos diferencia como equipo de Ocean print"
+                        width="500"
+                    >
+                </div>
+                <div class="column">
+                    <div class="description-difference">
+                        <h3 class="animated-title white">
+                            <span class="word first">¿Qué nos diferencia?</span>
+                        </h3>
+
+                        <p class="text">
+                            Entendemos perfectamente que cada cliente es un mundo y lo importante que es contar con todos sus productos adquiridos.
+                        </p>
+                    </div>
+
+                    <ul class="difference-list">
+                        <li>
+                            <div class="number">
+                                <p>
+                                    01
+                                </p>
+                            </div>
+                            <p>
+                                Te ofrecemos productos con tonos correctos
+                            </p>
+                        </li>
+                        <li>
+                            <div class="number">
+                                <p>
+                                    02
+                                </p>
+                            </div>
+                            <p>
+                                Material de primera categoría 
+                            </p>
+                        </li>
+                        <li>
+                            <div class="number">
+                                <p>
+                                    03
+                                </p>
+                            </div>
+                            <p>
+                                Excelencia en los terminados y presentación
+                            </p>
+                        </li>
+                        <li>
+                            <div class="number">
+                                <p>
+                                    04
+                                </p>
+                            </div>
+                            <p>
+                                Responsabilidad con los tiempos de entrega acordados con el cliente
+                            </p>
+                        </li>
+                        <li>
+                            <div class="number">
+                                <p>
+                                    05
+                                </p>
+                            </div>
+                            <p>
+                                Nos orientamos a entregar propuestas de diseño que los diferencie de su competencia
+                            </p>
+                        </li>
+                        <li>
+                            <div class="number">
+                                <p>
+                                    06
+                                </p>
+                            </div>
+                            <p>
+                                Diseños únicos y espectaculares para los productos que adquieran
+                            </p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>

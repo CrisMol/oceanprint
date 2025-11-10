@@ -25,13 +25,21 @@ Route::get('/servicios', [ServiceController::class, 'index'])->name('services');
 Route::get('/contacto', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
+Route::post('/buscar', [HomeController::class, 'search'])->name('home.search');
+
 Route::get('/tienda', [ShopController::class, 'index'])->name('shop');
-Route::get('/tienda/{product_slug}', [ShopController::class, 'product_details'])->name('shop.product.details');
+Route::get('/tienda/producto/{product_slug}', [ShopController::class, 'product_details'])->name('shop.product.details');
+Route::get('/tienda/categoria/{slug}', [ShopController::class, 'show'])->name('shop.category.show');
+Route::get('/tienda/buscar', [ShopController::class, 'search'])->name('shop.search');
 Route::delete('/carrito/eliminar/{rowId}', [CartController::class, 'remove_item'])->name('cart.item.remove');
 Route::delete('/carrito/limpiar', [CartController::class, 'empty_cart'])->name('cart.empty');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add_to_cart'])->name('cart.add');
+
+Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::post('/place-an-order', [CartController::class, 'place_an_order'])->name('cart.place.an.order');
+Route::get('/order-confirmation', [CartController::class, 'order_confirmation'])->name('cart.order.confirmation');
 
 Route::get('/tags/search', function (Request $request) {
     $tags = Tag::where('name', 'LIKE', "%{$request->term}%")

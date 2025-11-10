@@ -1,15 +1,87 @@
 @extends('layouts.app')
 
+@if (isset($category))
+    @section('title', $category->meta_title ?? $category->name)
+    @section('meta_description', $category->meta_description ?? 'Explora productos de impresión digital y artículos personalizados con Oceanprint.')
+    @section('meta_keywords', $category->meta_keywords ?? 'impresión digital, papelería, Oceanprint, Quito, Ecuador')
+@else
+    @section('title', 'Tienda Oceanprint | Impresión Digital y Soluciones Personalizadas')
+    @section('meta_description', 'Oceanprint ofrece impresión digital de alta calidad, soluciones personalizadas y servicio profesional en Ecuador.')
+    @section('meta_keywords', 'impresión digital, artículos corporativos, diseño, Oceanprint, Ecuador')
+@endif
+
 @push('styles')
     @include('shop.styles.index')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 @endpush
 
 @section('content')
     <main class="">
+        <section class="container-presentation">
+            <div class="presentation">
+                <div class="content-resource">
+                    @if(isset($category) && !empty($category->image))
+                        <img
+                            class="image-banner-shop"
+                            src="{{ asset('images/categories/' . $category->image) }}"
+                            alt="{{ $category->seo_title ?? $category->name ?? 'Banner de la tienda Ocean Print' }}"
+                            title="{{ $category->seo_title ?? $category->name ?? 'Banner de la tienda Ocean Print' }}"
+                            width="1000"
+                            height="550"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    @else
+                        <video
+                            class="video-banner-shop"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            width="1000"
+                            height="550"
+                            poster="{{ asset('images/tienda/banner.jpg') }}"
+                            title="Video tienda Ocean Print - Impresiones profesionales"
+                        >
+                            <source src="{{ asset('videos/tienda-ocean-print.mp4') }}" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    @endif
+                </div>
+                <div class="content-description">
+                    <h1>
+                        @if(isset($category) && !empty($category->title))
+                            {{ $category->title }}
+                        @else
+                            Impresión de alta calidad
+                        @endif
+                    </h1>
+
+                    <p>
+                        @if(isset($category) && !empty($category->description))
+                            {{ $category->description }}
+                        @else
+                            Ofrecemos soluciones de impresión digital y papelería personalizada para tu empresa o negocio en Ecuador.
+                        @endif
+                    </p>
+                </div>
+            </div>
+            <div class="tags-marquee">
+                <div class="tags-track">
+                    @foreach($tags as $tag)
+                        <p class="tag-item">{{ $tag->name }}</p>
+                    @endforeach
+                    @foreach($tags as $tag)
+                        <p class="tag-item">{{ $tag->name }}</p>
+                    @endforeach
+                </div>
+            </div>
+        </section>
         <section class="container container-shop" id="shop">
             <div class="containerColumns">
                 <div class="columnCategoriesShop">
-                    <div class="columnBrandsShop">
+                    <div class="columnBrandsShop" style="display: none;">
                         <div class="contentTitleBrands">
                             <h6>
                                 Marcas
@@ -37,22 +109,48 @@
                             @endforeach
                         </ul>
                     </div>
+                    <div class="searchContainer">
+                        <form action="{{ route('shop.search') }}" method="GET" class="search-form-shop">
+                            <input 
+                                type="text" 
+                                name="q" 
+                                class="search-input" 
+                                placeholder="Buscar productos..." 
+                                aria-label="Buscar productos"
+                                value="{{ request('q') }}"
+                            >
+                            <button type="submit" class="search-button" aria-label="Buscar">
+                                <svg class="icon-svg icon-search" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 17 17">
+                                    <path d="M16.604 15.868l-5.173-5.173c0.975-1.137 1.569-2.611 1.569-4.223 0-3.584-2.916-6.5-6.5-6.5-1.736 0-3.369 0.676-4.598 1.903-1.227 1.228-1.903 2.861-1.902 4.597 0 3.584 2.916 6.5 6.5 6.5 1.612 0 3.087-0.594 4.224-1.569l5.173 5.173 0.707-0.708zM6.5 11.972c-3.032 0-5.5-2.467-5.5-5.5-0.001-1.47 0.571-2.851 1.61-3.889 1.038-1.039 2.42-1.611 3.89-1.611 3.032 0 5.5 2.467 5.5 5.5 0 3.032-2.468 5.5-5.5 5.5z"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
                     <div class="contentTitleCategories">
                         <h6>
                             Categorías
                         </h6>
                     </div>
                     <ul class="categories">
-                        @foreach($categories as $category)
-                            <li class="link-category" data-id-category="{{ $category->id }}">{{ $category->name }}
-                                @if($category->subcategories->count() > 0)
+                        @foreach($categories as $b_category)
+                            <li 
+                                class="link-category {{ isset($f_category) && $f_category == $b_category->id ? 'selected' : '' }}" 
+                                data-id-category="{{ $b_category->id }}"
+                            >
+                                <a href="{{ route('shop.category.show', ['slug' => $b_category->slug]) }}">
+                                    {{ $b_category->name }}
+                                </a>
+
+                                @if($b_category->subcategories->count() > 0)
                                     <ul class="subcategories">
-                                        @foreach($category->subcategories as $subcategory)
+                                        @foreach($b_category->subcategories as $subcategory)
                                             <li 
                                                 class="link-subcategory {{ $f_subcategory == $subcategory->id ? 'selected' : '' }}" 
                                                 data-id-subcategory="{{ $subcategory->id }}"
                                             >
-                                                {{ $subcategory->name }}
+                                                <a href="{{ route('shop.category.show', ['slug' => $subcategory->slug]) }}">
+                                                    {{ $subcategory->name }}
+                                                </a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -62,30 +160,10 @@
                     </ul>
                 </div>
                 <div class="columnContent">
-                    <div class="productsInfo">
-                        <div class="contentDescription">
-                            <h6>
-                                Impresión de alta calidad
-                            </h6>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus praesentium corporis modi voluptas?
-                            </p>
-                        </div>
-                        <div class="contentImage">
-                            <img
-                                class="image-banner-shop" 
-                                src="{{ asset('images/tienda/banner.jpg') }}" 
-                                alt="Destacado"
-                                width="1000"
-                                height="550"
-                            />
-                        </div>
-                    </div>
-
                     <div class="productFiltersCount" id="products-filter-count">
                         <div class="containerFiltersCount">
-                            <div class="textCount">
-                                Mostrando {{ isset($size) ? $size : 12 }} productos
+                            <div class="textCount" style="display: none;">
+                                Mostrando {{ $products->count() }} de {{ $products->total() }} productos
                             </div>
                             <div class="filtersCount">
                                 <select
@@ -93,6 +171,7 @@
                                     name="pagesize" 
                                     id="pagesize"
                                     aria-label="Page size"
+                                    style="display: none;"
                                 >
                                     <option value="12" {{ $size == 12 ? 'selected' : '' }}>Mostrar</option>
                                     <option value="24" {{ $size == 24 ? 'selected' : '' }}>24</option>
@@ -105,12 +184,13 @@
                                     name="orderby" 
                                     id="orderby"
                                     aria-label="Sort items"
+                                    style="display: none;"
                                 >
                                     <option value="-1" {{ $order == -1 ? 'selected' : '' }}>Orden predeterminado</option>
                                     <option value="1" {{ $order == 1 ? 'selected' : '' }}>Destacados</option>
                                     <option value="2" {{ $order == 2 ? 'selected' : '' }}>Más vendidos</option>
-                                    <option value="3" {{ $order == 3 ? 'selected' : '' }}>Por precio: bajo a alto</option>
-                                    <option value="4" {{ $order == 4 ? 'selected' : '' }}>Por precio: alto a bajo</option>
+                                    <!--<option value="3" {{ $order == 3 ? 'selected' : '' }}>Por precio: bajo a alto</option>
+                                    <option value="4" {{ $order == 4 ? 'selected' : '' }}>Por precio: alto a bajo</option>-->
                                 </select>
                             </div>
                         </div>
@@ -120,13 +200,30 @@
                                 class="buttonFilterMobile"
                                 onclick="mostrarCategoriasTienda();"
                             >
-                                Categorías
+                                Filtros
                             </button>
+                            <div class="searchContainer">
+                            <form action="{{ route('shop.search') }}" method="GET" class="search-form-shop">
+                                    <input 
+                                        type="text" 
+                                        name="q" 
+                                        class="search-input" 
+                                        placeholder="Buscar productos..." 
+                                        aria-label="Buscar productos"
+                                        value="{{ request('q') }}"
+                                    >
+                                    <button type="submit" class="search-button" aria-label="Buscar">
+                                        <svg class="icon-svg icon-search" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 17 17">
+                                            <path d="M16.604 15.868l-5.173-5.173c0.975-1.137 1.569-2.611 1.569-4.223 0-3.584-2.916-6.5-6.5-6.5-1.736 0-3.369 0.676-4.598 1.903-1.227 1.228-1.903 2.861-1.902 4.597 0 3.584 2.916 6.5 6.5 6.5 1.612 0 3.087-0.594 4.224-1.569l5.173 5.173 0.707-0.708zM6.5 11.972c-3.032 0-5.5-2.467-5.5-5.5-0.001-1.47 0.571-2.851 1.61-3.889 1.038-1.039 2.42-1.611 3.89-1.611 3.032 0 5.5 2.467 5.5 5.5 0 3.032-2.468 5.5-5.5 5.5z"></path>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="productsGrid" id="products-grid">
-                        @foreach ($products as $product)
+                    <div class="productsGrid scroll-section" id="products-grid">
+                        @foreach ($products as $key => $product)
                             <div class="productCard">
                                 <a 
                                     href="{{ route('shop.product.details', ['product_slug' => $product->slug]) }}"
@@ -215,9 +312,30 @@
 
 @push('scripts')
     @include('shop.scripts.index')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper(".swiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                effect: "slide",
+                speed: 600,
+            });
+
             const pageSizeSelect = document.getElementById('pagesize');
             const sizeInput = document.getElementById('size');
             const form = document.getElementById('frmfilter');

@@ -11,8 +11,14 @@
             <article class="product">
                 <div class="product-content">
                     <!-- Galería de imágenes en grid -->
+                    @php
+                        // Contamos cuántas imágenes adicionales tiene
+                        $galleryCount = !empty($product->images)
+                            ? count(explode(',', $product->images)) + 1 // +1 por la principal
+                            : 1;
+                    @endphp
                     <section class="product-images">
-                        <div class="gallery">
+                        <div class="gallery" style="grid-template-columns: {{ $galleryCount > 1 ? 'repeat(2, minmax(0, 1fr))' : '1fr' }};">
                             <div class="zoom-container">
                                 <img id="main-image" class="image-featured zoomable" src="{{ asset('uploads/products') }}/{{ $product->image }}" alt="Producto" loading="lazy" width="300">
                             </div>
@@ -60,7 +66,7 @@
                                             $price = $tieredPrice->sale_price ?? $tieredPrice->regular_price;
                                         @endphp
                                 
-                                        <div class="tiered-price {{ $tieredPrice->is_popular == 1 ? 'active' : '' }}" 
+                                        <div class="tiered-price {{ $tieredPrice->is_popular == 1 ? '' : '' }}" 
                                             data-id-variation="{{ $tieredPrice->variation->id ?? '' }}"
                                             data-price="{{ $price }}" data-product-name="{{ $product->name }}" data-quantity="{{ $quantityValuePrice }}" data-variation-name="{{ $variationNamePrice }}">
                                              
@@ -74,11 +80,7 @@
                                         </div>
 
                                         @if($tieredPrice->is_popular == 1)
-                                            @php
-                                                $productName = "$product->name-$variationName";
-                                                $priceCart = $price;
-                                                $quantityValue = $quantityValuePrice;
-                                            @endphp
+                                            
                                         @endif
                                     @endforeach
                                 </div>                                                           

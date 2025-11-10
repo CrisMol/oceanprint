@@ -20,7 +20,7 @@
         </div>
         <div class="card-process">
             <div class="content">
-                <img src="{{ asset('images/proceso/entrega-a-domicilio-inmediata-y-garantia.webp') }}" alt="Entrega personalizada con garantía" width="350" height="350" loading="lazy">
+                <img src="{{ asset('images/proceso/entrega-a-domicilio.webp') }}" alt="Entrega personalizada con garantía" width="350" height="350" loading="lazy">
                 <p>Entrega puntual con garantía</p>
             </div>
         </div>

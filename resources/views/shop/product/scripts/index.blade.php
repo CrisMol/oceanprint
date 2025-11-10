@@ -151,10 +151,10 @@
 
                 if (diff < 0) {
                     slide.style.transform = `translateX(${diff * 120}%)`; // 100% + 20% espacio
-                    slide.style.zIndex = diff;
+                    slide.style.zIndex = 0;
                 } else if (diff > 0) {
                     slide.style.transform = `translateX(${diff * 120}%)`; // 100% + 20% espacio
-                    slide.style.zIndex = -diff;
+                    slide.style.zIndex = 0;
                 } else {
                     slide.style.transform = "rotate(0deg) translateY(0) translateX(0)";
                     slide.style.zIndex = 0;

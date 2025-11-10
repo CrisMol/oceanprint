@@ -1,6 +1,11 @@
 <style>
-     header {
+    header {
         background: #fff;
+    }
+
+    .search-form input,
+    .search-form input::placeholder {
+        color: var(--neutral-gray);
     }
 
     header li a {
@@ -32,6 +37,7 @@
 
     .cart-table__wrapper table td {
         text-align: center;
+        padding: 0.85em;
     }
 
     .cart-table__wrapper table td.column_item_name {
@@ -70,6 +76,14 @@
     @media (max-width: 768px) {
         .shopping-cart {
             grid-template-columns: 1fr;
+        }
+
+        .menu-toggle span { 
+            background: #000;
+        }
+
+        .menu-toggle.active span {
+            background: white;
         }
     }
 </style>

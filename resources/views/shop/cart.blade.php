@@ -54,9 +54,7 @@
                                 </div>
                             </td>
                             <td class="column_item_name">
-                                <div class="shopping-cart__product-item__detail">
-                                    <h5>{{ $item->name }}</h5>
-                                </div>
+                                {{ $item->name }}
                             </td>
                             <td>
                                 <div class="qty-control position-relative">
@@ -67,7 +65,7 @@
                                 @php
                                     $total += $item->price;
                                 @endphp
-                                <span class="shopping-cart__subtotal">${{ $item->price }}</span>
+                                <span class="shopping-cart__subtotal">${{ number_format($item->price, 2) }}</span>
                             </td>
                             <td>
                                 <form action="{{ route('cart.item.remove', ['rowId' => $item->rowId ]) }}" method="POST">
@@ -104,26 +102,26 @@
                         <h6>Totales</h6>
                         <table class="cart-totals">
                             <tbody>
-                            <tr>
-                                <th>Subtotal</th>
-                                <td>${{ $total }}</td>
-                            </tr>
-                            <tr>
-                                <th>Envío</th>
-                                <td>
-                                    Gratis
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Total</th>
-                                <td>${{ $total }}</td>
-                            </tr>
+                                <tr>
+                                    <th>Subtotal</th>
+                                    <td style="text-align: right;">${{ number_format($total, 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Envío</th>
+                                    <td style="text-align: right;">
+                                        Gratis
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <td style="text-align: right;">${{ number_format($total, 2) }}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="mobile_fixed-btn_wrapper">
                         <div class="button-wrapper">
-                            <a href="#" class="btn btn-primary btn-checkout button-square">REALIZAR PEDIDO</a>
+                            <a href="{{ route('cart.checkout') }}" class="btn btn-primary btn-checkout button-square">REALIZAR PEDIDO</a>
                         </div>
                     </div>
                 </div>

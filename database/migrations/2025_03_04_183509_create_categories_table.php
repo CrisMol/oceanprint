@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
+            $table->string('title')->nullable();
+            $table->string('meta_title')->nullable(); 
+            $table->string('meta_description', 160)->nullable(); 
+            $table->string('meta_keywords')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('parent_id')->nullable();
             $table->timestamps();

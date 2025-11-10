@@ -63,7 +63,6 @@ Tarjetas
     left: 0;
     width: 50%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1);
     z-index: 10;
 }
 
@@ -203,13 +202,13 @@ Tarjetas
 .container-cards .cards:nth-child(3) .icon,
 .container-cards .cards:nth-child(3) .icon::after,
 .container-cards .cards:nth-child(3) .content::before {
-    background: var(--calm-turquoise);
+    background: var(--neutral-gray);
 }
 
 .container-cards .cards:nth-child(3) .content,
 .container-cards .cards:nth-child(3) .icon::before,
 .container-cards .cards:nth-child(3) .content::after {
-    background: #a1ffff;
+    background: #bdbcbc;
 }
 
 /***************
@@ -259,4 +258,67 @@ Números
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/***************
+Diferencia
+****************/
+.container-difference {
+    background: linear-gradient(180deg, #097099 0%, #024d6b 25%, #024d6b 100%);
+}
+
+.container-difference .container-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+}
+
+.container-difference .container-image {
+    position: sticky;
+    top: 100px; 
+    align-self: start;
+}
+
+.container-difference .container-image img {
+    max-width: 100%;
+    object-fit: cover;
+    height: auto;
+    border-radius: var(--border-radius);
+    display: block;
+}
+
+.container-difference .difference-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container-difference .difference-list li {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 0.7px dotted rgba(255, 255, 255, 0.8);
+    padding: 2rem 0;
+}
+
+.container-difference .difference-list li:nth-child(1) {
+    border-top: 0.5px solid #fff;
+}
+
+.container-difference .difference-list li .number {
+    color: #c2a203;
+}
+
+.container-difference .description-difference {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.container-difference .description-difference .text {
+    display: block;
+    font-size: 1.25em;
+    color: #fff;
+    margin: 10px 0;
 }

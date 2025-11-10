@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/pages/services.025.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/services.026.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/gradients.025.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive/services.025.css') }}">
 @endpush
@@ -18,7 +18,7 @@
                 <img 
                     class="image-background-contact"
                     src="{{ asset('images/servicios/servicios-que-ofrecen-oceanprint-impresion-1920.webp') }}" 
-                    alt="Trabajadores discutiendo los servicios que se ofrecen en OceanPrint"
+                    alt="Trabajadores discutiendo los servicios que se ofrecen en Ocean print"
                     width="1920"
                     height="1280"
                 >
@@ -46,23 +46,23 @@
                     <div class="mostRequestedServices">
                         <ul>
                             <li class="active" 
-                                data-image="{{ asset('images/servicios/recepcion-de-libros-oceanprint-400.webp') }}" 
-                                data-description="Ofrecemos <strong>impresión profesional de libros educativos y didácticos</strong> para todos los niveles: inicial, básico, bachillerato y superior, adaptados a las regiones Costa, Sierra y Amazonía del Ecuador.">
+                                data-image="{{ asset('images/servicios/servicio-impresion-de-libros-ocean-print.webp') }}" 
+                                data-description="Impresión profesional de libros educativos y didácticos en Ecuador. Imprenta con calidad editorial, adaptada a cada nivel y región del país.">
                                 Impresión de libros
                             </li>
                             <li 
-                                data-image="{{ asset('images/servicios/papeleria-corporativa-oceanprint-400.webp') }}" 
+                                data-image="{{ asset('images/servicios/servicio-papeleria-coporativa-ocean-print.webp') }}" 
                                 data-description="Papelería corporativa personalizada: hojas membretadas, facturas, sobres y más.">
                                 Papelería corporativa
                             </li>
                             <li 
-                                data-image="{{ asset('images/servicios/rotulacion-oceanprint-400.webp') }}" 
+                                data-image="{{ asset('images/servicios/servicio-rotulacion-de-viniles-ocean-print.webp') }}" 
                                 data-description="Rotulación, viniles y gráficos de alta calidad para interiores, exteriores y vehículos.">
                                 Rotulación y viniles
                             </li>
                             <li 
-                                data-image="{{ asset('images/servicios/veterinaria.png') }}" 
-                                data-description="Carnets de vacunación, roll ups y más.">
+                                data-image="{{ asset('images/servicios/servicio-de-veterinaria-ocean-print.webp') }}" 
+                                data-description="Impresión para veterinarias: carnets de vacunación, roll ups, recetarios, etiquetas y más, con calidad profesional y diseño personalizado.">
                                 Veterinaria
                             </li>
                         </ul>
@@ -79,16 +79,15 @@
                         <img
                             class="imageMostRequestedServices"
                             id="image-most-requested-services" 
-                            src="{{ asset('images/servicios/recepcion-de-libros-oceanprint-400.webp') }}" 
-                            alt="Servicio de impresión Oceanprint"
-                            loading="lazy"
+                            src="{{ asset('images/servicios/servicio-impresion-de-libros-ocean-print.webp') }}" 
+                            alt="Servicio de impresión Ocean print"
                         >
                     </div>
                 </div>
                 <div class="column">
                     <div class="containerDescription" id="container-description-most-requested-service">
                         <p>
-                            Ofrecemos <strong>impresión profesional de libros educativos y didácticos</strong> para todos los niveles: inicial, básico, bachillerato y superior, adaptados a las regiones Costa, Sierra y Amazonía del Ecuador. 
+                            Impresión profesional de libros educativos y didácticos en Ecuador. Imprenta con calidad editorial, adaptada a cada nivel y región del país.
                         </p>
                     </div>
                 </div>
@@ -133,26 +132,26 @@
                         </button>
                     </div>
                 </div>
-                <div class="column end">
+                <div class="column end container-image">
                     <img
                         class="imageOffset"
-                        src="{{ asset('images/servicios/articulos-de-papeleria-corporativa-oceanprint-500.webp') }}"
+                        src="{{ asset('images/servicios/servicio-papeleria-corporativa-ocean-print.webp') }}"
                         width="500"
                         height="500" 
-                        alt="Artículos de una empresa personalizada - Papelería corporativa Oceanprint"
+                        alt="Artículos de una empresa personalizada - Papelería corporativa Ocean print"
                         loading="lazy"
                     >
                 </div>
             </div>
             <div class="containerService" id="publicity">
-                <div class="column order-2">
+                <div class="column order-2 container-image change">
                     <div class="content">
                         <img
                             class="imageOffset"
-                            src="{{ asset('images/servicios/articulos-personalizados-oceanprint-500.webp') }}"
+                            src="{{ asset('images/servicios/servicio-personalizados-ocean-print.webp') }}"
                             width="500"
                             height="500" 
-                            alt="Artículos personalizados con tu propia marca - Oceanprint"
+                            alt="Artículos personalizados con tu propia marca - Ocean print"
                             loading="lazy"
                         >
                     </div>
@@ -213,26 +212,26 @@
                         </button>
                     </div>
                 </div>
-                <div class="column end">
+                <div class="column end container-image">
                     <img
                         class="imageOffset"
-                        src="{{ asset('images/servicios/publicidad-varios-folletos-material-oceanprint-500.webp') }}" 
+                        src="{{ asset('images/servicios/servicio-publicidad-ocean-print.webp') }}" 
                         width="500"
                         height="500" 
-                        alt="Artículos de publicidad - Oceanprint"
+                        alt="Artículos de publicidad - Ocean print"
                         loading="lazy"
                     >
                 </div>
             </div>
             <div class="containerService" id="design">
-                <div class="column order-2">
+                <div class="column order-2 container-image change">
                     <div class="content">
                         <img
                             class="imageOffset"
-                            src="{{ asset('images/servicios/soluciones-para-corporaciones-articulo-de-imprenta-oceanprint-500.webp') }}" 
+                            src="{{ asset('images/servicios/servicio-corporativo-ocean-print.webp') }}" 
                             width="500"
                             height="500" 
-                            alt="Artículos para corporaciones - Oceanprint"
+                            alt="Artículos para corporaciones - Ocean print"
                             loading="lazy"
                         >
                     </div>
@@ -287,10 +286,10 @@
                                 <img
                                     class="imageKits"
                                     id="image-kits-1" 
-                                    src="{{ asset('images/servicios/kit-basico-para-emprendedores-oceanprint-500.webp') }}" 
+                                    src="{{ asset('images/servicios/kit-basic.webp') }}" 
                                     width="500"
                                     height="500" 
-                                    alt="Kit básico para emprendedores - Oceanprint"
+                                    alt="Kit básico para emprendedores - Ocean print"
                                     loading="lazy"
                                 >
                             </div>
@@ -308,7 +307,7 @@
                                 </ul>
                             </div>
                             <div class="containerButtonCard">
-                                <button type="button" class="button-circle-arrow-right">
+                                <button type="button" class="button-circle-arrow-right" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de Ocean Print');">
                                     <span class="button-text">Solicitar</span>
                                     <span class="button-icon"></span>
                                 </button>
@@ -324,10 +323,10 @@
                                 <img
                                     class="imageKits"
                                     id="image-kits-1" 
-                                    src="{{ asset('images/servicios/kit-medio-para-emprendedores-oceanprint-500.webp') }}" 
+                                    src="{{ asset('images/servicios/kit-medium.webp') }}" 
                                     width="500"
                                     height="500" 
-                                    alt="Kit medio para emprendedores - Oceanprint"
+                                    alt="Kit medio para emprendedores - Ocean print"
                                     loading="lazy"
                                 >
                             </div>
@@ -345,7 +344,7 @@
                                 </ul>
                             </div>
                             <div class="containerButtonCard">
-                                <button type="button" class="button-circle-arrow-right">
+                                <button type="button" class="button-circle-arrow-right" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de Ocean Print');">
                                     <span class="button-text">Solicitar</span>
                                     <span class="button-icon"></span>
                                 </button>
@@ -358,10 +357,10 @@
                                 <img
                                     class="imageKits"
                                     id="image-kits-1" 
-                                    src="{{ asset('images/servicios/kit-avanzado-para-emprendedores-oceanprint-500.webp') }}" 
+                                    src="{{ asset('images/servicios/kit-premium.webp') }}" 
                                     width="500"
                                     height="500" 
-                                    alt="Kit medio para emprendedores - Oceanprint"
+                                    alt="Kit medio para emprendedores - Ocean print"
                                     loading="lazy"
                                 >
                             </div>
@@ -379,7 +378,7 @@
                                 </ul>
                             </div>
                             <div class="containerButtonCard">
-                                <button type="button" class="button-circle-arrow-right">
+                                <button type="button" class="button-circle-arrow-right" onclick="abrirWhatsapp('Quiero comunicarme con un asesor de Ocean Print');">
                                     <span class="button-text">Solicitar</span>
                                     <span class="button-icon"></span>
                                 </button>

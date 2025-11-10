@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('addresses', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('user_id')->unsigned()->comment('ID del usuario que realizó el pedido');
+
+            $table->string('name')->comment('Nombre completo del cliente');
+            $table->string('phone')->comment('Teléfono de contacto del cliente');
+            $table->string('locality')->nullable()->comment('Localidad o sector de entrega');
+            $table->text('address')->nullable()->comment('Dirección detallada del cliente o lugar de entrega');
+            $table->string('city')->comment('Ciudad del pedido');
+            $table->string('state')->comment('Provincia o estado');
+            $table->string('country')->comment('País');
+            $table->string('landmark')->nullable()->comment('Referencia o punto cercano para la entrega');
+            $table->string('zip')->nullable()->comment('Código postal');
+            $table->string('type')->nullable()->default('home')->comment('Tipo de entrega: home, office, etc.');
+            $table->boolean('isdefault')->default(false);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('addresses');
+    }
+};

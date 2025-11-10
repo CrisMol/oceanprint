@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @push('styles')
-    @include('contact.styles.index')
+    <link rel="stylesheet" href="{{ asset('css/pages/contact.026.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/gradients.025.css') }}">
 @endpush
 
 @section('content')
@@ -10,12 +11,12 @@
             <picture>
                 <source 
                     media="(max-width: 767px)" 
-                    srcset="{{ asset('images/contacto/formas-de-contacto-800.webp') }}"
+                    srcset="{{ asset('images/contacto/formas-de-contacto-ocean-print-800.webp') }}"
                 >
                             
                 <img 
                     class="image-background-contact"
-                    src="{{ asset('images/contacto/formas-de-contacto-1920.webp') }}" 
+                    src="{{ asset('images/contacto/formas-de-contacto-ocean-print-1920.webp') }}" 
                     alt="Formas de contacto"
                     width="1920"
                     height="1280"
@@ -56,12 +57,12 @@
                         <picture>
                             <source 
                                 media="(max-width: 767px)" 
-                                srcset="{{ asset('images/contacto/asesora-comercial-de-ventas-oceanprint-750.webp') }}"
+                                srcset="{{ asset('images/contacto/atencion-al-cliente-ocean-print-500.webp') }}"
                             >
                             
                             <img 
                                 class="image-presentation"
-                                src="{{ asset('images/contacto/asesora-comercial-de-ventas-oceanprint-960.webp') }}" 
+                                src="{{ asset('images/contacto/atencion-al-cliente-ocean-print-960.webp') }}" 
                                 alt="Asesora comercial oceanprint"
                                 width="960"
                                 height="1140"
@@ -137,17 +138,36 @@
             </div>
         </section>
 
-        <div class="containerScrollTitle">
-            <h5 class="scroll-title">
-                Trabajos personalizados con envíos a todo el Ecuador
-            </h5>
-        </div>
-
         <section class="container container-location" id="location" data-menu-navigation="Ubicación">
-            <div class="containerLocationContent">
+            <div class="containerLocationText">
+                <h3 class="section-title m-0 animated-title white">
+                    <span class="word first">
+                        ¿Dónde estamos?
+                    </span>
+                </h3>
+                <button id="btn-directions" class="btn buttonCTA">
+                    <span class="text">¿Cómo llegar?</span>
+                    <span class="spanButtonColor"></span>
+                </button>
+            </div>
+            <div class="containerLocationContent scroll-section">
                 <div class="containerMap">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.791637034951!2d-78.50827449798676!3d-0.20954685564349274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59b9ab1e310b9%3A0xd98a232c6297d2f7!2sOCEAN%20PRINT!5e0!3m2!1ses!2sec!4v1740266402805!5m2!1ses!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+                <div class="containerLocalImage">
+                    <img 
+                        class="image-background-contact scroll-animate"
+                        src="{{ asset('images/contacto/arte-de-ubicacion.webp') }}" 
+                        alt="Local físico"
+                        width="500"
+                        height="650"
+                    >
+                </div>
+            </div>
+            <div class="containerScrollTitle">
+                <h5 class="scroll-title">
+                    Trabajos personalizados con envíos a todo el Ecuador
+                </h5>
             </div>
         </section>
 
@@ -173,7 +193,7 @@
                     </label>
                     <div class="contentFAQ">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                            Solo cuéntanos qué quieres imprimir y te enviamos tu cotización personalizada. Revisa, aprueba y ¡listo! Tu pedido estará en camino
                         </p>
                     </div>
                 </div>
@@ -189,7 +209,7 @@
                     </label>
                     <div class="contentFAQ">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                            Aceptamos todas las tarjetas de crédito y débito (Visa, Mastercard, Diners y Discover). También puedes realizar pagos mediante transferencia bancaria o en efectivo al retirar tu pedido.
                         </p>
                     </div>
                 </div>
@@ -205,7 +225,11 @@
                     </label>
                     <div class="contentFAQ">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                            Debido a la naturaleza personalizada de los productos impresos, no realizamos devoluciones una vez aprobado el diseño y confirmado el pedido.
+
+                            Sin embargo, si el producto presenta un error de impresión o defecto atribuible a nuestra producción, revisaremos el caso y realizaremos la reimpresión sin costo adicional.
+
+                            Nuestro objetivo es que siempre recibas un trabajo de calidad y exactamente como lo aprobaste.
                         </p>
                     </div>
                 </div>
@@ -221,7 +245,9 @@
                     </label>
                     <div class="contentFAQ">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vero quis earum pariatur animi aspernatur, eum ipsa maxime consectetur nam numquam non. Odio tenetur hic voluptatum ipsam est corporis? In.
+                            Sí. Todos nuestros diseños son totalmente personalizados según las necesidades de cada cliente.
+                            Puedes enviarnos tu propio archivo listo para imprimir o solicitar que nuestro equipo de diseño te ayude a crear uno desde cero, adaptado a tu marca, colores y tipo de producto.
+                            Antes de imprimir, siempre te enviamos una muestra digital para tu aprobación.
                         </p>
                     </div>
                 </div>

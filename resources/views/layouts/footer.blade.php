@@ -352,8 +352,6 @@
         </div>
         <div class="chatFooter">
             <a 
-                href="https://wa.me/1234567890" 
-                target="_blank" 
                 class="sendButton"
             >
                 Abrir chat
@@ -496,14 +494,6 @@
 
         window.addEventListener("scroll", toggleNavigation);
 
-        const whatsappMessageButton = document.querySelector('.sendButton');
-        if (whatsappMessageButton) {
-            whatsappMessageButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                abrirWhatsapp('Quiero comunicarme con un asesor de Oceanprint'); 
-            });
-        }
-
         setTimeout(() => {
             const msg = document.getElementById('flash-message');
             if (msg) {
@@ -619,10 +609,18 @@
         });
     }
 
+    const whatsappMessageButton = document.querySelector('.sendButton');
+    if (whatsappMessageButton) {
+        whatsappMessageButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            abrirWhatsapp('Quiero comunicarme con un asesor de Oceanprint'); 
+        });
+    }
+
     function abrirWhatsapp(messageText) {
         const phoneNumber = '593962330296';
         const encodedMessage = encodeURIComponent(messageText);
-        const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
         window.open(whatsappLink, '_blank');
     }
 </script>

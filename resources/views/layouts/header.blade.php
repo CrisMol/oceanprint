@@ -16,13 +16,13 @@
     <nav class="menu-navegation">
         <ul class="menu-categories">
             <li>
-                <a href="{{ route('demo') }}">Inicio</a>
+                <a class="menu-item" href="{{ route('demo') }}">Inicio</a>
             </li>
             <li>
-                <a href="{{ route('about-us') }}">Nosotros</a>
+                <a class="menu-item" href="{{ route('about-us') }}">Nosotros</a>
             </li>
             <li>
-                <a href="{{ route('services') }}">Servicios</a>
+                <a class="menu-item" href="{{ route('services') }}">Servicios</a>
                 <ul class="submenu">
                     <li><a href="{{ route('services') }}#offset">Papelería</a></li>
                     <li><a href="{{ route('services') }}#publicity">Personalizados</a></li>
@@ -31,14 +31,14 @@
                 </ul>
             </li>
             <li>
-                <a href="{{ route('shop') }}">Tienda</a>
+                <a class="menu-item" href="{{ route('shop') }}">Tienda</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}">Contacto</a>
+                <a class="menu-item" href="{{ route('contact') }}">Contacto</a>
             </li>
             <li>
-                <a class="icon-header" href="/buscar" aria-label="Buscar">
-                    <svg class="icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 17 17"><g></g>
+                <a class="icon-header" href="#" id="searchToggle" aria-label="Buscar">
+                    <svg class="icon-svg icon-search" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 17 17">
                         <path d="M16.604 15.868l-5.173-5.173c0.975-1.137 1.569-2.611 1.569-4.223 0-3.584-2.916-6.5-6.5-6.5-1.736 0-3.369 0.676-4.598 1.903-1.227 1.228-1.903 2.861-1.902 4.597 0 3.584 2.916 6.5 6.5 6.5 1.612 0 3.087-0.594 4.224-1.569l5.173 5.173 0.707-0.708zM6.5 11.972c-3.032 0-5.5-2.467-5.5-5.5-0.001-1.47 0.571-2.851 1.61-3.889 1.038-1.039 2.42-1.611 3.89-1.611 3.032 0 5.5 2.467 5.5 5.5 0 3.032-2.468 5.5-5.5 5.5z"></path>
                     </svg>
                 </a>
@@ -75,5 +75,19 @@
                 </li>
             @endif  
         </ul>
+        <div class="search-form">
+            <form action="">
+                <input type="text" id="search-input" name="" placeholder="Buscar productos o servicios" onkeyup="searchProducts(event)">
+            </form>
+        </div>
+        <div class="search-pop-results">
+            <ul id="box-content-search">
+            </ul>
+        </div>
+        <a class="icon-close" aria-label="Cerrar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="#05aff2" aria-hidden="true">
+                <path d="M1 1 L15 15 M15 1 L1 15" stroke="#05aff2" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
     </nav>
 </header>

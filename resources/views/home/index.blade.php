@@ -517,7 +517,283 @@
                         </div>
                         <div class="swiper-slide">
                             <img src="{{ asset('images/marcas/logo-unidad-educativa-guillermo-ordonez-gomez.webp') }}" 
-                                alt="Logo OceanPrint" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/xavier-abogado.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/vetshopbruca.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/vetscorner.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/veterinaria-gualaceo.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/terraluna.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/suannyching.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/stetidogs.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/sportex.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/silvet.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/servet.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/royal-pet.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/romina.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/pulguitas.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/patitas-pet.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/nubelle.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/movitech.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/monkeyplanet.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/maxicompras.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/lasazon.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/la-campina.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/koica.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/kaif.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/jyr-secgom.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/jaspeblack.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/innovacan.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/infratelecons.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/hospital-baca-ortiz.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/hamkumdo.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/gruposxxm.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/gimoour.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/empsertel.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/elgato.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/dpelos.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/don-guillo.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/detcuador.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/corpcultivos.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/club-la-union.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/centro-edu-mi-nuevo-mundo.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/central-veterinaria.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/bomberos-santa-elena.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/bomberos-la-libertad.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/biodental.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/bayer.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/agrokuchi.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/edifika.png') }}" 
+                                alt="Logo clientes de Ocean print" 
+                                width="175" 
+                                loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('images/marcas/3s-industrial.png') }}" 
+                                alt="Logo clientes de Ocean print" 
                                 width="175" 
                                 loading="lazy">
                         </div>

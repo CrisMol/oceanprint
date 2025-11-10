@@ -8,10 +8,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Título de la página -->
-    <title>Oceanprint | Impresión Digital y Soluciones Personalizadas</title>
-
+    <title>
+        @hasSection('title')
+            @yield('title') | Oceanprint
+        @else
+            Oceanprint | Impresión Digital y Soluciones Personalizadas
+        @endif
+    </title>
+    
     <!-- Descripción para buscadores (140-160 caracteres, atractiva) -->
-    <meta name="description" content="Ocean print ofrece impresión digital de alta calidad, soluciones personalizadas y servicio profesional. Descubre nuestros productos y servicios.">
+    <meta name="description" content="@yield('meta_description', 'Oceanprint ofrece impresión digital de alta calidad, soluciones personalizadas y servicio profesional. Descubre nuestros productos y servicios.')">
+
+    <meta name="keywords" content="@yield('meta_keywords', 'impresión digital, papelería corporativa, artículos personalizados, Quito, Ecuador, Ocean Print')">
+
 
     <!-- Control de indexación -->
     <meta name="robots" content="index, follow">
@@ -45,54 +54,249 @@
 
     <link rel="stylesheet" href="{{ asset('css/responsive/layout.025.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive/header.025.css') }}">-->
+    <style>
+        .loading-page {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+        }
+
+        .loading-page {
+            left: 0;
+            background: linear-gradient(to right, #000, #1a1a1a, #333);
+            height: 100%;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+        }
+
+        .loading-page #svg {
+            height: 150px;
+            width: 150px;
+            stroke: #fff;
+            fill: white;
+            fill-opacity: 0;
+            stroke-width: 3px;
+            stroke-dasharray: 4500;
+        }
+
+        .popup {
+            position: fixed;
+            top: -100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1002;
+            padding: 20px 30px;
+            border-radius: var(--border-radius);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .popup.show {
+            opacity: 1;
+            top: 50%;
+        }
+
+        .overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .popup.hide {
+            transform: translate(-50%, -50%) translateY(50px);
+            opacity: 0;
+        }
+
+        .popup .content-box {
+            position: relative;
+            width: 700px;
+            height: 400px;
+            background: linear-gradient(125deg, rgb(102 212 255), rgb(251 215 235));
+            border-radius: var(--border-radius);
+            display: flex;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup .content-box .img-box {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup .content-box .img-box::before {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: var(--deep-ocean-blue);
+            border-radius: 50%;
+        }
+
+        .popup .content-box .img-box img {
+            position: relative;
+            max-width: 300px;
+            z-index: 1;
+        }
+
+        .popup .content-box .content {
+            position: relative;
+            padding: 0 20px;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup .content-box .content h2 {
+            font-size: 1.68em;
+            color: var(--deep-ocean-blue);
+            line-height: 1em;
+            font-weight: 300;
+        }
+
+        .popup .content-box .content h3 {
+            color: var(--neutral-gray);
+            line-height: 1.4em;
+            margin: 10px 0;
+            font-size: 2em;
+            font-weight: 300;
+        }
+
+        .popup .content-box .content p {
+            font-size: 1.18em;
+        }
+
+        .popup .content-box .content .buttonCTA {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(180deg, #05AFF2 0%, #0483B9 50%, #036F9C 100%);
+            padding: 1em 2em;
+            border: none;
+            cursor: pointer;
+            transition: 0.5s all;
+            overflow: hidden;
+            color: #4b4200;
+            border-radius: var(--border-radius);
+            z-index: 8;
+            margin: 10px 0;
+        }
+
+        .popup .content-box .content .buttonCTA .text {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            transition: color 0.5s ease;
+        }
+
+        .popup .content-box .content .buttonCTA .spanButtonColor {
+            position: absolute;
+            border-radius: 50%;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, #def6ff 0%, #b3e8ff 50%, #88d8ff 100%);
+            width: 0;
+            height: 0;
+            transition: 0.8s all;
+        }
+
+        .popup .content-box .content .buttonCTA:hover .spanButtonColor {
+            width: 150%;
+            height: 150%;
+        }
+
+        .popup .content-box .content .buttonCTA:hover .text {
+            color: var(--neutral-gray);
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #f3f3f3 url('{{ asset('icon/close.png') }}');
+            background-repeat: no-repeat;
+            background-size: 10px;
+            background-position: center;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        @media (max-width: 767px) {
+            .popup .content-box {
+                width: 350px;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .popup .content-box .img-box {
+                height: 200px;
+                transform: translateY(-50px);
+            }
+
+            .popup .content-box .img-box::before {
+                background: #fff;
+            }
+
+            .popup .content-box .content {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                padding: 20px;
+                padding-top: 0;
+            }
+
+            .popup .content-box .close {
+                top: -50px;
+                right: -10px;
+            }
+
+            .popup.show {
+                top: auto;
+                bottom: 0;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+
     <link rel="stylesheet" href="{{ asset('css/base/fonts.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.025.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.027.css') }}">
 
     @stack('styles')
 </head>
 <body>
-    <div id="app">
-        @guest
-            @include('layouts.header')
-        @else 
-            @include('layouts.header')
-        @endguest
-
-        @yield('content')
-
-        @include('layouts.footer')
-
-        <!--Redes sociales-->
-        <div class="social-floating" id="socialBar" aria-hidden="false">
-            <a href="https://www.facebook.com/oceanprintec/" class="social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
-                </i>
-            </a>
-
-            <a href="https://www.instagram.com/oceanprintec/" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                </i>
-            </a>
-
-            <a href="https://www.tiktok.com/@oceanprintec" class="social-tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
-                </i>
-            </a>
-        </div>
-
-        <!--Pantalla de carga-->
-        <div class="loading-page">
-            <svg id="svg" version="1.0" xmlns="http://www.w3.org/2000/svg"
-                width="282.000000pt" height="288.000000pt" viewBox="0 0 282.000000 288.000000"
-                preserveAspectRatio="xMidYMid meet">
-                <metadata>
-                Created by potrace 1.16, written by Peter Selinger 2001-2019
-                </metadata>
-                <g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)">
-                <path d="M1195 2796 c-114 -19 -198 -43 -295 -83 -457 -188 -769 -583 -845
+    <!--Pantalla de carga-->
+    <div class="loading-page">
+        <svg id="svg" version="1.0" xmlns="http://www.w3.org/2000/svg"
+            width="282.000000pt" height="288.000000pt" viewBox="0 0 282.000000 288.000000"
+            preserveAspectRatio="xMidYMid meet">
+            <metadata>
+            Created by potrace 1.16, written by Peter Selinger 2001-2019
+            </metadata>
+            <g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)">
+            <path d="M1195 2796 c-114 -19 -198 -43 -295 -83 -457 -188 -769 -583 -845
                 -1068 -24 -151 -16 -367 19 -516 105 -451 439 -826 874 -983 254 -91 610 -100
                 870 -20 337 102 648 364 809 680 102 198 141 347 150 565 9 233 -22 415 -106
                 609 -54 125 -55 126 -117 99 -78 -35 -174 -102 -236 -165 -109 -113 -232 -345
@@ -130,14 +334,45 @@
                 -92 151 -134 l19 -30 -6 30 c-27 126 -72 210 -134 252 -37 25 -80 30 -99 11z"/>
                 <path d="M1695 2005 c-51 -50 -30 -103 80 -212 95 -94 139 -153 172 -233 l23
                 -55 0 85 c0 155 -45 298 -118 373 -68 71 -116 84 -157 42z"/>
-                </g>
-            </svg>
+            </g>
+        </svg>
 
-            <div class="name-container">
-                <div class="logo-name">
-                    Ocean print
-                </div>
+        <div class="name-container">
+            <div class="logo-name">
+                Ocean print
             </div>
+        </div>
+    </div>
+    <div id="app">
+        @guest
+            @include('layouts.header')
+        @else 
+            @include('layouts.header')
+        @endguest
+
+        @yield('content')
+
+        @include('layouts.footer')
+
+        <!--Redes sociales-->
+        <div class="social-floating" id="socialBar" aria-hidden="false">
+            <a href="https://www.facebook.com/oceanprintec/" class="social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                </i>
+            </a>
+
+            <a href="https://www.instagram.com/oceanprintec/" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                </i>
+            </a>
+
+            <a href="https://www.tiktok.com/@oceanprintec" class="social-tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                </i>
+            </a>
         </div>
 
         <div class="container-button-arrow-navigation">
@@ -151,18 +386,102 @@
                 ↓
             </button>
         </div>
+
+        <div class="overlay"></div>
+        
+        <!--Pop Up-->
+        <div class="popup">
+            <div class="content-box">
+                <div class="close"></div>
+                <div class="img-box">
+                    <img 
+                        src="{{ asset('images/industria-impresion.webp') }}" 
+                        alt="Impresion de calidad"
+                    >
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>
+                            Haz que tu marca destaque
+                        </h2>
+                        <h3>
+                            ¡No es solo impresión!
+                        </h3>
+                        <p>
+                            En <strong>Ocean print</strong> te ayudamos a que tu material refleje profesionalismo: impresión digital de última generación con acabados especiales, colores exactos y <strong>envíos gratis</strong>.
+                        </p>
+                        <button id="btn-cta" class="btn buttonCTA">
+                            <span class="text">Hablar con un asesor</span>
+                            <span class="spanButtonColor"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
+        // Popup automatico
+        const popup = document.querySelector('.popup');
+        const close = document.querySelector('.close');
+        const overlay = document.querySelector('.overlay');
+        const btnCTA = document.getElementById('btn-cta');
+        const popupKey = 'popupShownDate';
+
+        if (popup) {
+            if (shouldShowPopup()) {
+                window.onload = function () {
+                    setTimeout(() => {
+                            popup.classList.add('show');
+                            overlay.classList.add('show');
+                    }, 5000);
+                };
+            }
+
+            close.addEventListener('click', () => {
+                popup.classList.add('hide');
+                overlay.classList.remove('show');
+                
+                setTimeout(() => {
+                    popup.classList.remove('show', 'hide');
+                    popup.style.display = 'none';
+                    overlay.style.display = 'none';
+                }, 400);
+
+                localStorage.setItem(popupKey, new Date().toISOString());
+            }); 
+        }
+
+        if (btnCTA) {
+            btnCTA.addEventListener('click', function(event) {
+                event.preventDefault();
+                abrirWhatsapp('Quiero comunicarme con un asesor de Oceanprint'); 
+            });
+        }
+
+        function shouldShowPopup() {
+            const lastShown = localStorage.getItem(popupKey);
+            if (!lastShown) return true;
+            const lastDate = new Date(lastShown);
+            const now = new Date();
+            const diffInDays = (now - lastDate) / (1000 * 60 * 60 * 24);
+            return diffInDays >= 1; 
+        }
+
         let lastScrollY = window.scrollY;
         const header = document.getElementById('header');
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY) {
-                header.classList.add('hidden');
+            if (window.scrollY > 250) { 
+                if (window.scrollY > lastScrollY) {
+                header.classList.add('hidden'); 
+                } else {
+                header.classList.remove('hidden');
+                }
             } else {
                 header.classList.remove('hidden');
             }
+
             lastScrollY = window.scrollY;
         });
 
@@ -174,19 +493,21 @@
             document.body.appendChild(overlay);
 
             const submenuItems = document.querySelectorAll(".menu-categories li");
-            const menuLinks = document.querySelectorAll(".menu-categories a");
+            const menuLinks = document.querySelectorAll(".menu-categories menu-item");
 
             menuToggle.addEventListener("click", function () {
                 menuNav.classList.toggle("active");
                 menuToggle.classList.toggle("active");
                 overlay.classList.toggle("active");
+                console.log('Dando clic en hambur')
             });
 
             submenuItems.forEach(item => {
                 item.addEventListener("click", function (event) {
+                    console.log('Dando clic en en submenu')
                     // Evita que se cierre si se hace clic dentro del submenú
-                    if (event.target.closest(".submenu")) return;
-                    this.classList.toggle("show-submenu");
+                    event.stopPropagation();
+                    //this.classList.toggle("show-submenu");
                 });
             });
 
@@ -242,6 +563,96 @@
             // Inicializar estado
             updateButtonsVisibility();
         });
+
+        const searchToggle = document.getElementById('searchToggle');
+        const menuLinks = document.querySelectorAll('.menu-item');
+        const searchMenu = document.querySelector('.search-form');
+        const iconClose = document.querySelector('.icon-close');
+        const iconSearch = document.querySelector('.icon-search');
+        const searchInput = document.getElementById('search-input');
+        const containerBoxSearch = document.getElementById('box-content-search');
+
+        searchToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            menuLinks.forEach(link => link.classList.add('hide-item'));
+            searchMenu.classList.add('active');
+            iconClose.classList.add('active');
+            iconSearch.style.display = 'none';
+            searchInput.value = '';
+            containerBoxSearch.innerHTML = '';
+        });
+
+        iconClose.addEventListener('click', (e) => {
+            e.preventDefault();
+            menuLinks.forEach(link => link.classList.remove('hide-item'));
+            searchMenu.classList.remove('active');
+            iconClose.classList.remove('active');
+            iconSearch.style.display = 'block';
+            containerBoxSearch.innerHTML = '';
+        });
+
+        function searchProducts(event) {
+            const searchQuery = event.target.value.trim();
+            console.log('Buscando:', searchQuery);
+
+            if (searchQuery.length > 2) {
+                fetch('{{ route('home.search') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    },
+                    body: JSON.stringify({ query: searchQuery })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Resultados:', data);
+                    renderSearchResults(data);
+                })
+                .catch(error => {
+                    console.error('Error en la búsqueda:', error);
+                });
+            } else {
+                const container = document.getElementById('box-content-search');
+                container.innerHTML = '';
+            }
+        }
+
+        function renderSearchResults(products) {
+            const container = document.getElementById('box-content-search');
+            container.innerHTML = ''; 
+
+            products.forEach(product => {
+                const urlBase = "{{ route('shop.product.details', ['product_slug' => 'product_slug_pls']) }}".replace('product_slug_pls', product.slug);
+                
+                const html = `
+                    <li>
+                        <ul>
+                            <li class="product-item">
+                                <a href="${urlBase}" class="product-link">
+                                    <div class="image">
+                                        <img src="{{ asset('uploads/products/thumbnails') }}/${product.image}" alt="${product.name}">
+                                    </div>
+                                    <div class="content-name-product">
+                                        <div class="name">
+                                            <span class="body-text">${product.name}</span>
+                                        </div>
+                                        <div class="description-short">
+                                            <span>${product.short_description}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dividir"></div>
+                            </li>
+                        </ul>
+                    </li>
+                `;
+
+                container.insertAdjacentHTML('beforeend', html);
+            });
+        }
     </script>
     @stack('scripts')
 </body>

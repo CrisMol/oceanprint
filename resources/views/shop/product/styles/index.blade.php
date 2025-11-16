@@ -13,6 +13,14 @@
         color: var(--neutral-gray);
     }
 
+    header .search-form input {
+        color: var(--neutral-gray);
+    }
+
+    header .search-form input::placeholder {
+        color: rgba(0, 0, 0, 0.55);
+    }
+
     .container.bg-gray {
         background-color: var(--neutral-gray-background);
     }
@@ -355,8 +363,6 @@
         padding: 0 10px;
         color: #000;
         font-size: 1.2em;
-        letter-spacing: 2px;
-        /*transform: translateY(0);*/
         z-index: 3;
         opacity: 1;
     }
@@ -855,6 +861,14 @@
         {
             transform: translateX(-100%);
         }
+    }
+
+    .mirror-h {
+        transform: scaleX(-1);
+    }
+
+    .mirror-v {
+        transform: rotate(20deg);
     }
 
     /* Responsivo */

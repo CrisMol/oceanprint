@@ -16,7 +16,7 @@
     <nav class="menu-navegation">
         <ul class="menu-categories">
             <li>
-                <a class="menu-item" href="{{ route('demo') }}">Inicio</a>
+                <a class="menu-item" href="{{ route('home') }}">Inicio</a>
             </li>
             <li>
                 <a class="menu-item" href="{{ route('about-us') }}">Nosotros</a>
@@ -76,15 +76,17 @@
             @endif  
         </ul>
         <div class="search-form">
-            <form action="">
-                <input type="text" id="search-input" name="" placeholder="Buscar productos o servicios" onkeyup="searchProducts(event)">
+            <form action="" method="POST">
+                @csrf
+                <input type="text" id="search-input" name="" placeholder="Buscar productos o servicios" onkeyup="searchProducts(event)" onkeydown="enterRedirect(event)">
+                <div id="search-loader" class="loader" style="display:none;"></div>
             </form>
         </div>
         <div class="search-pop-results">
             <ul id="box-content-search">
             </ul>
         </div>
-        <a class="icon-close" aria-label="Cerrar">
+        <a class="icon-close" aria-label="Cerrar" id="button-close-search">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="#05aff2" aria-hidden="true">
                 <path d="M1 1 L15 15 M15 1 L1 15" stroke="#05aff2" stroke-width="2" stroke-linecap="round"/>
             </svg>

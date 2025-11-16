@@ -134,10 +134,10 @@
                     <ul class="categories">
                         @foreach($categories as $b_category)
                             <li 
-                                class="link-category {{ isset($f_category) && $f_category == $b_category->id ? 'selected' : '' }}" 
+                                class="link-category" 
                                 data-id-category="{{ $b_category->id }}"
                             >
-                                <a href="{{ route('shop.category.show', ['slug' => $b_category->slug]) }}">
+                                <a class="{{ isset($f_category) && $f_category == $b_category->id ? 'selected' : '' }}" href="{{ route('shop.category.show', ['slug' => $b_category->slug]) }}">
                                     {{ $b_category->name }}
                                 </a>
 
@@ -145,10 +145,10 @@
                                     <ul class="subcategories">
                                         @foreach($b_category->subcategories as $subcategory)
                                             <li 
-                                                class="link-subcategory {{ $f_subcategory == $subcategory->id ? 'selected' : '' }}" 
+                                                class="link-subcategory" 
                                                 data-id-subcategory="{{ $subcategory->id }}"
                                             >
-                                                <a href="{{ route('shop.category.show', ['slug' => $subcategory->slug]) }}">
+                                                <a class="{{ isset($f_category) && $f_category == $subcategory->id ? 'selected' : '' }}" href="{{ route('shop.category.show', ['slug' => $subcategory->slug]) }}">
                                                     {{ $subcategory->name }}
                                                 </a>
                                             </li>

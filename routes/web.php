@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthAdmin;
 use Illuminate\Support\Facades\Route;
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::view('/', 'comming-soon.index')->name('home');
-Route::get('/demo', [HomeController::class, 'index'])->name('demo');
+Route::view('/demo', 'comming-soon.index')->name('demo');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/servicios', [ServiceController::class, 'index'])->name('services');
@@ -47,6 +48,8 @@ Route::get('/tags/search', function (Request $request) {
     
     return response()->json($tags);
 })->name('tags.search');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/account-dashboard', [UserController::class, 'index'])->name('user.index');

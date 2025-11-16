@@ -18,15 +18,16 @@
                             : 1;
                     @endphp
                     <section class="product-images">
-                        <div class="gallery" style="grid-template-columns: {{ $galleryCount > 1 ? 'repeat(2, minmax(0, 1fr))' : '1fr' }};">
-                            <div class="zoom-container">
-                                <img id="main-image" class="image-featured zoomable" src="{{ asset('uploads/products') }}/{{ $product->image }}" alt="Producto" loading="lazy" width="300">
-                            </div>
-                            @if(!empty($product->images))
-                                @foreach (explode(',', $product->images) as $img)
-                                    <img class="thumbnail zoomable" src="{{ asset('uploads/products') }}/{{ $img }}" alt="Producto" loading="lazy" width="300">
-                                @endforeach
-                            @endif
+                        <div class="gallery" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+                            @php
+                                $img = asset('uploads/products/' . $product->image);
+                            @endphp
+                            <!-- Vista normal -->
+                            <img class="thumbnail" src="{{ $img }}" alt="normal">
+                            <!-- Espejo horizontal -->
+                            <img class="thumbnail mirror-v" src="{{ $img }}" alt="mirror-v">
+                            <!-- Espejo vertical -->
+                            <img class="thumbnail mirror-h" src="{{ $img }}" alt="mirror-h">
                         </div>
                     </section>
 

@@ -70,6 +70,10 @@
         color: var(--bright-blue);
     }
 
+    .container-shop .columnCategoriesShop .categories .link-category a.selected {
+        color: var(--energetic-pink);
+    }
+
     .container-shop .columnCategoriesShop .categories .subcategories {
         margin-left: 20px;
     }

@@ -400,35 +400,36 @@
                     <div class="swiper-slide">
                         <div class="testimonial-card">
                             <div class="stars">★★★★★</div>
-                            <p class="testimonial-text">"Texto del testimonio aquí."</p>
-                            <div class="user-name">Juan Pérez</div>
-                            <div class="testimonial-date">10 Octubre, 2025</div>
+                            <p class="testimonial-text">"Excelente servicio, la calidad de impresión superó totalmente mis expectativas. ¡Muy recomendados!"</p>
+                            <div class="user-name">Carlos M.</div>
+                            <div class="testimonial-date">08 Octubre, 2025</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="testimonial-card">
-                            <div class="stars">★★★★☆</div>
-                            <p class="testimonial-text">"Otro testimonio distinto."</p>
-                            <div class="user-name">María Gómez</div>
-                            <div class="testimonial-date">15 Octubre, 2025</div>
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"Rápidos, amables y con una atención increíble. Mis tarjetas quedaron perfectas."</p>
+                            <div class="user-name">Andrea G.</div>
+                            <div class="testimonial-date">12 Octubre, 2025</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="testimonial-card">
-                            <div class="stars">★★★★☆</div>
-                            <p class="testimonial-text">"Otro testimonio distinto."</p>
-                            <div class="user-name">María Gómez</div>
-                            <div class="testimonial-date">15 Octubre, 2025</div>
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"La calidad es impresionante. Pedí carpetas personalizadas y quedaron profesionales y elegantes."</p>
+                            <div class="user-name">Jorge L.</div>
+                            <div class="testimonial-date">18 Octubre, 2025</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="testimonial-card">
-                            <div class="stars">★★★★☆</div>
-                            <p class="testimonial-text">"Otro testimonio distinto."</p>
-                            <div class="user-name">María Gómez</div>
-                            <div class="testimonial-date">15 Octubre, 2025</div>
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"Atención al cliente de primera. Me ayudaron con el diseño y en menos de 24 horas tenía todo listo."</p>
+                            <div class="user-name">Valeria P.</div>
+                            <div class="testimonial-date">20 Octubre, 2025</div>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="swiper-pagination swiper-pagination-testimonials"></div>

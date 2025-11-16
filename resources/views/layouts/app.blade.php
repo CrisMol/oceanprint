@@ -55,6 +55,10 @@
     <link rel="stylesheet" href="{{ asset('css/responsive/layout.025.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive/header.025.css') }}">-->
     <style>
+        header .search-form input::placeholder {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
         .loading-page {
             position: fixed;
             width: 100%;
@@ -244,6 +248,24 @@
             transition: opacity 0.4s ease;
         }
 
+        .loader {
+            position: absolute;
+            top: 0;
+            right: 44px;
+            margin: 8px auto;
+            border: 4px solid var(--bright-pastel-blue);
+            border-top: 4px solid var(--bright-blue);
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         @media (max-width: 767px) {
             .popup .content-box {
                 width: 350px;
@@ -274,9 +296,8 @@
             }
 
             .popup.show {
-                top: auto;
-                bottom: 0;
-                transform: translateX(-50%);
+                top: 50%;
+                transform: translate(-50%, -50%);
             }
         }
     </style>
@@ -593,9 +614,14 @@
 
         function searchProducts(event) {
             const searchQuery = event.target.value.trim();
-            console.log('Buscando:', searchQuery);
+            const loader = document.getElementById('search-loader');
+            const closeSearch = document.getElementById('button-close-search');
+            //console.log('Buscando:', searchQuery);
 
             if (searchQuery.length > 2) {
+                loader.style.display = "block";
+                closeSearch.style.display = "none";
+
                 fetch('{{ route('home.search') }}', {
                     method: 'POST',
                     headers: {
@@ -611,10 +637,27 @@
                 })
                 .catch(error => {
                     console.error('Error en la búsqueda:', error);
+                })
+                .finally(() => {
+                    loader.style.display = "none";
+                    closeSearch.style.display = "flex";
                 });
             } else {
+                loader.style.display = "none";
+                closeSearch.style.display = "flex";
                 const container = document.getElementById('box-content-search');
                 container.innerHTML = '';
+            }
+        }
+
+        function enterRedirect(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Evita el submit automático
+                const query = e.target.value.trim();
+
+                if (query.length > 0) {
+                    window.location.href = "{{ route('shop.search') }}?q=" + encodeURIComponent(query);
+                }
             }
         }
 

@@ -116,6 +116,7 @@ class ShopController extends Controller
         $order = $request->query('order') ? $request->query('order') : -1;
 
         $f_category = $category->id;
+        //dd($f_category);
 
         return view('shop.index', compact(
             'categories',

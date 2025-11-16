@@ -1,2 +1,15 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /account-dashboard/
+Disallow: /cart
+Disallow: /cart/
+Disallow: /checkout
+Disallow: /order-confirmation
+Disallow: /carrito/
+Disallow: /tienda/buscar
+
+# Permitir todo lo público
+Allow: /
+
+# Ubicación del sitemap dinámico
+Sitemap: https:/oceanprintec.com/sitemap.xml

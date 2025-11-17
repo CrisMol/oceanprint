@@ -162,12 +162,12 @@
                                 <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
                                         <div class="icon"><i class="icon-file-plus"></i></div>
-                                        <div class="text">Order</div>
+                                        <div class="text">Orden</div>
                                     </a>
                                     <ul class="sub-menu">
                                         <li class="sub-menu-item">
-                                            <a href="orders.html" class="">
-                                                <div class="text">Orders</div>
+                                            <a href="{{ route('admin.orders') }}" class="">
+                                                <div class="text">Órdenes</div>
                                             </a>
                                         </li>
                                         <li class="sub-menu-item">
@@ -234,129 +234,16 @@
 
                                 <form class="form-search flex-grow">
                                     <fieldset class="name">
-                                        <input type="text" placeholder="Search here..." class="show-search"
-                                            name="name" tabindex="2" value="" aria-required="true"
-                                            required="">
+                                        <input type="text" placeholder="Buscar aquí..." class="show-search"
+                                            name="name" id="search-input" tabindex="2" value="" aria-required="true"
+                                            required="" onkeyup="searchProducts(event)">
                                     </fieldset>
                                     <div class="button-submit">
                                         <button class="" type="submit"><i class="icon-search"></i></button>
                                     </div>
-                                    <div class="box-content-search" id="box-content-search">
-                                        <ul class="mb-24">
-                                            <li class="mb-14">
-                                                <div class="body-title">Top selling product</div>
-                                            </li>
-                                            <li class="mb-14">
-                                                <div class="divider"></div>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="product-item gap14 mb-10">
-                                                        <div class="image no-bg">
-                                                            <img src="images/products/17.png" alt="">
-                                                        </div>
-                                                        <div class="flex items-center justify-between gap20 flex-grow">
-                                                            <div class="name">
-                                                                <a href="product-list.html" class="body-text">Dog Food
-                                                                    Rachael Ray Nutrish®</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-10">
-                                                        <div class="divider"></div>
-                                                    </li>
-                                                    <li class="product-item gap14 mb-10">
-                                                        <div class="image no-bg">
-                                                            <img src="images/products/18.png" alt="">
-                                                        </div>
-                                                        <div class="flex items-center justify-between gap20 flex-grow">
-                                                            <div class="name">
-                                                                <a href="product-list.html" class="body-text">Natural
-                                                                    Dog Food Healthy Dog Food</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-10">
-                                                        <div class="divider"></div>
-                                                    </li>
-                                                    <li class="product-item gap14">
-                                                        <div class="image no-bg">
-                                                            <img src="images/products/19.png" alt="">
-                                                        </div>
-                                                        <div class="flex items-center justify-between gap20 flex-grow">
-                                                            <div class="name">
-                                                                <a href="product-list.html" class="body-text">Freshpet
-                                                                    Healthy Dog Food and Cat</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <ul class="">
-                                            <li class="mb-14">
-                                                <div class="body-title">Order product</div>
-                                            </li>
-                                            <li class="mb-14">
-                                                <div class="divider"></div>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="product-item gap14 mb-10">
-                                                        <div class="image no-bg">
-                                                            <img src="images/products/20.png" alt="">
-                                                        </div>
-                                                        <div class="flex items-center justify-between gap20 flex-grow">
-                                                            <div class="name">
-                                                                <a href="product-list.html" class="body-text">Sojos
-                                                                    Crunchy Natural Grain Free...</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-10">
-                                                        <div class="divider"></div>
-                                                    </li>
-                                                    <li class="product-item gap14 mb-10">
-                                                        <div class="image no-bg">
-                                                            <img src="images/products/21.png" alt="">
-                                                        </div>
-                                                        <div class="flex items-center justify-between gap20 flex-grow">
-                                                            <div class="name">
-                                                                <a href="product-list.html" class="body-text">Kristin
-                                                                    Watson</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-10">
-                                                        <div class="divider"></div>
-                                                    </li>
-                                                    <li class="product-item gap14 mb-10">
-                                                        <div class="image no-bg">
-                                                            <img src="images/products/22.png" alt="">
-                                                        </div>
-                                                        <div class="flex items-center justify-between gap20 flex-grow">
-                                                            <div class="name">
-                                                                <a href="product-list.html" class="body-text">Mega
-                                                                    Pumpkin Bone</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-10">
-                                                        <div class="divider"></div>
-                                                    </li>
-                                                    <li class="product-item gap14">
-                                                        <div class="image no-bg">
-                                                            <img src="images/products/23.png" alt="">
-                                                        </div>
-                                                        <div class="flex items-center justify-between gap20 flex-grow">
-                                                            <div class="name">
-                                                                <a href="product-list.html" class="body-text">Mega
-                                                                    Pumpkin Bone</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                    <div class="box-content-search">
+                                        <ul id="box-content-search">
+
                                         </ul>
                                     </div>
                                 </form>
@@ -569,11 +456,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         (function($) {
-
             var tfLineChart = (function() {
-
                 var chartBar = function() {
-
                     var options = {
                         series: [{
                                 name: 'Total',
@@ -675,6 +559,70 @@
 
             jQuery(window).on("resize", function() {});
         })(jQuery);
+
+        function searchProducts(event) {
+            const searchQuery = event.target.value.trim();
+            //console.log('Buscando:', searchQuery);
+
+            if (searchQuery.length > 2) {
+                const url = `{{ route('admin.search') }}?q=${encodeURIComponent(searchQuery)}`;
+
+                fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Resultados:', data);
+                    renderSearchResults(data);
+                })
+                .catch(error => {
+                    console.error('Error en la búsqueda:', error);
+                });
+            } else {
+                const container = document.getElementById('box-content-search');
+                container.innerHTML = '';
+            }
+        }
+
+        function renderSearchResults(products) {
+            const container = document.getElementById('box-content-search');
+            container.innerHTML = ''; 
+
+            products.forEach(product => {
+                const urlBase = "{{ route('admin.product.edit', ['id' => 'product_id']) }}".replace('product_id', product.id);
+                
+                const html = `
+                    <li>
+                        <ul>
+                            <li class="product-item">
+                                <a href="${urlBase}" class="product-link">
+                                    <div class="image">
+                                        <img src="{{ asset('uploads/products/thumbnails') }}/${product.image}" alt="${product.name}">
+                                    </div>
+                                    <div class="content-name-product">
+                                        <div class="name">
+                                            <span class="body-text">${product.name}</span>
+                                        </div>
+                                        <div class="description-short">
+                                            <span>${product.short_description}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dividir"></div>
+                            </li>
+                        </ul>
+                    </li>
+                `;
+
+                container.insertAdjacentHTML('beforeend', html);
+            });
+        }
     </script>
     @stack('scripts')
 </body>

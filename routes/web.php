@@ -79,4 +79,9 @@ Route::middleware(['auth', AuthAdmin::class])->group(function() {
     Route::delete('/admin/product/{id}/delete', [AdminController::class, 'product_delete'])->name('admin.product.delete');
     Route::post('/admin/product/variation/store', [AdminController::class, 'product_variation_store'])->name('admin.product.variation.store');
     Route::post('/admin/product/quantity/variation/store', [AdminController::class, 'product_quantity_variation_store'])->name('admin.product.quantity.variation.store');
+
+    Route::get('/admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
+    Route::get('/admin/order/{order_id}/details', [AdminController::class, 'order_details'])->name('admin.order.details');
+
+    Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
 });

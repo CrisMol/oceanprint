@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\ProductQuantity;
 use App\Models\ProductTieredPrice;
 use App\Models\ProductVariation;
 use App\Models\Tag;
+use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -702,5 +705,26 @@ class AdminController extends Controller
 
         $product->delete();
         return redirect()->route('admin.products')->with('status', 'El producto ha sido eliminada exitosamente!');
+    }
+
+    public function orders()
+    {
+        $orders = Order::orderBy('created_at', 'DESC')->paginate(12);
+        return view('admin.orders', compact('orders'));
+    }
+
+    public function order_details($order_id)
+    {
+        $order = Order::find($order_id);
+        $orderItems = OrderItem::where('order_id', $order_id)->orderBy('id')->paginate(12);
+        $transaction = Transaction::where('order_id', $order_id)->first();
+        return view('admin.order-details', compact('order', 'orderItems', 'transaction'));
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = Product::where('name', 'LIKE', "%{$query}%")->get()->take(8);
+        return response()->json($results);
     }
 }

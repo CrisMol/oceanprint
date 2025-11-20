@@ -29,55 +29,55 @@
                                 @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
-                    <div class="col-md-6">
-                        <div class="form-floating my-3">
-                            <input type="text" class="form-control" name="phone" required="" value="{{ old('phone') }}">
-                            <label for="phone">Télefono celular *</label>
-                            @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="col-md-6">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" name="phone" required="" value="{{ old('phone') }}">
+                                <label for="phone">Télefono celular *</label>
+                                @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-floating my-3">
-                            <input type="text" class="form-control" name="zip" value="{{ old('zip') }}">
-                            <label for="zip">Código postal</label>
-                            @error('zip') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="col-md-4">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" name="zip" value="{{ old('zip') }}">
+                                <label for="zip">Código postal</label>
+                                @error('zip') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-floating mt-3 mb-3">
-                            <input type="text" class="form-control" name="state" required="" value="{{ old('state') }}">
-                            <label for="state">Provincia *</label>
-                            @error('state') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="col-md-4">
+                            <div class="form-floating mt-3 mb-3">
+                                <input type="text" class="form-control" name="state" required="" value="{{ old('state') }}">
+                                <label for="state">Provincia *</label>
+                                @error('state') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-floating my-3">
-                            <input type="text" class="form-control" name="city" required="" value="{{ old('city') }}">
-                            <label for="city">Ciudad *</label>
-                            @error('city') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="col-md-4">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" name="city" required="" value="{{ old('city') }}">
+                                <label for="city">Ciudad *</label>
+                                @error('city') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating my-3">
-                            <input type="text" class="form-control" name="address" value="{{ old('address') }}">
-                            <label for="address">Número de casa</label>
-                            @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="col-md-6">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" name="address" value="{{ old('address') }}">
+                                <label for="address">Número de casa</label>
+                                @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating my-3">
-                            <input type="text" class="form-control" name="locality" value="{{ old('locality') }}">
-                            <label for="locality">Nombre de calle</label>
-                            @error('locality') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="col-md-6">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" name="locality" value="{{ old('locality') }}">
+                                <label for="locality">Nombre de calle</label>
+                                @error('locality') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-floating my-3">
-                            <input type="text" class="form-control" name="landmark" required="" value="{{ old('landmark') }}">
-                            <label for="landmark">Punto de referencia *</label>
-                            @error('landmark') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="col-md-12">
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" name="landmark" required="" value="{{ old('landmark') }}">
+                                <label for="landmark">Punto de referencia *</label>
+                                @error('landmark') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
                 <div class="checkout__totals-wrapper">

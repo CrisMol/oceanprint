@@ -69,6 +69,7 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
+                                    <th>Variación</th>
                                     <th class="text-center">Precio</th>
                                     <th class="text-center">Cantidad</th>
                                     <th class="text-center">SKU</th>
@@ -82,7 +83,7 @@
                             <tbody>
                                 @foreach ($orderItems as $item)
                                     <tr>
-                                        <td class="pname">
+                                        <td class="pname d-flex flex-column">
                                             <div class="image">
                                                 <img src="{{ asset('uploads/products/thumbnails') }}/{{ 
                                                     $item->product->image }}" alt="{{ $item->product->name }}" class="image">
@@ -95,6 +96,7 @@
                                                 </a>
                                             </div>
                                         </td>
+                                        <td class="text-center">{{ $item->variation_name }}</td>
                                         <td class="text-center">${{ $item->price }}</td>
                                         <td class="text-center">{{ $item->qiantity }}</td>
                                         <td class="text-center">{{ $item->product->SKU }}</td>

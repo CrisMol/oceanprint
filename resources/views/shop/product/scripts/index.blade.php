@@ -264,5 +264,73 @@
                 }
             });
         });
+
+        document.getElementById('add-to-cart-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            const button = form.querySelector('.product-button');
+            const buttonText = button.querySelector('.button-text');
+
+            // Crear loader (solo cuando se hace submit)
+            const loader = document.createElement('div');
+            loader.classList.add('button-loader');
+
+            // Reemplazar texto por loader
+            buttonText.style.display = "none";
+            button.appendChild(loader);
+
+            fetch("{{ route('cart.add') }}", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector('input[name=_token]').value,
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                // Restaurar botón
+                loader.remove();
+                buttonText.style.display = "inline";
+
+                showPopup(data.message, data.status);
+
+                const cartCountEl = document.getElementById('cart-count');
+
+                if (data.cart && typeof data.cart.count !== 'undefined') {
+                    const count = data.cart.count;
+
+                    if (count > 0) {
+                        cartCountEl.style.display = 'inline-block';
+                        cartCountEl.textContent = count;
+                    } else {
+                        cartCountEl.style.display = 'none';
+                    }
+                }
+            })
+            .catch(error => {
+                loader.remove();
+                buttonText.style.display = "inline";
+
+                showPopup("Error al agregar el producto", "error");
+                console.error(error);
+            });
+        });
+
+        // Popup dinámico
+        function showPopup(message, type = "success") {
+            const popup = document.getElementById('popup-message');
+            popup.textContent = message;
+            popup.style.background = type === "error" ? "#d9534f" : "#28a745";
+            popup.style.display = "block";
+
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 3000);
+        }
     });
 </script>

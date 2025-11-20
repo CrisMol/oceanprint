@@ -136,6 +136,39 @@
         border: 1px solid var(--neutral-gray);
     }
 
+    .image-accounts {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .container-button {
+        position: relative;
+        margin: 10px 0;
+        display: inline-block;
+    }
+
+    .btn-pay {
+        background: linear-gradient(135deg, var(--black-blue), var(--fresh-lime-green));
+        color: #fff;
+        font-weight: 600;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+        width: 100%;
+    }
+
+    .btn-pay:hover {
+        filter: brightness(1.08);
+        transform: translateY(-2px);
+    }
+
+    .btn-pay:active {
+        transform: scale(0.97);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
         .checkout-steps {

@@ -24,7 +24,7 @@
                 <div class="order-info">
                     <div class="order-info__item">
                         <label>Número de pedido</label>
-                        <span>{{ $order->id }}</span>
+                        <span>{{ str_pad($order->id, 10, '0', STR_PAD_LEFT) }}</span>
                         </div>
                         <div class="order-info__item">
                         <label>Fecha</label>
@@ -33,10 +33,6 @@
                     <div class="order-info__item">
                         <label>Total</label>
                         <span>${{ number_format($order->total) }}</span>
-                    </div>
-                    <div class="order-info__item">
-                        <label>Método de pago</label>
-                        <span>Transferencia bancaria directa</span>
                     </div>
                 </div>
 
@@ -54,7 +50,7 @@
                             @foreach ($order->orderItems as $item)
                                 <tr>
                                     <td>
-                                        {{ $item->product->name }} X {{ $item->quantity }}
+                                        {{ $item->variation_name }}
                                     </td>
                                     <td>
                                         ${{ $item->price }}
@@ -81,6 +77,39 @@
                         </tbody>
                     </table>
                     </div>
+                </div>
+
+                @php
+                    $url = "https://api.whatsapp.com/send?phone=593962330296&text=";
+                    $message = urlencode(
+                        "Hola, deseo completar el pago de mi pedido.\n".
+                        "🧾 Pedido: " . str_pad($order->id, 10, '0', STR_PAD_LEFT) . "\n" .
+                        "💵 Total: $" . number_format($order->total) . "\n\n".
+                        "Puedo enviar la foto del comprobante de transferencia o solicitar otro método de pago. Gracias."
+                    );
+                @endphp
+
+                <div class="container-button">
+                    <a
+                        href="{{ $url . $message }}"
+                        target="_blank"
+                        class="btn btn-success btn-pay"
+                    >
+                        Completar pago por WhatsApp
+                    </a>
+                </div>
+
+                <div class="order-info__item">
+                    <label>Método de pago</label>
+                    <span>Transferencia bancaria directa</span>
+                </div>
+                <div class="image-accounts-container">
+                    <img 
+                        class="image-accounts"
+                        src="{{ asset('images/tienda/cuentas-bancarias-ocean-print.webp') }}" 
+                        alt="Cuentas bancarias Ocean print"
+                        width="1080"
+                    >
                 </div>
             </div>
         </section>

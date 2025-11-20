@@ -155,7 +155,7 @@
                                 </div>
                             @endif
 
-                            <form method="post" action="{{ route('cart.add') }}">
+                            <form id="add-to-cart-form" method="post" action="{{ route('cart.add') }}">
                                 @csrf
                                 <input type="hidden" name="quantity" value="{{ $quantityValue == 0 ? 1 : $quantityValue }}">
                                 <input type="hidden" name="id" value="{{ $product->id }}">
@@ -167,6 +167,10 @@
                                     <span class="button-text">Agregar al carrito</span>
                                 </button>
                             </form>
+
+                            <div id="popup-message" 
+                                style="display:none; position:fixed; bottom:20px; right:20px; background:#333; color:white; padding:15px 20px; border-radius:8px; z-index:9999;">
+                            </div>
                         </div>
 
 

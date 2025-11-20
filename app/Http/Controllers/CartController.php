@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewOrderMail;
 use App\Models\Address;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -9,6 +10,7 @@ use App\Models\Transaction;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Surfsidemedia\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -20,13 +22,87 @@ class CartController extends Controller
         return view('shop.cart', compact('items', 'total'));
     }   
 
+    /*public function add_to_cart(Request $request)
+    {
+        if ($request->price <= 0) {
+            $errorMessage = 'Por favor seleccione un producto válido.';
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $errorMessage
+                ]);
+            }
+
+            return redirect()->back()->with('error', $errorMessage);
+        }
+
+        Cart::instance('cart')->add(
+            $request->id,
+            $request->name,
+            $request->quantity,
+            $request->price
+        )->associate('App\Models\Product');
+
+        // Obtener el carrito
+        $cartCount = Cart::instance('cart')->content()->count();
+
+        if ($request->ajax()) {
+            return response()->json([
+                'status'  => 'success',
+                'message' => 'Producto agregado correctamente',
+                'cart' => [
+                    'count' => $cartCount,
+                ]
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Producto agregado correctamente');
+    }*/
     public function add_to_cart(Request $request)
     {
         if ($request->price <= 0) {
-            return redirect()->back()->with('error', 'Por favor seleccione un producto válido o alguna de las opciones disponibles antes de continuar.');
+            $errorMessage = 'Por favor seleccione un producto válido.';
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $errorMessage
+                ]);
+            }
+
+            return redirect()->back()->with('error', $errorMessage);
         }
 
-        Cart::instance('cart')->add($request->id, $request->name, $request->quantity, $request->price)->associate('App\Models\Product');
+        // Buscar si el producto ya está en el carrito
+        $cartItem = Cart::instance('cart')->content()->firstWhere('id', $request->id);
+
+        if ($cartItem) {
+            // Actualizar cantidad a la enviada (no sumar)
+            Cart::instance('cart')->update($cartItem->rowId, ['qty' => $request->quantity]);
+        } else {
+            // Agregar nuevo producto
+            Cart::instance('cart')->add(
+                $request->id,
+                $request->name,
+                $request->quantity,
+                $request->price
+            )->associate('App\Models\Product');
+        }
+
+        // Obtener el contador actualizado
+        $cartCount = Cart::instance('cart')->content()->count();
+
+        if ($request->ajax()) {
+            return response()->json([
+                'status'  => 'success',
+                'message' => 'Producto agregado correctamente',
+                'cart' => [
+                    'count' => $cartCount,
+                ]
+            ]);
+        }
+
         return redirect()->back()->with('success', 'Producto agregado correctamente');
     }
 
@@ -110,9 +186,12 @@ class CartController extends Controller
         $order->total     = Session::get('checkout')['total'];
         $order->save();
 
+        //dd(Cart::instance('cart')->content()->toArray());
+
         foreach (Cart::instance('cart')->content() as $item) {
             $orderItem = new OrderItem();
             $orderItem->product_id = $item->id; 
+            $orderItem->variation_name = $item->name; 
             $orderItem->order_id = $order->id; 
             $orderItem->price = $item->price; 
             $orderItem->quantity = $item->qty; 
@@ -149,10 +228,19 @@ class CartController extends Controller
 
     public function order_confirmation() 
     {
-        if (Session::has('order_id')) {
-            $order = Order::find(Session::get('order_id'));
-            return view('shop.order-confirmation', compact('order'));
+        if (!Session::has('order_id')) {
+            return redirect()->route('cart.index');
         }
-        return redirect()->route('cart.index');
+
+        $order = Order::find(Session::get('order_id'));
+
+        // Enviar correo AL ADMINISTRADOR
+        Mail::to('infopublicidad@oceanprintec.com')
+            ->send(new NewOrderMail($order));
+            
+        // Opcional: borrar order_id para evitar que se reenvíe si refrescan la página
+        Session::forget('order_id');
+
+        return view('shop.order-confirmation', compact('order'));
     }
 }

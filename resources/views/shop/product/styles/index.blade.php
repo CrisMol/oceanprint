@@ -871,6 +871,20 @@
         transform: rotate(20deg);
     }
 
+    .button-loader {
+        width: 20px;
+        height: 20px;
+        border: 3px solid #fff;
+        border-top: 3px solid var(--bright-blue);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: auto;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
     /* Responsivo */
     @media (max-width: 980px) {
         .product-detail .container .product .product-content {

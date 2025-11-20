@@ -772,7 +772,7 @@ li:hover .submenu {
 
 .button-square {
     position: relative;
-    padding: 1em 3em;
+    padding: 1em 1.2em;
     border: 1px solid var(--neutral-gray);
 }
 

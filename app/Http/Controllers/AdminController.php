@@ -44,7 +44,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:brands,slug',
-            'image' => 'nullable|mimes:png,jpg,jpeg|max:2048', // Se permite null para evitar errores
+            'image' => 'nullable|mimes:png,jpg,jpeg,webp|max:2048', // Se permite null para evitar errores
         ]);
 
         $brand = new Brand();
@@ -253,7 +253,7 @@ class AdminController extends Controller
             'stock_status' => 'required',
             'featured' => 'boolean',
             'quantity' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
 
         $rules = [];
@@ -290,7 +290,7 @@ class AdminController extends Controller
             $current_timestamp = Carbon::now()->timestamp;
 
             if ($request->hasFile('image')) {
-                Log::info('Procesando imagen principal');
+                //Log::info('Procesando imagen principal');
                 $image = $request->file('image');
                 $imageName = $current_timestamp . '.' . $image->extension();
                 $this->GenerateProductThumbailImage($image, $imageName);
